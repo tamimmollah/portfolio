@@ -1,605 +1,525 @@
-<!-- =========================
-ULTRA PREMIUM FEATURED PORTFOLIO
-OLD PORTFOLIO SECTION REMOVE করে এটা বসাও
-========================= -->
-
-<section id="portfolio" class="portfolio-section">
-
-<!-- BACKGROUND EFFECT -->
-
-<div class="portfolio-bg-glow glow-left"></div>
-<div class="portfolio-bg-glow glow-right"></div>
-
-<!-- TOP -->
-
-<div class="section-header">
-
-<div>
-
-<div class="section-badge">
-
-<i class="fa-solid fa-sparkles"></i>
-
-Featured Creative Showcase
-
-</div>
-
-<h2 class="portfolio-title">
-
-Featured <span class="gradient">
-Portfolio
-</span>
-
-</h2>
-
-</div>
-
-<p class="portfolio-description">
-
-A cinematic collection of premium branding, visual storytelling, photography, social media campaigns, poster design, and modern creative experiences crafted with luxury aesthetics and emotional visual direction.
-
-</p>
-
-</div>
-
-<!-- GRID -->
-
-<div class="portfolio-grid">
-
-<!-- CARD 1 -->
-
-<a href="https://www.behance.net/tamimmollah" target="_blank" class="portfolio-card large-card">
-
-<div class="portfolio-image">
-
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1zI7jVwnJgl_rffww_4ZLRfS6rYs2vRAXKWyYWJ3rk-uGFiQXiWEXc20bTMVsi3OI141wZGEV6AAJz34xNWTwGqiEuEu1M5ODxQQQx49q9cISTw-f93cDYdtuV4QbH9VQM_W2Ii9c7yByNEN2ZcazjVL5fBS0BNWGJbLpJkqicXv4kShgU6QVaEj-tjR2/s16000/Screenshot%202026-05-19%20163952.png">
-
-</div>
-
-<div class="portfolio-overlay">
-
-<div class="overlay-content">
-
-<div class="portfolio-tag">
-Photography Direction
-</div>
-
-<h3>
-Cinematic Visual Storytelling
-</h3>
-
-<p>
-
-Creative photography compositions, emotional storytelling visuals, premium editing aesthetics, and cinematic branding crafted with luxury modern presentation styles.
-
-</p>
-
-<div class="portfolio-buttons">
-
-<div class="portfolio-btn">
-
-<i class="fa-brands fa-behance"></i>
-
-View Behance
-
-</div>
-
-<div class="portfolio-btn secondary-btn">
-
-<i class="fa-solid fa-arrow-up-right-from-square"></i>
-
-Live Preview
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</a>
-
-<!-- CARD 2 -->
-
-<a href="https://www.behance.net/tamimmollah" target="_blank" class="portfolio-card small-card">
-
-<div class="portfolio-image">
-
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicWMHRE6xXHxO-ILL4BYF-Z14u_BexQ3hDOAFCx4_pNF27UUevUR_EEXcsVmdszaC1aKtPC8bGdEf9OZALuFpw8YZdTHNmqhK_Q2ecVcu19Xp5-91V-0Y-rcs_hzkNwSHCs9_iIEdNg4xg8hOGw240-wLxiC3CrhcyYoERu8gkACE86rWxRnDBfz3odNQz/s16000/Screenshot%202026-05-19%20160117.png">
-
-</div>
-
-<div class="portfolio-overlay">
-
-<div class="overlay-content">
-
-<div class="portfolio-tag">
-Brand Identity
-</div>
-
-<h3>
-Modern Creative Branding
-</h3>
-
-<p>
-
-Premium poster design, social media campaigns, branding visuals, typography systems, and powerful modern digital identity experiences.
-
-</p>
-
-<div class="portfolio-buttons">
-
-<div class="portfolio-btn">
-
-<i class="fa-brands fa-behance"></i>
-
-View Project
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</a>
-
-</div>
-
-</section>
-
-<!-- =========================
-ADD THIS CSS
-OLD PORTFOLIO CSS REMOVE করে এটা বসাও
-========================= -->
-
-<style>
-
 /* =========================
-ULTRA PORTFOLIO
+ULTRA RESPONSIVE FIX
+এই CSS টা তোমার পুরো CSS এর একদম নিচে paste করো
 ========================= */
 
-.portfolio-section{
-position:relative;
-overflow:hidden;
-padding-top:160px;
-}
+/* =========================
+TABLET RESPONSIVE
+========================= */
 
-/* BACKGROUND GLOW */
+@media(max-width:1200px){
 
-.portfolio-bg-glow{
-position:absolute;
-width:500px;
-height:500px;
-border-radius:50%;
-filter:blur(140px);
-opacity:.18;
-z-index:-1;
-animation:glowMove 8s ease-in-out infinite;
-}
+.hero-content,
+.about-grid,
+.contact,
+.portfolio-grid,
+.section-header{
 
-.glow-left{
-background:#3a86ff;
-left:-180px;
-top:150px;
-}
-
-.glow-right{
-background:#8338ec;
-right:-180px;
-bottom:0;
-animation-delay:3s;
-}
-
-@keyframes glowMove{
-
-0%,100%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-40px);
-}
+grid-template-columns:1fr !important;
+display:grid !important;
 
 }
 
-/* HEADER */
+.hero-content{
+gap:70px;
+}
+
+.hero-right{
+width:100%;
+display:flex;
+justify-content:center;
+}
+
+.hero-image-wrapper{
+height:auto !important;
+}
+
+.hero-image{
+width:100% !important;
+max-width:500px;
+height:650px !important;
+}
+
+.portfolio-card,
+.small-card,
+.large-card{
+min-height:650px !important;
+}
 
 .section-header{
-display:flex;
-justify-content:space-between;
-gap:70px;
-align-items:flex-end;
-margin-bottom:90px;
-flex-wrap:wrap;
+gap:40px;
 }
 
-.section-badge{
-display:inline-flex;
-align-items:center;
-gap:12px;
-padding:14px 24px;
-
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(255,255,255,.08);
-
-backdrop-filter:blur(12px);
-
-border-radius:50px;
-
-font-size:14px;
-
-margin-bottom:28px;
-
-animation:badgeFloat 5s infinite;
+.hero-title{
+font-size:72px !important;
+line-height:1.05 !important;
+letter-spacing:-3px !important;
 }
 
-.portfolio-title{
-font-size:88px;
-line-height:1;
-font-weight:800;
-letter-spacing:-5px;
+.portfolio-title,
+.ultra-title,
+.title{
+font-size:60px !important;
+line-height:1.1;
 }
-
-.portfolio-description{
-max-width:620px;
-line-height:2.2;
-font-size:16px;
-color:#cbd5e1;
-}
-
-/* GRID */
-
-.portfolio-grid{
-display:grid;
-grid-template-columns:1.2fr .8fr;
-gap:34px;
-align-items:stretch;
-}
-
-/* CARD */
-
-.portfolio-card{
-position:relative;
-border-radius:42px;
-overflow:hidden;
-min-height:820px;
-
-background:rgba(255,255,255,.04);
-
-border:1px solid rgba(255,255,255,.08);
-
-backdrop-filter:blur(18px);
-
-transition:
-transform .8s ease,
-box-shadow .8s ease,
-border .8s ease;
-
-transform-style:preserve-3d;
-
-cursor:pointer;
-}
-
-.small-card{
-min-height:820px;
-}
-
-.portfolio-card:hover{
-
-transform:
-translateY(-16px)
-scale(1.015);
-
-border-color:#3a86ff;
-
-box-shadow:
-0 35px 80px rgba(58,134,255,.18);
 
 }
 
-/* IMAGE */
+/* =========================
+MOBILE RESPONSIVE
+========================= */
 
-.portfolio-image{
-position:absolute;
-inset:0;
-overflow:hidden;
+@media(max-width:768px){
+
+/* BODY */
+
+body{
+overflow-x:hidden;
+cursor:auto;
 }
 
-.portfolio-image img{
-width:100%;
-height:135%;
-object-fit:cover;
+/* REMOVE HEAVY EFFECTS */
 
-transition:
-transform 14s linear,
-filter .8s ease;
+.cursor,
+.cursor2,
+.blur3,
+.floating-card,
+.hero-bg-lines{
+display:none !important;
 }
 
-.portfolio-card:hover img{
+/* LIGHTER BACKGROUND */
 
-transform:
-translateY(-18%)
-scale(1.06);
+.blur{
+filter:blur(80px) !important;
+opacity:.15 !important;
+}
 
-filter:
-brightness(.65)
-contrast(1.1);
+/* NAVBAR */
+
+nav{
+
+top:12px !important;
+
+width:94% !important;
+
+padding:14px 16px !important;
+
+border-radius:18px !important;
 
 }
 
-/* OVERLAY */
-
-.portfolio-overlay{
-position:absolute;
-inset:0;
-
-background:
-linear-gradient(
-to top,
-rgba(5,8,22,.98),
-rgba(5,8,22,.35),
-transparent
-);
-
-display:flex;
-align-items:flex-end;
-
-padding:50px;
+.logo img{
+width:48px !important;
+height:48px !important;
+border-radius:14px;
 }
 
-.overlay-content{
-transform:translateY(60px);
-opacity:0;
-transition:1s ease;
+.logo-text h2{
+font-size:15px !important;
 }
 
-.portfolio-card:hover .overlay-content{
-transform:translateY(0px);
-opacity:1;
+.logo-text p{
+font-size:11px !important;
 }
 
-/* TAG */
-
-.portfolio-tag{
-display:inline-flex;
-align-items:center;
-
-padding:12px 20px;
-
-border-radius:50px;
-
-background:rgba(255,255,255,.08);
-
-border:1px solid rgba(255,255,255,.08);
-
-backdrop-filter:blur(10px);
-
-font-size:13px;
-
-margin-bottom:24px;
+.nav-links{
+display:none !important;
 }
 
-/* CONTENT */
+/* SECTION */
 
-.overlay-content h3{
-font-size:46px;
-line-height:1.05;
-margin-bottom:20px;
+section{
+padding:90px 20px !important;
 }
 
-.overlay-content p{
-font-size:15px;
-line-height:2;
-color:#cbd5e1;
-max-width:540px;
+/* HERO */
+
+.hero{
+padding-top:140px !important;
+min-height:auto !important;
+}
+
+.hero-content{
+gap:50px !important;
+}
+
+.hero-badge{
+padding:12px 18px !important;
+font-size:12px !important;
+margin-bottom:24px !important;
+}
+
+.hero-title{
+
+font-size:46px !important;
+
+line-height:1.08 !important;
+
+letter-spacing:-2px !important;
+
+word-break:break-word;
+
+}
+
+.hero-description{
+
+font-size:15px !important;
+
+line-height:2 !important;
+
+margin-top:24px !important;
+
 }
 
 /* BUTTONS */
 
-.portfolio-buttons{
-display:flex;
-gap:16px;
-margin-top:34px;
-flex-wrap:wrap;
+.hero-buttons,
+.hero-btns{
+flex-direction:column !important;
+width:100%;
+margin-top:30px !important;
 }
 
-.portfolio-btn{
-padding:16px 28px;
+.btn{
 
-border-radius:20px;
+width:100% !important;
 
-background:
-linear-gradient(
-135deg,
-#3a86ff,
-#8338ec
-);
+justify-content:center !important;
 
-display:flex;
-align-items:center;
-gap:12px;
+padding:16px 22px !important;
 
-font-size:14px;
-font-weight:600;
+font-size:14px !important;
 
-transition:.5s;
-}
-
-.secondary-btn{
-background:rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.08);
-}
-
-.portfolio-btn:hover{
-
-transform:
-translateY(-8px)
-scale(1.04);
+border-radius:18px !important;
 
 }
 
-/* BORDER GLOW */
+/* STATS */
 
-.portfolio-card::before{
-content:'';
-position:absolute;
-inset:-2px;
-
-background:
-linear-gradient(
-135deg,
-transparent,
-rgba(58,134,255,.5),
-transparent
-);
-
-opacity:0;
-transition:.8s;
-z-index:2;
-pointer-events:none;
+.hero-stats{
+flex-direction:column !important;
+gap:16px !important;
+margin-top:35px !important;
 }
 
-.portfolio-card:hover::before{
-opacity:1;
+.stat-box{
+width:100%;
+padding:22px !important;
+border-radius:22px !important;
 }
 
-/* RESPONSIVE */
-
-@media(max-width:1200px){
-
-.portfolio-grid{
-grid-template-columns:1fr;
+.stat-box h2{
+font-size:34px !important;
 }
 
-.portfolio-card,
-.small-card{
-min-height:700px;
+.stat-box p{
+font-size:13px !important;
 }
+
+/* HERO IMAGE */
+
+.hero-image{
+
+width:100% !important;
+
+height:480px !important;
+
+border-radius:28px !important;
 
 }
 
-@media(max-width:768px){
-
-.section-header{
-gap:30px;
-margin-bottom:60px;
+.hero-image img{
+object-fit:cover;
 }
 
+/* TITLES */
+
+.title,
+.ultra-title,
 .portfolio-title{
-font-size:52px;
-line-height:1.08;
-letter-spacing:-2px;
-}
 
-.portfolio-card,
-.small-card{
-min-height:520px;
-border-radius:30px;
-}
+font-size:42px !important;
 
-.portfolio-overlay{
-padding:28px;
-}
+line-height:1.08 !important;
 
-.overlay-content{
-transform:none;
-opacity:1;
-}
+letter-spacing:-2px !important;
 
-.overlay-content h3{
-font-size:30px;
-}
-
-.portfolio-buttons{
-flex-direction:column;
-}
-
-.portfolio-btn{
-justify-content:center;
-}
+word-break:break-word;
 
 }
 
-</style>
+/* TEXT */
 
-<!-- =========================
-ADD THIS JS
-OLD PORTFOLIO JS REMOVE করে এটা বসাও
-========================= -->
+.section-description,
+.portfolio-description,
+.glass p,
+.timeline-box p,
+.overlay-content p{
 
-<script>
+font-size:14px !important;
 
-/* PORTFOLIO REVEAL */
+line-height:2 !important;
 
-gsap.from(".section-header",{
-
-scrollTrigger:{
-trigger:".portfolio-section",
-start:"top 80%"
-},
-
-y:100,
-opacity:0,
-duration:1.5,
-ease:"power4.out"
-
-});
+}
 
 /* CARDS */
 
-gsap.from(".portfolio-card",{
+.glass,
+.timeline-box,
+.contact-box{
 
-scrollTrigger:{
-trigger:".portfolio-grid",
-start:"top 80%"
-},
+padding:26px !important;
 
-y:140,
-opacity:0,
-duration:1.6,
-stagger:.25,
-ease:"power4.out"
+border-radius:24px !important;
 
-});
+}
 
-/* 3D PARALLAX */
+/* SKILLS */
 
-document.querySelectorAll(".portfolio-card").forEach(card=>{
+.skills{
+gap:10px !important;
+}
 
-card.addEventListener("mousemove",(e)=>{
+.skill{
 
-const rect=card.getBoundingClientRect();
+padding:12px 16px !important;
 
-const x=e.clientX-rect.left;
-const y=e.clientY-rect.top;
+font-size:13px !important;
 
-const moveX=(x-rect.width/2)/25;
-const moveY=(y-rect.height/2)/25;
+border-radius:14px !important;
 
-card.style.transform=`
+}
 
-translateY(-16px)
+/* EXPERIENCE */
 
-rotateX(${-moveY}deg)
+.timeline{
+gap:20px !important;
+margin-top:40px !important;
+}
 
-rotateY(${moveX}deg)
+.timeline-box h3{
+font-size:24px !important;
+line-height:1.3;
+}
 
-scale(1.015)
+/* PORTFOLIO */
 
-`;
+.portfolio-grid{
+gap:24px !important;
+}
 
-});
+.portfolio-card,
+.large-card,
+.small-card{
 
-card.addEventListener("mouseleave",()=>{
+min-height:420px !important;
 
-card.style.transform="";
+border-radius:24px !important;
 
-});
+transform:none !important;
 
-});
+}
 
-</script>
+.portfolio-image img{
+
+height:100% !important;
+
+transform:none !important;
+
+transition:.6s ease !important;
+
+}
+
+.portfolio-card:hover img{
+transform:scale(1.05) !important;
+}
+
+.portfolio-overlay{
+
+padding:24px !important;
+
+background:
+linear-gradient(
+to top,
+rgba(5,8,22,.96),
+rgba(5,8,22,.5),
+transparent
+) !important;
+
+}
+
+.overlay-content{
+
+opacity:1 !important;
+
+transform:none !important;
+
+}
+
+.overlay-content h3{
+
+font-size:28px !important;
+
+line-height:1.1 !important;
+
+margin-bottom:14px !important;
+
+}
+
+.portfolio-buttons{
+flex-direction:column !important;
+gap:12px !important;
+margin-top:24px !important;
+}
+
+.portfolio-btn{
+
+width:100% !important;
+
+justify-content:center !important;
+
+padding:15px 18px !important;
+
+border-radius:16px !important;
+
+font-size:13px !important;
+
+}
+
+/* CONTACT */
+
+.contact{
+gap:24px !important;
+margin-top:40px !important;
+}
+
+.contact-box input,
+.contact-box textarea{
+
+padding:16px !important;
+
+font-size:14px !important;
+
+border-radius:16px !important;
+
+}
+
+.contact-box textarea{
+height:150px !important;
+}
+
+/* FOOTER */
+
+footer{
+
+padding:28px 20px !important;
+
+font-size:13px !important;
+
+line-height:1.8;
+
+}
+
+/* REMOVE HEAVY HOVER */
+
+.portfolio-card:hover,
+.glass:hover,
+.timeline-box:hover,
+.contact-box:hover,
+.stat-box:hover,
+.btn:hover{
+
+transform:none !important;
+
+}
+
+/* PERFORMANCE FIX */
+
+.portfolio-card,
+.hero-image,
+.glass,
+.timeline-box,
+.contact-box{
+
+backdrop-filter:blur(10px) !important;
+
+}
+
+/* LOADER */
+
+.loader h1{
+
+font-size:42px !important;
+
+text-align:center;
+
+padding:0 20px;
+
+line-height:1.2;
+
+}
+
+}
+
+/* =========================
+SMALL MOBILE
+========================= */
+
+@media(max-width:480px){
+
+.hero-title{
+font-size:38px !important;
+}
+
+.title,
+.ultra-title,
+.portfolio-title{
+font-size:34px !important;
+}
+
+.hero-image{
+height:400px !important;
+}
+
+.portfolio-card{
+min-height:360px !important;
+}
+
+.overlay-content h3{
+font-size:24px !important;
+}
+
+.btn{
+font-size:13px !important;
+padding:15px 18px !important;
+}
+
+}
+
+/* =========================
+PERFORMANCE OPTIMIZATION
+========================= */
+
+img{
+max-width:100%;
+display:block;
+}
+
+.hero-image img,
+.portfolio-image img{
+
+will-change:transform;
+
+}
+
+/* SMOOTH GPU */
+
+.hero-image,
+.portfolio-card,
+.glass,
+.timeline-box{
+
+transform:translateZ(0);
+
+}
