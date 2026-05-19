@@ -3,27 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tamim — Cinematic & Premium Portfolio</title>
-    
+    <title>Tamim — Creative Universe</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
     
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
     <style>
-        /* =======================
-           BASE SETTINGS & VARIABLES
-        ======================= */
-        :root {
-            --primary-glow: #3a86ff;
-            --secondary-glow: #8338ec;
-            --bg-dark: #030508;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.06);
-            --text-main: #ffffff;
-            --text-muted: #a0aec0;
-        }
-
+        /* =========================
+           RESET & BASE STYLES
+        ========================= */
         * {
             margin: 0;
             padding: 0;
@@ -33,448 +24,599 @@
 
         body {
             font-family: 'Outfit', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-main);
+            background: #050816;
+            color: white;
             overflow-x: hidden;
-            line-height: 1.6;
         }
 
-        /* =======================
+        /* =========================
            SCROLLBAR
-        ======================= */
+        ========================= */
         ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-dark);
+            width: 10px;
         }
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(var(--primary-glow), var(--secondary-glow));
-            border-radius: 10px;
+            background: linear-gradient(#3a86ff, #8338ec);
+            border-radius: 20px;
         }
 
-        /* =======================
-           BACKGROUND & EFFECTS
-        ======================= */
+        /* =========================
+           BACKGROUND EFFECTS
+        ========================= */
         .bg {
             position: fixed;
             inset: 0;
+            overflow: hidden;
             z-index: -10;
             background: 
-                linear-gradient(rgba(3, 5, 8, 0.9), rgba(3, 5, 8, 0.9)),
-                background-size: 30px 30px;
-            overflow: hidden;
+                radial-gradient(circle at top left, #3a86ff20, transparent 30%),
+                radial-gradient(circle at bottom right, #8338ec20, transparent 30%),
+                #050816;
         }
 
         .orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.15;
-            animation: float 10s infinite ease-in-out alternate;
+            filter: blur(100px);
+            opacity: 0.18;
+            animation: float 8s infinite ease-in-out;
         }
 
         .orb1 {
-            width: 600px; height: 600px;
-            background: var(--primary-glow);
-            top: -200px; left: -200px;
+            width: 500px;
+            height: 500px;
+            background: #3a86ff;
+            top: -200px;
+            left: -120px;
         }
 
         .orb2 {
-            width: 500px; height: 500px;
-            background: var(--secondary-glow);
-            bottom: -100px; right: -150px;
-            animation-delay: 2s;
+            width: 500px;
+            height: 500px;
+            background: #8338ec;
+            bottom: -200px;
+            right: -120px;
+            animation-delay: 3s;
         }
 
         @keyframes float {
-            0% { transform: translateY(0) scale(1); }
-            100% { transform: translateY(-30px) scale(1.1); }
+            50% { transform: translateY(-50px); }
         }
 
-        /* =======================
+        /* =========================
            NAVBAR
-        ======================= */
+        ========================= */
         nav {
             position: fixed;
-            top: 25px;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 90%;
-            max-width: 1400px;
-            padding: 15px 30px;
+            width: 92%;
+            max-width: 1500px;
+            padding: 18px 26px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(10, 10, 15, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 30px;
             z-index: 999;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .logo { display: flex; align-items: center; gap: 15px; }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
         .logo img {
-            width: 50px; height: 50px;
-            border-radius: 50%;
+            width: 58px;
+            height: 58px;
+            border-radius: 18px;
             object-fit: cover;
-            border: 2px solid var(--primary-glow);
-            padding: 2px;
+            border: 2px solid rgba(255, 255, 255, 0.08);
         }
-        .logo h2 { font-size: 18px; font-weight: 700; letter-spacing: 1px; }
 
-        .menu { display: flex; gap: 40px; }
+        .logo h2 {
+            font-size: 16px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .menu {
+            display: flex;
+            gap: 34px;
+        }
+
         .menu a {
-            color: var(--text-muted);
+            color: white;
             text-decoration: none;
             font-size: 15px;
-            font-weight: 500;
-            transition: 0.3s;
             position: relative;
         }
-        .menu a:hover { color: var(--text-main); }
-        .menu a::after {
-            content: ''; position: absolute;
-            left: 0; bottom: -5px;
-            width: 0%; height: 2px;
-            background: linear-gradient(90deg, var(--primary-glow), var(--secondary-glow));
-            transition: 0.4s ease;
-        }
-        .menu a:hover::after { width: 100%; }
 
-        .socials { display: flex; gap: 15px; }
-        .socials a {
-            width: 40px; height: 40px;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 50%;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            color: var(--text-main);
-            text-decoration: none;
+        .menu a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 0%;
+            height: 2px;
+            background: linear-gradient(90deg, #3a86ff, #8338ec);
             transition: 0.4s;
         }
-        .socials a:hover {
-            transform: translateY(-5px) rotate(360deg);
-            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
-            border-color: transparent;
-            box-shadow: 0 10px 20px rgba(58,134,255,0.3);
+
+        .menu a:hover::after {
+            width: 100%;
         }
 
-        /* =======================
+        .socials {
+            display: flex;
+            gap: 12px;
+        }
+
+        .socials a {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: white;
+            text-decoration: none;
+            transition: 0.5s;
+        }
+
+        .socials a:hover {
+            transform: translateY(-8px);
+            background: linear-gradient(135deg, #3a86ff, #8338ec);
+            border-color: transparent;
+        }
+
+        /* =========================
            GLOBAL SECTIONS
-        ======================= */
-        section { padding: 120px 8%; max-width: 1600px; margin: 0 auto; }
-        
+        ========================= */
+        section {
+            padding: 140px 7%;
+        }
+
         .section-title {
-            font-size: 5rem;
+            font-size: 90px;
             font-weight: 900;
             line-height: 1;
-            letter-spacing: -3px;
-            margin-bottom: 20px;
+            letter-spacing: -5px;
+            margin-bottom: 24px;
         }
+
         .section-text {
-            max-width: 700px;
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 60px;
+            max-width: 760px;
+            line-height: 2;
+            color: #cbd5e1;
+            margin-bottom: 80px;
         }
-        
+
         .gradient {
             background: linear-gradient(90deg, #3a86ff, #00c6ff, #8338ec);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradientAnim 5s infinite alternate;
-        }
-        @keyframes gradientAnim {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+            animation: gradient 5s infinite;
         }
 
-        /* =======================
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* =========================
            HERO SECTION
-        ======================= */
+        ========================= */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: 180px;
         }
+
         .hero-grid {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 60px;
+            grid-template-columns: 1fr 430px;
+            gap: 80px;
             align-items: center;
             width: 100%;
+            max-width: 1500px;
+            margin: auto;
         }
 
         .tag {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 12px 24px;
-            border-radius: 50px;
-            background: rgba(58, 134, 255, 0.1);
-            border: 1px solid rgba(58, 134, 255, 0.2);
-            margin-bottom: 30px;
+            padding: 14px 22px;
+            border-radius: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 28px;
             font-size: 14px;
-            font-weight: 500;
-            color: #00c6ff;
-            backdrop-filter: blur(10px);
         }
 
         .hero h1 {
-            font-size: 7rem;
-            line-height: 0.95;
+            font-size: 130px;
+            line-height: 0.9;
             font-weight: 900;
-            letter-spacing: -4px;
+            letter-spacing: -6px;
             margin-bottom: 30px;
         }
 
         .hero p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            max-width: 650px;
-            margin-bottom: 40px;
+            font-size: 17px;
+            line-height: 2;
+            max-width: 720px;
+            color: #d0d9e5;
         }
-        .typing { color: var(--primary-glow); font-weight: 600; }
 
-        .hero-btns { display: flex; gap: 20px; flex-wrap: wrap; }
+        .typing {
+            color: #3a86ff;
+            font-weight: 700;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            margin-top: 42px;
+            flex-wrap: wrap;
+        }
+
         .btn {
-            padding: 16px 36px;
-            border-radius: 50px;
-            display: flex; align-items: center; gap: 12px;
+            padding: 18px 34px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 15px;
-            transition: all 0.4s ease;
-            cursor: pointer;
+            font-size: 14px;
+            transition: 0.5s;
         }
+
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+            background: linear-gradient(135deg, #3a86ff, #8338ec);
             color: white;
-            box-shadow: 0 15px 30px rgba(58,134,255,0.3);
+            box-shadow: 0 20px 50px rgba(58, 134, 255, 0.25);
         }
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(58,134,255,0.5);
-        }
+
         .btn-secondary {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             color: white;
-            backdrop-filter: blur(10px);
         }
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.1);
-            transform: translateY(-5px);
+
+        .btn:hover {
+            transform: translateY(-8px);
         }
 
         /* HERO IMAGE */
-        .hero-image-wrap { position: relative; display: flex; justify-content: center; align-items: center; }
+        .hero-image-wrap {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .ring {
             position: absolute;
-            width: 500px; height: 500px;
-            border: 1px dashed rgba(255,255,255,0.1);
+            width: 420px;
+            height: 420px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 50%;
-            animation: spin 30s linear infinite;
+            animation: spin 20s linear infinite;
         }
-        .ring::before, .ring::after {
-            content: ''; position: absolute;
-            width: 20px; height: 20px;
-            background: var(--primary-glow);
+
+        .ring::before {
+            content: '';
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            background: #3a86ff;
             border-radius: 50%;
-            box-shadow: 0 0 30px var(--primary-glow);
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 30px #3a86ff;
         }
-        .ring::before { top: 0; left: 50%; transform: translateX(-50%); }
-        .ring::after { bottom: 20%; right: 5%; background: var(--secondary-glow); box-shadow: 0 0 30px var(--secondary-glow); }
-        
-        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
 
         .hero-image {
-            width: 380px; height: 520px;
-            border-radius: 30px;
-            border: 1px solid rgba(255,255,255,0.1);
+            width: 360px;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
             z-index: 2;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
         }
-        .hero-image img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            transition: 0.8s ease;
-        }
-        .hero-image:hover img { transform: scale(1.08); filter: contrast(1.1); }
 
-        /* =======================
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: 1s;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.06);
+        }
+
+        /* =========================
            CARDS (ABOUT & RESUME)
-        ======================= */
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        
+        ========================= */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
         .card {
-            padding: 50px;
-            border-radius: 30px;
-            background: rgba(20, 20, 25, 0.4);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(20px);
-            transition: all 0.5s ease;
+            padding: 40px;
+            border-radius: 36px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: 0.5s;
             position: relative;
             overflow: hidden;
         }
+
         .card::before {
-            content: ''; position: absolute;
-            width: 200px; height: 200px;
-            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
-            filter: blur(80px);
-            opacity: 0.1;
-            top: -50px; right: -50px;
-            transition: 0.5s ease;
+            content: '';
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #3a86ff, #8338ec);
+            filter: blur(100px);
+            opacity: 0.12;
+            top: -60px;
+            right: -60px;
         }
+
         .card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(58, 134, 255, 0.3);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            transform: translateY(-12px);
+            border-color: #3a86ff;
         }
-        .card:hover::before { opacity: 0.2; }
-        
-        .card h3 { font-size: 2rem; margin-bottom: 20px; font-weight: 700; }
-        .card p, .card li { color: var(--text-muted); margin-bottom: 15px; font-size: 1.05rem; }
-        .card ul { padding-left: 20px; }
-        .card li::marker { color: var(--primary-glow); }
 
-        /* SKILLS */
-        .skills { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+        .card h3 {
+            font-size: 34px;
+            margin-bottom: 18px;
+        }
+
+        .card p, .card li {
+            line-height: 2;
+            color: #d5ddeb;
+        }
+
+        .card ul {
+            padding-left: 20px;
+        }
+
+        /* SKILLS TAGS */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
         .skill {
-            padding: 10px 20px;
-            border-radius: 50px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--glass-border);
+            padding: 14px 18px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             font-size: 14px;
-            font-weight: 500;
-            transition: 0.3s;
-            cursor: default;
-        }
-        .skill:hover {
-            background: rgba(58,134,255,0.1);
-            border-color: var(--primary-glow);
-            color: #fff;
-            transform: translateY(-3px);
+            transition: 0.4s;
         }
 
-        /* =======================
-           PORTFOLIO
-        ======================= */
-        .portfolio { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .skill:hover {
+            background: linear-gradient(135deg, #3a86ff, #8338ec);
+            transform: translateY(-5px);
+            border-color: transparent;
+        }
+
+        /* =========================
+           PORTFOLIO SECTION
+        ========================= */
+        .portfolio {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
         .project {
             position: relative;
-            height: 500px;
-            border-radius: 30px;
+            height: 620px;
             overflow: hidden;
-            border: 1px solid var(--glass-border);
-            transition: 0.5s;
+            border-radius: 36px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: 0.6s;
+            text-decoration: none;
+            display: block;
         }
+
         .project:hover {
-            transform: translateY(-15px);
-            border-color: var(--primary-glow);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            transform: translateY(-12px);
+            border-color: #3a86ff;
         }
+
         .project img {
-            width: 100%; height: 100%;
+            position: absolute;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            transition: 0.8s ease;
+            transition: 1s;
         }
-        .project:hover img { transform: scale(1.1); filter: brightness(0.4); }
+
+        .project:hover img {
+            transform: scale(1.08);
+            filter: brightness(0.35);
+        }
 
         .overlay {
-            position: absolute; inset: 0;
-            background: linear-gradient(to top, rgba(3,5,8,1) 0%, rgba(3,5,8,0) 100%);
-            display: flex; align-items: flex-end;
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(5, 8, 22, 0.98), rgba(5, 8, 22, 0.1));
+            display: flex;
+            align-items: flex-end;
             padding: 40px;
-            opacity: 0;
-            transition: 0.5s ease;
         }
-        .project:hover .overlay { opacity: 1; }
-        .overlay h2 { font-size: 2rem; margin-bottom: 10px; transform: translateY(20px); transition: 0.5s; }
-        .overlay p { color: var(--text-muted); transform: translateY(20px); transition: 0.5s; transition-delay: 0.1s;}
+
+        .overlay h2 {
+            font-size: 40px;
+            margin-bottom: 14px;
+            color: white;
+        }
+
+        .overlay p {
+            line-height: 2;
+            color: #d5ddeb;
+        }
+
         .view-btn {
-            display: inline-flex; margin-top: 20px; padding: 12px 24px;
-            border-radius: 50px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
-            font-size: 14px; font-weight: 600; color: white; text-decoration: none;
-            transform: translateY(20px); transition: 0.5s; transition-delay: 0.2s;
+            display: inline-flex;
+            margin-top: 24px;
+            padding: 14px 22px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #3a86ff, #8338ec);
+            font-size: 13px;
+            font-weight: 600;
+            color: white;
         }
-        .view-btn:hover { background: var(--primary-glow); }
-        .project:hover .overlay h2, .project:hover .overlay p, .project:hover .overlay .view-btn { transform: translateY(0); }
 
-        /* =======================
-           CONTACT & FOOTER
-        ======================= */
-        .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        /* =========================
+           CONTACT SECTION
+        ========================= */
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
         .contact-box {
-            padding: 50px; border-radius: 30px;
-            background: rgba(20, 20, 25, 0.4); border: 1px solid var(--glass-border);
-            backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: 36px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
         }
-        .contact-box h3 { font-size: 2rem; margin-bottom: 25px; }
-        .contact-box p { color: var(--text-muted); line-height: 2.2; }
-        .contact-box a { color: var(--primary-glow); text-decoration: none; font-weight: 500; transition: 0.3s; }
-        .contact-box a:hover { color: #fff; }
 
-        .contact-box input, .contact-box textarea {
-            width: 100%; padding: 18px 25px; margin-bottom: 20px;
-            background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border);
-            border-radius: 15px; color: white; font-family: 'Outfit', sans-serif;
-            font-size: 1rem; transition: 0.3s; outline: none;
+        .contact-box input,
+        .contact-box textarea {
+            width: 100%;
+            padding: 18px;
+            margin-bottom: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            outline: none;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            transition: 0.3s;
         }
-        .contact-box input:focus, .contact-box textarea:focus {
-            border-color: var(--primary-glow); background: rgba(58,134,255,0.05);
+        
+        .contact-box input:focus,
+        .contact-box textarea:focus {
+            border-color: #3a86ff;
+            background: rgba(255, 255, 255, 0.1);
         }
-        .contact-box textarea { height: 160px; resize: none; }
 
+        .contact-box textarea {
+            height: 160px;
+            resize: none;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
         footer {
-            padding: 40px; text-align: center; color: var(--text-muted);
-            border-top: 1px solid var(--glass-border); margin-top: 50px;
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: #cbd5e1;
         }
 
-        /* =======================
-           ANIMATIONS
-        ======================= */
-        .reveal { opacity: 0; transform: translateY(60px); transition: all 1s cubic-bezier(0.5, 0, 0, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        /* =========================
+           SCROLL ANIMATION
+        ========================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(80px);
+            transition: 1.2s;
+        }
 
-        /* =======================
-           RESPONSIVE
-        ======================= */
-        @media(max-width: 1200px) {
-            .hero h1 { font-size: 5rem; }
-            .hero-grid { grid-template-columns: 1fr; text-align: center; }
-            .tag { margin: 0 auto 30px auto; }
-            .hero p { margin: 0 auto 40px auto; }
-            .hero-btns { justify-content: center; }
-            .hero-image-wrap { margin-top: 50px; }
-            .ring { width: 400px; height: 400px; }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
-        @media(max-width: 900px) {
-            .grid-2, .portfolio, .contact { grid-template-columns: 1fr; }
-            .section-title { font-size: 3.5rem; }
-            .menu { display: none; }
-            nav { justify-content: center; border-radius: 20px; padding: 15px; }
-            .socials { display: none; }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================= */
+        @media (max-width: 1100px) {
+            .hero-grid,
+            .grid-2,
+            .portfolio,
+            .contact {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 { font-size: 80px; }
+            .hero-image { margin: auto; }
         }
-        @media(max-width: 500px) {
-            .hero h1 { font-size: 3.5rem; }
-            section { padding: 100px 5%; }
-            .hero-image { width: 100%; height: 450px; }
-            .ring { display: none; }
-            .card { padding: 30px; }
+
+        @media (max-width: 768px) {
+            nav { padding: 14px; }
+            .menu, .socials { display: none; }
+            section { padding: 100px 20px; }
+            .hero { padding-top: 140px; }
+            .hero h1 {
+                font-size: 56px;
+                letter-spacing: -2px;
+                line-height: 1;
+            }
+            .section-title {
+                font-size: 52px;
+                line-height: 1.1;
+            }
+            .hero p, .section-text, .card p {
+                font-size: 14px;
+                line-height: 2;
+            }
+            .hero-btns { flex-direction: column; }
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .hero-image {
+                width: 100%;
+                max-width: 320px;
+                height: 430px;
+            }
+            .project { height: 420px; }
+            .overlay h2 { font-size: 28px; }
+            .card, .contact-box { padding: 24px; }
         }
     </style>
 </head>
 
 <body>
-
     <div class="bg">
         <div class="orb orb1"></div>
         <div class="orb orb2"></div>
@@ -482,14 +624,14 @@
 
     <nav>
         <div class="logo">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg" alt="Tamim">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg" alt="Profile Logo" loading="lazy">
             <h2>Al Jubayer<br>Rayhan</h2>
         </div>
         <div class="menu">
             <a href="#home">Home</a>
             <a href="#about">About</a>
-            <a href="#resume">Experience</a>
-            <a href="#portfolio">Work</a>
+            <a href="#resume">Resume</a>
+            <a href="#portfolio">Portfolio</a>
             <a href="#contact">Contact</a>
         </div>
         <div class="socials">
@@ -503,175 +645,176 @@
         <div class="hero-grid">
             <div>
                 <div class="tag">
-                    <i class="fa-solid fa-crown"></i> Cinematic & Premium Design
+                    <i class="fa-solid fa-sparkles"></i> Premium Creative Designer
                 </div>
                 <h1>Tamim’s <br><span class="gradient">Universe</span></h1>
                 <p>
-                    I am Al Jubayer Rayhan Tamim Mollah. Specializing in minimalist, premium, and ultra-realistic visual identities that feel elegant and emotionally driven. 
+                    I am Al Jubayer Rayhan Tamim Mollah — a creative designer focused on premium branding, visual storytelling, luxury social media design, typography, cinematic presentation, and modern digital experiences.
                     <br><br>
                     <span class="typing"></span>
                 </p>
                 <div class="hero-btns">
-                    <a href="#portfolio" class="btn btn-primary"><i class="fa-solid fa-layer-group"></i> Explore Work</a>
-                    <a href="#contact" class="btn btn-secondary"><i class="fa-solid fa-envelope"></i> Let's Talk</a>
+                    <a href="#portfolio" class="btn btn-primary">
+                        <i class="fa-solid fa-layer-group"></i> Explore Work
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fa-solid fa-paper-plane"></i> Contact Me
+                    </a>
                 </div>
             </div>
             <div class="hero-image-wrap">
                 <div class="ring"></div>
                 <div class="hero-image">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg" alt="Tamim">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg" alt="Hero Portrait" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
     <section id="about">
-        <h2 class="section-title reveal">Cinematic <span class="gradient">Vision</span></h2>
+        <h2 class="section-title reveal">Creative <span class="gradient">Identity</span></h2>
         <p class="section-text reveal">
-            Passionate about creating impactful visual experiences through modern branding systems, storytelling, premium aesthetics, and DSLR-quality creative direction.
+            Passionate about creating impactful visual experiences through modern branding systems, storytelling, premium aesthetics, and emotional creative direction.
         </p>
         <div class="grid-2">
             <div class="card reveal">
                 <h3>About Me</h3>
                 <p>
-                    Currently pursuing a BSS in Journalism & Media Communication at Green University of Bangladesh. As the proprietor of <strong>Tamim's Work</strong> and the creative force behind <strong>Panda Station 25</strong>, I bring digital agencies and luxury brands to life. 
-                </p>
-                <p>
-                    My expertise lies in minimalist typography, SaaS identity building, and maintaining 100% aesthetic preservation in photo compositing.
+                    Currently pursuing BSS in Journalism & Media Communication at Green University of Bangladesh while working professionally in the creative industry. Experienced in modern branding, typography, social media campaigns, luxury presentation design, and visual storytelling.
                 </p>
                 <div class="skills">
                     <div class="skill">Photoshop</div>
                     <div class="skill">Illustrator</div>
-                    <div class="skill">Premium Branding</div>
-                    <div class="skill">Cinematic Animation</div>
+                    <div class="skill">Lightroom</div>
+                    <div class="skill">Figma</div>
+                    <div class="skill">Canva</div>
+                    <div class="skill">Branding</div>
                     <div class="skill">Typography</div>
                 </div>
             </div>
             <div class="card reveal">
-                <h3>Design Philosophy</h3>
+                <h3>Creative Vision</h3>
                 <p>
-                    My goal is to create visuals that emotionally connect with audiences. Whether it's crafting a corporate identity for real estate, organic food markets, or high-end apparel labels, I ensure every pixel speaks of luxury and professionalism.
-                </p>
-                <p>
-                    I focus heavily on 4K/8K resolution assets, shallow depth of field, and perfect aesthetic balance.
+                    My goal is to create modern premium visuals that emotionally connect with audiences and make brands look elegant, cinematic, and visually unforgettable. Focused on modern UI aesthetics, storytelling systems, and impactful visual identity design.
                 </p>
             </div>
         </div>
     </section>
 
     <section id="resume">
-        <h2 class="section-title reveal">Career <span class="gradient">Journey</span></h2>
+        <h2 class="section-title reveal">Professional <span class="gradient">Journey</span></h2>
         <p class="section-text reveal">
-            A complete overview of my creative experience, academic background, and professional leadership in design.
+            A complete overview of my creative experience, education, professional growth, and achievements.
         </p>
         <div class="grid-2">
             <div class="card reveal">
-                <h3>Experience</h3>
+                <h3>Education</h3>
                 <ul>
-                    <li><strong>Lead Designer</strong> — National Environment Debate Competition (2026)</li>
-                    <li><strong>Proprietor & Designer</strong> — Panda Station 25 & Tamim's Work</li>
-                    <li><strong>Graphics Designer</strong> — Oilo (2025)</li>
-                    <li><strong>Graphics Designer</strong> — VortexUp Digital (2024 - 2025)</li>
-                    <li><strong>Marketing Executive</strong> — Smart IT (2023 - 2024)</li>
+                    <li>BSS in Journalism & Media Communication — Green University of Bangladesh</li>
+                    <li>HSC — DR. Mahabubur Rahman Mollah College</li>
                 </ul>
             </div>
             <div class="card reveal">
-                <h3>Education</h3>
+                <h3>Experience</h3>
                 <ul>
-                    <li><strong>BSS in Journalism & Media Communication</strong><br> Green University of Bangladesh (2026 - Present)</li>
-                    <li><strong>HSC</strong><br> DR. Mahabubur Rahman Mollah College (2022 - 2023)</li>
+                    <li>Graphics Designer — Oilo</li>
+                    <li>Graphics Designer — VortexUp Digital</li>
+                    <li>Marketing Executive — Smart IT</li>
+                    <li>Photographer — DMRC</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <section id="portfolio">
-        <h2 class="section-title reveal">Selected <span class="gradient">Works</span></h2>
+        <h2 class="section-title reveal">Featured <span class="gradient">Projects</span></h2>
         <p class="section-text reveal">
-            A showcase of modern creative projects crafted with premium aesthetics, digital agency branding, and cinematic visual presentation.
+            Modern creative projects crafted with premium aesthetics, storytelling, and cinematic visual presentation.
         </p>
         <div class="portfolio">
-            <div class="project reveal">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1zI7jVwnJgl_rffww_4ZLRfS6rYs2vRAXKWyYWJ3rk-uGFiQXiWEXc20bTMVsi3OI141wZGEV6AAJz34xNWTwGqiEuEu1M5ODxQQQx49q9cISTw-f93cDYdtuV4QbH9VQM_W2Ii9c7yByNEN2ZcazjVL5fBS0BNWGJbLpJkqicXv4kShgU6QVaEj-tjR2/s16000/Screenshot%202026-05-19%20163952.png" alt="Project 1">
+            <a href="https://www.behance.net/gallery/248627807/Pohela-Boishakh-Cultural-Program-Design-2026" target="_blank" class="project reveal">
+                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/1439273339.jpg" alt="Pohela Boishakh Design" loading="lazy">
                 <div class="overlay">
                     <div>
-                        <h2>Agency Branding</h2>
-                        <p>Minimalist and premium identity design with cinematic layout.</p>
-                        <a href="https://www.behance.net/tamimmollah" target="_blank" class="view-btn"><i class="fab fa-behance"></i> &nbsp; View on Behance</a>
+                        <h2>Pohela Boishakh Design</h2>
+                        <p>Premium Bengali cultural event branding with modern festive storytelling.</p>
+                        <div class="view-btn">
+                            <i class="fab fa-behance"></i> &nbsp; View Project
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="project reveal">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicWMHRE6xXHxO-ILL4BYF-Z14u_BexQ3hDOAFCx4_pNF27UUevUR_EEXcsVmdszaC1aKtPC8bGdEf9OZALuFpw8YZdTHNmqhK_Q2ecVcu19Xp5-91V-0Y-rcs_hzkNwSHCs9_iIEdNg4xg8hOGw240-wLxiC3CrhcyYoERu8gkACE86rWxRnDBfz3odNQz/s16000/Screenshot%202026-05-19%20160117.png" alt="Project 2">
+            </a>
+            <a href="https://www.behance.net/gallery/245785373/Panda-Station-25-Digital-Marketing-Campaign-Posters" target="_blank" class="project reveal">
+                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/1420104885.jpg" alt="Panda Station Campaign" loading="lazy">
                 <div class="overlay">
                     <div>
-                        <h2>Corporate Presentation</h2>
-                        <p>Luxury visual presentation focused on typography and modern layout.</p>
-                        <a href="https://www.behance.net/tamimmollah" target="_blank" class="view-btn"><i class="fab fa-behance"></i> &nbsp; View on Behance</a>
+                        <h2>Panda Station Campaign</h2>
+                        <p>Bold digital marketing poster campaign focused on luxury aesthetics and impactful branding.</p>
+                        <div class="view-btn">
+                            <i class="fab fa-behance"></i> &nbsp; View Project
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 
     <section id="contact">
         <h2 class="section-title reveal">Let’s <span class="gradient">Connect</span></h2>
         <p class="section-text reveal">
-            Available for premium branding, creative campaigns, luxury social media visuals, and UI/UX digital design experiences.
+            Available for branding, creative campaigns, social media visuals, and premium digital design experiences.
         </p>
         <div class="contact">
             <div class="contact-box reveal">
-                <h3>Contact Info</h3>
-                <p>
-                    <i class="fa-solid fa-phone" style="color:var(--primary-glow); margin-right:10px;"></i> 01865861015 <br><br>
-                    <i class="fa-solid fa-envelope" style="color:var(--primary-glow); margin-right:10px;"></i> tamimmolla81@gmail.com <br><br>
-                    <i class="fa-solid fa-location-dot" style="color:var(--primary-glow); margin-right:10px;"></i> Dhaka, Bangladesh <br><br>
-                    <i class="fa-brands fa-facebook" style="color:var(--primary-glow); margin-right:10px;"></i> <a href="https://www.facebook.com/jubayer.jubu.0" target="_blank">Facebook Profile</a> <br><br>
-                    <i class="fa-brands fa-behance" style="color:var(--primary-glow); margin-right:10px;"></i> <a href="https://www.behance.net/tamimmollah" target="_blank">Behance Portfolio</a>
+                <h3 style="font-size:32px; margin-bottom:24px;">Contact Information</h3>
+                <p style="line-height:2; color:#d5ddeb;">
+                    Phone: 01865861015 <br><br>
+                    Location: Dhaka, Bangladesh <br><br>
+                    Facebook: <a href="https://www.facebook.com/jubayer.jubu.0" target="_blank" style="color:#3a86ff;">Visit Profile</a> <br><br>
+                    Instagram: <a href="https://www.instagram.com/aljubayerrayhan/" target="_blank" style="color:#3a86ff;">Visit Profile</a> <br><br>
+                    Behance: <a href="https://www.behance.net/tamimmollah" target="_blank" style="color:#3a86ff;">View Portfolio</a>
                 </p>
             </div>
             <div class="contact-box reveal">
                 <input type="text" placeholder="Your Name">
                 <input type="email" placeholder="Your Email">
-                <textarea placeholder="Tell me about your project..."></textarea>
-                <button class="btn btn-primary" style="width: 100%; justify-content: center; border: none; font-family: 'Outfit', sans-serif;">
+                <textarea placeholder="Your Message"></textarea>
+                <a href="#" class="btn btn-primary" style="display:inline-flex; border:none; cursor:pointer;">
                     <i class="fa-solid fa-paper-plane"></i> Send Message
-                </button>
+                </a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 — Al Jubayer Rayhan Tamim Mollah | Crafted for Premium Experiences.</p>
+        © 2026 — Al Jubayer Rayhan Tamim Mollah
     </footer>
 
     <script>
-        // Typing Effect
+        // Typing Animation
         new Typed(".typing", {
             strings: [
-                "Proprietor of Tamim's Work.",
-                "Founder of Panda Station 25.",
-                "Minimalist & Premium Aesthetics.",
-                "Cinematic Visual Storyteller."
+                "Luxury Branding Designer.",
+                "Premium Social Media Creator.",
+                "Modern Visual Storyteller.",
+                "Creative Digital Artist."
             ],
-            typeSpeed: 50,
-            backSpeed: 30,
+            typeSpeed: 60,
+            backSpeed: 40,
             loop: true
         });
 
         // Scroll Reveal Animation
         const reveals = document.querySelectorAll(".reveal");
+
         window.addEventListener("scroll", () => {
             reveals.forEach((el) => {
                 const top = el.getBoundingClientRect().top;
-                if(top < window.innerHeight - 80) {
+                if (top < window.innerHeight - 100) {
                     el.classList.add("active");
                 }
             });
         });
-        
-        // Trigger reveal on load for elements already in view
-        window.dispatchEvent(new Event('scroll'));
     </script>
 </body>
 </html>
