@@ -3,299 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tamim — Aggressive Creative</title>
+    <title>Tamim — Aggressive Visual Chaos</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
     
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <style>
         /* =========================
-           RESET & VARIABLES
+           RESET & CYBER VARIABLES
         ========================= */
         :root {
-            --bg-color: #050505;
-            --text-main: #f5f5f5;
-            --accent-red: #ff003c; /* Cyberpunk Red */
-            --border-color: #333333;
+            --bg-dark: #000000;
+            --text-main: #ffffff;
+            --neon-red: #ff003c; /* Aggressive Red */
+            --neon-cyan: #00ffff; /* RGB Split Cyan */
+            --border: #1a1a1a;
+            --font-aggro: 'Bebas Neue', sans-serif;
+            --font-main: 'Space Grotesk', sans-serif;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; cursor: crosshair; }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; cursor: none; }
 
         body {
-            font-family: 'Space Grotesk', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            overflow-x: hidden;
-            /* Technical Grid Background */
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
+            font-family: var(--font-main); background-color: var(--bg-dark); color: var(--text-main);
+            overflow-x: hidden; position: relative;
         }
 
-        h1, h2, h3, h4, h5 { font-family: 'Bebas Neue', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
+        h1, h2, h3, h4 { font-family: var(--font-aggro); text-transform: uppercase; letter-spacing: 2px; line-height: 1; }
+
+        /* Custom Cursor */
+        .cursor { width: 30px; height: 30px; border: 2px solid #fff; border-radius: 50%; position: fixed; pointer-events: none; z-index: 10000; transition: transform 0.1s ease; mix-blend-mode: difference; }
+        .cursor-inner { width: 6px; height: 6px; background: var(--neon-red); border-radius: 50%; position: fixed; pointer-events: none; z-index: 10001; }
+
+        /* Noise Overlay */
+        .noise { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; opacity: 0.03; background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png'); }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-thumb { background: var(--neon-red); box-shadow: 0 0 15px var(--neon-red); }
+        ::-webkit-scrollbar-track { background: #080808; }
 
         /* =========================
-           SCROLLBAR
-        ========================= */
-        ::-webkit-scrollbar { width: 12px; }
-        ::-webkit-scrollbar-thumb { background: var(--accent-red); border: 2px solid var(--bg-color); }
-        ::-webkit-scrollbar-track { background: var(--bg-color); border-left: 1px solid var(--border-color); }
-
-        /* =========================
-           NAVBAR (BRUTALIST)
+           NAVBAR (CYBER BRUTAL)
         ========================= */
         nav {
-            position: fixed; top: 0; left: 0; width: 100%; padding: 20px 50px;
+            position: fixed; top: 0; left: 0; width: 100%; padding: 25px 5%;
             display: flex; justify-content: space-between; align-items: center;
-            background: var(--bg-color); border-bottom: 3px solid var(--border-color);
-            z-index: 999;
+            background: rgba(0,0,0,0.8); border-bottom: 2px solid var(--border);
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 999;
         }
-        .logo { display: flex; align-items: center; gap: 15px; }
-        .logo img {
-            width: 50px; height: 50px; object-fit: cover;
-            border: 2px solid var(--accent-red); filter: grayscale(100%); transition: 0.3s;
-        }
-        .logo:hover img { filter: grayscale(0%); box-shadow: 4px 4px 0px var(--accent-red); }
-        .logo h2 { font-size: 24px; color: var(--text-main); margin: 0; }
-        .logo span { color: var(--accent-red); }
+        .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; color: white; }
+        .logo img { width: 50px; height: 50px; border: 2px solid #fff; filter: grayscale(100%); transition: 0.3s; }
+        .logo:hover img { filter: grayscale(0%); box-shadow: 0 0 15px var(--neon-red); border-color: var(--neon-red); }
+        .logo h2 { font-size: 24px; }
+        .logo span { color: var(--neon-red); }
 
-        .menu { display: flex; gap: 40px; }
-        .menu a {
-            color: var(--text-main); text-decoration: none; font-family: 'Bebas Neue', sans-serif;
-            font-size: 22px; transition: 0.2s; position: relative;
-        }
-        .menu a:hover { color: var(--accent-red); transform: skewX(-10deg); }
+        .menu { display: flex; gap: 35px; }
+        .menu a { color: #fff; text-decoration: none; font-family: var(--font-aggro); font-size: 22px; transition: 0.2s; position: relative; }
+        .menu a:hover { color: var(--neon-red); text-shadow: 0 0 10px var(--neon-red); transform: skewX(-10deg); }
 
-        .socials { display: flex; gap: 15px; }
+        .socials { display: flex; gap: 12px; }
         .socials a {
-            width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;
-            background: transparent; border: 2px solid var(--border-color);
-            color: var(--text-main); text-decoration: none; transition: 0.2s; font-size: 18px;
+            width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
+            border: 2px solid var(--border); color: #fff; text-decoration: none; transition: 0.3s;
         }
         .socials a:hover {
-            background: var(--accent-red); border-color: var(--accent-red);
-            color: var(--bg-color); box-shadow: 4px 4px 0px #ffffff; transform: translate(-2px, -2px);
+            background: var(--neon-red); border-color: var(--neon-red); color: #000;
+            box-shadow: 0 0 20px var(--neon-red); transform: translateY(-5px);
         }
 
         /* =========================
-           GLOBAL STYLES
+           GLOBAL SECTIONS
         ========================= */
-        section { padding: 140px 8%; max-width: 1600px; margin: 0 auto; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .section-top { margin-bottom: 70px; border-left: 8px solid var(--accent-red); padding-left: 20px; }
-        .mini-badge {
-            display: inline-block; background: var(--text-main); color: var(--bg-color);
-            font-family: 'Bebas Neue', sans-serif; font-size: 20px; padding: 5px 15px; margin-bottom: 15px;
-        }
-        .section-title { font-size: 6rem; line-height: 0.9; margin-bottom: 15px; }
-        .section-title span { color: var(--accent-red); }
-        .section-desc { max-width: 650px; font-size: 1.1rem; line-height: 1.8; color: #a0a0a0; }
+        section { padding: 160px 8%; max-width: 1600px; margin: 0 auto; border-bottom: 2px solid var(--border); }
+        .section-top { margin-bottom: 90px; position: relative; }
+        .section-top h2 { font-size: 8rem; margin-bottom: 10px; color: #fff; text-shadow: 2px 2px 0px var(--neon-red), -2px -2px 0px var(--neon-cyan); }
+        .section-top p { max-width: 600px; font-size: 1.1rem; line-height: 1.8; color: #888; }
+        .reveal { opacity: 0; transform: translateY(70px) skewY(5deg); transition: 1s cubic-bezier(0.23, 1, 0.32, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0) skewY(0deg); }
 
         /* =========================
-           HERO SECTION & GLITCH
+           HERO & GLITCH
         ========================= */
-        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 160px; }
-        .hero-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 60px; align-items: center; width: 100%; }
+        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 180px; position: relative; }
+        .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center; width: 100%; }
         
-        .glitch-wrapper { position: relative; margin-bottom: 20px; }
-        .glitch {
-            font-size: 8.5rem; line-height: 0.85; font-weight: 900;
-            text-transform: uppercase; position: relative; color: white;
-        }
-        .glitch::before, .glitch::after {
-            content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-        }
-        .glitch::before {
-            left: 4px; text-shadow: -2px 0 var(--accent-red);
-            clip: rect(24px, 550px, 90px, 0); animation: glitch-anim 3s infinite linear alternate-reverse;
-        }
-        .glitch::after {
-            left: -4px; text-shadow: -2px 0 #00ffff;
-            clip: rect(85px, 550px, 140px, 0); animation: glitch-anim 2.5s infinite linear alternate-reverse;
-        }
-        @keyframes glitch-anim {
-            0% { clip: rect(10px, 9999px, 30px, 0); }
-            20% { clip: rect(80px, 9999px, 100px, 0); }
-            40% { clip: rect(40px, 9999px, 60px, 0); }
-            60% { clip: rect(120px, 9999px, 140px, 0); }
-            80% { clip: rect(20px, 9999px, 40px, 0); }
-            100% { clip: rect(90px, 9999px, 110px, 0); }
-        }
+        /* Glitch Title */
+        .hero-glitch { font-size: 10rem; color: #fff; position: relative; margin-bottom: 20px; animation: glitch-skew 4s infinite linear; }
+        .hero-glitch::before, .hero-glitch::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .hero-glitch::before { left: 3px; text-shadow: -3px 0 var(--neon-cyan); clip: rect(44px, 450px, 56px, 0); animation: glitch-anim 2s infinite linear alternate-reverse; }
+        .hero-glitch::after { left: -3px; text-shadow: -3px 0 var(--neon-red); clip: rect(85px, 450px, 140px, 0); animation: glitch-anim2 3s infinite linear alternate-reverse; }
+        
+        @keyframes glitch-anim { 0% { clip: rect(31px, 9999px, 94px, 0); } 20% { clip: rect(62px, 9999px, 42px, 0); } 40% { clip: rect(16px, 9999px, 78px, 0); } 60% { clip: rect(100px, 9999px, 12px, 0); } 80% { clip: rect(57px, 9999px, 99px, 0); } 100% { clip: rect(85px, 9999px, 63px, 0); } }
+        @keyframes glitch-anim2 { 0% { clip: rect(70px, 9999px, 6px, 0); } 20% { clip: rect(20px, 9999px, 100px, 0); } 40% { clip: rect(90px, 9999px, 10px, 0); } 60% { clip: rect(120px, 9999px, 50px, 0); } 80% { clip: rect(10px, 9999px, 90px, 0); } 100% { clip: rect(60px, 9999px, 120px, 0); } }
+        @keyframes glitch-skew { 0% { transform: skew(0deg); } 10% { transform: skew(3deg); } 20% { transform: skew(-1deg); } 30% { transform: skew(5deg); } 40% { transform: skew(-3deg); } 50% { transform: skew(0deg); } }
 
-        .hero p { font-size: 1.2rem; line-height: 1.8; max-width: 600px; color: #a0a0a0; margin-bottom: 40px; }
-        .typing { color: var(--accent-red); font-weight: 700; background: rgba(255,0,60,0.1); padding: 0 5px; }
+        .hero p { font-size: 1.3rem; line-height: 1.8; color: #aaa; margin-bottom: 40px; max-width: 700px; }
+        .typing { color: var(--neon-red); font-weight: 700; text-shadow: 0 0 10px var(--neon-red); }
 
-        /* BUTTONS */
-        .btn-group { display: flex; gap: 25px; flex-wrap: wrap; }
+        .btn-group { display: flex; gap: 20px; flex-wrap: wrap; }
         .btn {
-            display: inline-flex; align-items: center; gap: 10px; padding: 15px 35px;
-            font-family: 'Bebas Neue', sans-serif; font-size: 24px; text-decoration: none; text-transform: uppercase;
-            transition: 0.2s; border: 2px solid; position: relative;
+            display: inline-flex; align-items: center; gap: 10px; padding: 18px 40px;
+            font-family: var(--font-aggro); font-size: 26px; text-decoration: none; text-transform: uppercase;
+            border: 3px solid; transition: 0.3s; position: relative; overflow: hidden;
         }
-        .btn-primary { background: var(--accent-red); color: var(--bg-color); border-color: var(--accent-red); }
-        .btn-primary:hover { background: transparent; color: var(--accent-red); box-shadow: 6px 6px 0px var(--accent-red); transform: translate(-4px, -4px); }
-        
-        .btn-secondary { background: transparent; color: var(--text-main); border-color: var(--border-color); }
-        .btn-secondary:hover { background: var(--text-main); color: var(--bg-color); border-color: var(--text-main); box-shadow: 6px 6px 0px var(--accent-red); transform: translate(-4px, -4px); }
+        .btn-primary { background: var(--neon-red); color: #000; border-color: var(--neon-red); box-shadow: 0 0 20px rgba(255,0,60,0.5); }
+        .btn-primary:hover { background: transparent; color: var(--neon-red); box-shadow: 0 0 30px var(--neon-red); transform: scale(1.05); }
+        .btn-secondary { background: transparent; color: #fff; border-color: var(--border); }
+        .btn-secondary:hover { background: #fff; color: #000; border-color: #fff; box-shadow: 0 0 20px #fff; transform: scale(1.05); }
 
-        /* HERO IMAGE */
-        .hero-img-box { position: relative; display: flex; justify-content: center; border: 4px solid var(--border-color); padding: 20px; transition: 0.3s; }
-        .hero-img-box:hover { border-color: var(--accent-red); box-shadow: 15px 15px 0px var(--accent-red); transform: translate(-10px, -10px); }
-        .hero-img-box img { width: 100%; max-width: 400px; height: 500px; object-fit: cover; filter: grayscale(100%) contrast(1.2); transition: 0.4s; }
-        .hero-img-box:hover img { filter: grayscale(0%) contrast(1.1); }
-        
-        /* ALERT TAPE (MARQUEE) */
-        .marquee-container {
-            width: 100%; overflow: hidden; background: var(--accent-red); color: var(--bg-color);
-            padding: 15px 0; border-top: 4px solid #fff; border-bottom: 4px solid #fff;
-            transform: rotate(-2deg) scale(1.05); margin: 60px 0;
+        /* HERO IMAGE (BRUTAL) */
+        .hero-img-box {
+            border: 10px solid #fff; padding: 15px; position: relative;
+            box-shadow: 15px 15px 0px var(--neon-red); transition: 0.4s;
         }
-        .marquee-content { display: flex; white-space: nowrap; animation: scrollMarquee 10s linear infinite; }
-        .marquee-content span { font-family: 'Bebas Neue', sans-serif; font-size: 32px; font-weight: 900; margin: 0 20px; display: inline-flex; gap: 20px; align-items: center; }
-        @keyframes scrollMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .hero-img-box:hover { box-shadow: 20px 20px 0px var(--neon-cyan); border-radius: 0; transform: translate(-10px, -10px) rotate(2deg); }
+        .hero-img-box img {
+            width: 100%; height: 500px; object-fit: cover;
+            filter: grayscale(100%) contrast(1.2); transition: 0.4s;
+        }
+        .hero-img-box:hover img { filter: grayscale(0%); }
 
         /* =========================
-           BRUTALIST CARDS (ABOUT/RESUME)
+           ACTIVE MARQUEE
+        ========================= */
+        .marquee-tape {
+            width: 100%; overflow: hidden; background: #fff; color: #000;
+            padding: 18px 0; border-top: 5px solid var(--neon-red); border-bottom: 5px solid var(--neon-cyan);
+            transform: rotate(-1.5deg) scale(1.05); margin: 80px 0;
+        }
+        .marquee-content { display: flex; white-space: nowrap; animation: scrollTape 12s linear infinite; }
+        .marquee-content span { font-family: var(--font-aggro); font-size: 34px; font-weight: 900; margin: 0 20px; display: flex; gap: 20px; align-items: center; }
+        @keyframes scrollTape { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        /* =========================
+           BRUTAL CARDS (ABOUT/RESUME)
         ========================= */
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .brutal-card {
-            padding: 40px; border: 3px solid var(--border-color); background: var(--bg-color);
-            transition: 0.2s; position: relative;
+        .cyber-card {
+            padding: 50px; border: 4px solid var(--border); background: #080808;
+            transition: 0.3s; position: relative; overflow: hidden;
         }
-        .brutal-card:hover { border-color: var(--accent-red); box-shadow: 10px 10px 0px var(--accent-red); transform: translate(-5px, -5px); }
-        .brutal-card h3 { font-size: 3rem; margin-bottom: 20px; color: var(--text-main); }
-        .brutal-card p { line-height: 1.8; color: #b3b3b3; font-size: 1.05rem; }
+        .cyber-card:hover { border-color: #fff; box-shadow: 10px 10px 0px var(--neon-red); transform: translate(-5px, -5px); }
+        .cyber-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--neon-red), var(--neon-cyan)); opacity: 0; transition: 0.3s; z-index: -1; }
+        .cyber-card:hover::after { opacity: 0.05; }
+        .cyber-card h3 { font-size: 3.5rem; margin-bottom: 25px; color: #fff; }
+        .cyber-card p { line-height: 1.9; color: #ccc; font-size: 1.1rem; }
 
         /* SKILLS */
-        .skills-wrap { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+        .skills-wrap { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 35px; }
         .skill-tag {
-            padding: 10px 20px; border: 2px solid var(--border-color); font-family: 'Bebas Neue', sans-serif;
-            font-size: 22px; color: var(--text-main); transition: 0.2s;
+            padding: 12px 22px; border: 2px solid var(--border); font-family: var(--font-aggro);
+            font-size: 24px; color: #fff; transition: 0.3s; text-shadow: 0 0 5px rgba(255,255,255,0.5);
         }
-        .skill-tag:hover { background: var(--accent-red); border-color: var(--accent-red); color: var(--bg-color); transform: skewX(-10deg); }
+        .skill-tag:hover {
+            background: var(--neon-red); border-color: var(--neon-red); color: #000;
+            box-shadow: 0 0 20px var(--neon-red); transform: scale(1.1) rotate(-2deg);
+        }
 
         /* STATS */
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
-        .stat-box { padding: 30px; border: 2px solid var(--border-color); background: #111; text-align: center; transition: 0.2s; }
-        .stat-box:hover { background: var(--text-main); border-color: var(--text-main); box-shadow: 6px 6px 0px var(--accent-red); transform: translate(-4px, -4px); }
-        .stat-box h4 { font-size: 4.5rem; line-height: 1; color: var(--accent-red); }
-        .stat-box:hover h4 { color: var(--bg-color); }
-        .stat-box p { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: #888; }
-        .stat-box:hover p { color: var(--bg-color); }
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 35px; }
+        .stat-box { padding: 30px; border: 2px solid var(--border); text-align: center; background: #050505; transition: 0.3s; }
+        .stat-box h4 { font-size: 5rem; color: var(--neon-red); text-shadow: 0 0 15px var(--neon-red); }
+        .stat-box p { font-size: 16px; color: #aaa; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
+        .stat-box:hover { border-color: var(--neon-cyan); box-shadow: 0 0 20px var(--neon-cyan); }
 
         /* =========================
            TIMELINE (RESUME)
         ========================= */
-        .timeline { position: relative; margin-top: 50px; border-left: 4px solid var(--border-color); padding-left: 40px; margin-left: 20px; }
+        .timeline { position: relative; margin-top: 60px; border-left: 5px solid var(--border); padding-left: 40px; }
         .timeline-item { position: relative; margin-bottom: 60px; }
         .timeline-dot {
-            position: absolute; left: -58px; top: 0; width: 32px; height: 32px;
-            background: var(--bg-color); border: 4px solid var(--border-color); transition: 0.2s;
+            position: absolute; left: -60px; top: 10px; width: 35px; height: 35px;
+            background: var(--bg-dark); border: 5px solid var(--border); transition: 0.3s;
         }
-        .timeline-item:hover .timeline-dot { background: var(--accent-red); border-color: var(--accent-red); border-radius: 0; transform: rotate(45deg); }
-        
-        .timeline-content {
-            padding: 30px; border: 3px solid var(--border-color); background: #0a0a0a; transition: 0.2s;
+        .timeline-item:hover .timeline-dot {
+            background: var(--neon-red); border-color: var(--neon-red);
+            box-shadow: 0 0 20px var(--neon-red); border-radius: 0; transform: scale(1.2);
         }
-        .timeline-item:hover .timeline-content { border-color: #fff; box-shadow: 8px 8px 0px var(--accent-red); transform: translate(-4px, -4px); }
+        .timeline-content { padding: 35px; border: 3px solid var(--border); background: #0a0a0a; transition: 0.3s; }
+        .timeline-item:hover .timeline-content { border-color: var(--neon-cyan); box-shadow: 10px 10px 0px var(--neon-cyan); transform: translate(-5px, -5px); }
         .timeline-date {
-            display: inline-block; background: var(--accent-red); color: var(--bg-color);
-            font-family: 'Bebas Neue', sans-serif; font-size: 20px; padding: 5px 15px; margin-bottom: 15px;
+            display: inline-block; background: var(--neon-red); color: #000;
+            font-family: var(--font-aggro); font-size: 22px; padding: 5px 15px; margin-bottom: 15px;
         }
-        .timeline-content h3 { font-size: 2.5rem; margin-bottom: 10px; }
+        .timeline-content h3 { font-size: 2.8rem; margin-bottom: 10px; }
         .timeline-content p { color: #aaa; line-height: 1.8; }
 
         /* =========================
-           PORTFOLIO WORKS
+           PORTFOLIO DISTORTION
         ========================= */
-        .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         .work-card {
-            position: relative; height: 650px; display: block; text-decoration: none;
-            border: 4px solid var(--border-color); background: #111; transition: 0.2s; overflow: hidden;
+            position: relative; height: 680px; display: block; text-decoration: none;
+            overflow: hidden; border: 5px solid var(--border); transition: 0.3s;
         }
-        .work-card:hover { border-color: var(--accent-red); box-shadow: 15px 15px 0px var(--accent-red); transform: translate(-8px, -8px); }
         
-        .work-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; filter: grayscale(100%); transition: 0.3s; }
-        .work-card:hover .work-img { filter: grayscale(0%); transform: scale(1.05); }
+        .distort-img {
+            width: 100%; height: 100%; object-fit: cover; object-position: top;
+            filter: grayscale(100%) contrast(1.2); transition: transform 0.5s ease;
+        }
+        .work-card:hover .distort-img { filter: grayscale(0%); transform: scale(1.05); }
 
         .work-overlay {
-            position: absolute; inset: 0; display: flex; align-items: flex-end; padding: 40px;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+            position: absolute; inset: 0; display: flex; align-items: flex-end; padding: 45px;
+            background: linear-gradient(to top, rgba(0,0,0,1) 0%, transparent 100%); z-index: 2;
         }
-        .work-badge {
+        .work-content { transform: translateY(20px); transition: 0.5s ease; }
+        .work-card:hover .work-content { transform: translateY(0); }
+
+        .project-badge {
             display: inline-block; background: #fff; color: #000;
-            font-family: 'Bebas Neue', sans-serif; font-size: 18px; padding: 5px 15px; margin-bottom: 15px;
+            font-family: var(--font-aggro); font-size: 20px; padding: 5px 15px; margin-bottom: 20px;
         }
-        .work-content h3 { font-size: 3.5rem; line-height: 1; margin-bottom: 15px; color: white; text-shadow: 2px 2px 0px var(--accent-red); }
-        .work-content p { color: #ccc; line-height: 1.6; margin-bottom: 25px; }
-        
+        .work-overlay h3 {
+            font-size: 4rem; line-height: 1; margin-bottom: 15px; color: #fff;
+            text-shadow: 2px 2px 0 var(--neon-red), -2px -2px 0 var(--neon-cyan);
+        }
+        .work-overlay p { color: #ccc; line-height: 1.8; margin-bottom: 25px; }
         .work-btn {
-            display: inline-flex; align-items: center; gap: 10px; background: var(--accent-red); color: var(--bg-color);
-            padding: 10px 25px; font-family: 'Bebas Neue', sans-serif; font-size: 22px; transition: 0.2s;
+            display: inline-flex; align-items: center; gap: 10px; background: var(--neon-red); color: #000;
+            padding: 12px 30px; font-family: var(--font-aggro); font-size: 24px; transition: 0.3s;
         }
-        .work-card:hover .work-btn { background: #fff; box-shadow: 4px 4px 0px var(--accent-red); }
+        .work-card:hover .work-btn { background: #fff; box-shadow: 5px 5px 0px var(--neon-cyan); }
+        
+        /* The Aggressive SVG Distortion on Hover */
+        .distort-container svg { position: absolute; width: 0; height: 0; }
+        .work-card:hover .distort-img { filter: url(#chaosGlitch); grayscale(0%); }
 
         /* =========================
            CONTACT SECTION
         ========================= */
         .contact-box input, .contact-box textarea {
-            width: 100%; padding: 20px; margin-bottom: 25px; background: transparent;
-            border: 3px solid var(--border-color); color: white; font-family: 'Space Grotesk', sans-serif;
-            font-size: 16px; font-weight: 600; transition: 0.2s; outline: none;
+            width: 100%; padding: 22px; margin-bottom: 25px; background: #080808;
+            border: 3px solid var(--border); color: #fff; font-family: var(--font-main);
+            font-size: 16px; transition: 0.3s; outline: none;
         }
         .contact-box input:focus, .contact-box textarea:focus {
-            border-color: var(--accent-red); background: rgba(255,0,60,0.05); box-shadow: 6px 6px 0px var(--accent-red); transform: translate(-4px, -4px);
+            border-color: var(--neon-red); box-shadow: 0 0 15px rgba(255,0,60,0.3); transform: translate(-3px, -3px);
         }
         .contact-box textarea { height: 180px; resize: none; }
         .contact-info p { line-height: 2.5; font-size: 1.1rem; color: #ccc; }
-        .contact-info i { color: var(--accent-red); margin-right: 15px; font-size: 1.5rem; }
-        .contact-info a { color: white; text-decoration: none; border-bottom: 2px solid transparent; transition: 0.2s; }
-        .contact-info a:hover { color: var(--accent-red); border-bottom-color: var(--accent-red); }
+        .contact-info i { color: var(--neon-red); margin-right: 15px; font-size: 1.4rem; text-shadow: 0 0 10px var(--neon-red); }
+        .contact-info a { color: white; text-decoration: none; border-bottom: 2px solid transparent; transition: 0.3s; }
+        .contact-info a:hover { color: var(--neon-cyan); border-bottom-color: var(--neon-cyan); }
 
         /* FOOTER */
-        footer { padding: 40px; text-align: center; border-top: 3px solid var(--border-color); background: #0a0a0a; font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 2px; }
-        footer span { color: var(--accent-red); }
-
-        /* ANIMATION */
-        .reveal { opacity: 0; transform: translateY(50px); transition: 0.6s cubic-bezier(0, 0, 0, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        footer { padding: 40px; text-align: center; border-top: 4px solid var(--border); background: #000; font-family: var(--font-aggro); font-size: 26px; color: #555; }
+        footer span { color: var(--neon-red); text-shadow: 0 0 10px var(--neon-red); }
 
         /* =========================
-           RESPONSIVE
+           RESPONSIVE RE-HACKS
         ========================= */
-        @media(max-width: 1200px) {
-            .hero .glitch { font-size: 6rem; }
+        @media(max-width: 1300px) {
+            .hero-glitch { font-size: 7rem; }
+            .section-top h2 { font-size: 6rem; }
             .section-title { font-size: 5rem; }
-            .hero-grid { grid-template-columns: 1fr; }
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .btn-group { justify-content: center; }
             .hero-img-box { margin-top: 50px; max-width: 500px; margin-inline: auto; }
             .grid-2, .works-grid { grid-template-columns: 1fr; }
-            nav { padding: 20px; }
         }
         @media(max-width: 768px) {
-            nav .menu, nav .socials { display: none; }
-            section { padding: 120px 5%; }
-            .hero .glitch { font-size: 4.5rem; }
-            .section-title { font-size: 4rem; }
+            nav { padding: 15px 5%; } nav .menu, nav .socials { display: none; }
+            section { padding: 100px 5%; }
+            .hero-glitch { font-size: 5rem; }
+            .section-top h2 { font-size: 4rem; }
             .hero-img-box img { height: 400px; }
-            .brutal-card, .timeline-content { padding: 25px; }
-            .stat-box h4 { font-size: 3.5rem; }
+            .cyber-card { padding: 30px; }
+            .stat-box h4 { font-size: 4rem; }
             .timeline { padding-left: 20px; margin-left: 10px; }
             .timeline-dot { left: -38px; width: 28px; height: 28px; }
+            .timeline-content { padding: 25px; }
             .work-card { height: 500px; }
-            .work-content h3 { font-size: 2.5rem; }
+            .work-overlay { padding: 30px; }
+            .work-overlay h2 { font-size: 3rem; }
         }
     </style>
 </head>
 
 <body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-inner" id="cursorInner"></div>
+
+    <div class="noise"></div>
+
     <nav>
-        <div class="logo">
+        <a href="#home" class="logo">
             <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg" alt="Logo">
             <h2>Tamim <span>Mollah</span></h2>
-        </div>
+        </a>
         <div class="menu">
             <a href="#home">Home</a>
             <a href="#about">About</a>
@@ -313,42 +314,39 @@
     <section class="hero" id="home">
         <div class="hero-grid">
             <div class="reveal">
-                <div class="mini-badge">DOMINATING VISUALS</div>
-                <div class="glitch-wrapper">
-                    <h1 class="glitch" data-text="TAMIM'S UNIVERSE">TAMIM'S UNIVERSE</h1>
-                </div>
+                <div class="mini-title" style="letter-spacing: 2px; color: var(--neon-cyan);">CYBER_ARTIST_V0.3</div>
+                <h1 class="hero-glitch" data-text="TAMIM'S UNIVERSE">TAMIM'S UNIVERSE</h1>
                 <p>
-                    I am Al Jubayer Rayhan Tamim Mollah — a creative designer strictly focused on bold branding, visual storytelling, and high-impact digital experiences. No compromises.
+                    I am Al Jubayer Rayhan Tamim Mollah — a creative weapon strictly specialized in aggressive branding, cinematic storytelling, and no-mercy visual experiences. 
                     <br><br><span class="typing"></span>
                 </p>
                 <div class="btn-group">
-                    <a href="#portfolio" class="btn btn-primary">Explore Work <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+                    <a href="#portfolio" class="btn btn-primary">EXPLORE WORK <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn btn-secondary">INITIATE CONNECTION</a>
                 </div>
             </div>
             <div class="hero-img-box reveal">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg" alt="Tamim Mollah">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg" alt="Hero Portrait">
             </div>
         </div>
     </section>
 
-    <div class="marquee-container">
+    <div class="marquee-tape">
         <div class="marquee-content">
-            <span>WARNING: BOLD DESIGN AHEAD <i class="fa-solid fa-bolt"></i> HIGH IMPACT VISUALS <i class="fa-solid fa-bolt"></i> AGGRESSIVE CREATIVITY <i class="fa-solid fa-bolt"></i> NO EXCUSES <i class="fa-solid fa-bolt"></i></span>
-            <span>WARNING: BOLD DESIGN AHEAD <i class="fa-solid fa-bolt"></i> HIGH IMPACT VISUALS <i class="fa-solid fa-bolt"></i> AGGRESSIVE CREATIVITY <i class="fa-solid fa-bolt"></i> NO EXCUSES <i class="fa-solid fa-bolt"></i></span>
+            <span>FULL ANIMATION LOADED <i class="fa-solid fa-bolt"></i> HIGH VISUAL IMPACT <i class="fa-solid fa-bolt"></i> NO COMPROMISE DESIGN <i class="fa-solid fa-bolt"></i> CYBERNETIC AESTHETICS <i class="fa-solid fa-bolt"></i> AGGRESSIVE CREATIVITY <i class="fa-solid fa-bolt"></i></span>
+            <span>FULL ANIMATION LOADED <i class="fa-solid fa-bolt"></i> HIGH VISUAL IMPACT <i class="fa-solid fa-bolt"></i> NO COMPROMISE DESIGN <i class="fa-solid fa-bolt"></i> CYBERNETIC AESTHETICS <i class="fa-solid fa-bolt"></i> AGGRESSIVE CREATIVITY <i class="fa-solid fa-bolt"></i></span>
         </div>
     </div>
 
     <section id="about">
         <div class="section-top reveal">
-            <div class="mini-badge">ABOUT ME</div>
-            <h2 class="section-title">Creative <span>Identity</span></h2>
-            <p class="section-desc">Passionate about creating raw, impactful visual experiences through modern branding systems and aggressive creative direction.</p>
+            <h2 class="section-title">Creative <span class="typing_about"></span></h2>
+            <p>I am Al Jubayer Rayhan Tamim Mollah, a relentless Graphics Designer focused on dominating visual narratives and brutal branding experiences.</p>
         </div>
         <div class="grid-2">
-            <div class="brutal-card reveal">
-                <h3>Who I Am</h3>
-                <p>Currently pursuing BSS in Journalism & Media Communication at Green University of Bangladesh, I combine raw creativity with modern digital communication to craft undeniable visual experiences.</p>
+            <div class="cyber-card reveal">
+                <h3>The Profile</h3>
+                <p>Currently pursuing BSS in Journalism & Media Communication at Green University of Bangladesh, I weaponize design and modern communication to craft undeniably impactful visual weapons. I enforce premium branding, cinematic social media visuals, and relentless visual storytelling.</p>
                 <div class="skills-wrap">
                     <div class="skill-tag">Photoshop</div>
                     <div class="skill-tag">Illustrator</div>
@@ -358,12 +356,12 @@
                     <div class="skill-tag">Branding</div>
                 </div>
             </div>
-            <div class="brutal-card reveal">
-                <h3>The Numbers</h3>
+            <div class="cyber-card reveal">
+                <h3>The Metrics</h3>
                 <div class="stats-grid">
-                    <div class="stat-box"><h4>3+</h4><p>Years Exp.</p></div>
-                    <div class="stat-box"><h4>50+</h4><p>Projects</p></div>
-                    <div class="stat-box"><h4>100%</h4><p>Delivery</p></div>
+                    <div class="stat-box"><h4>3+</h4><p>Years Grind</p></div>
+                    <div class="stat-box"><h4>50+</h4><p>Deployments</p></div>
+                    <div class="stat-box"><h4>100%</h4><p>Impact</p></div>
                     <div class="stat-box"><h4>24/7</h4><p>Hustle</p></div>
                 </div>
             </div>
@@ -372,45 +370,63 @@
 
     <section id="resume">
         <div class="section-top reveal">
-            <div class="mini-badge">RESUME</div>
-            <h2 class="section-title">Experience & <span>Education</span></h2>
-            <p class="section-desc">A brutal breakdown of my professional experience, academic background, and industry expertise.</p>
+            <h2 class="section-title">Deployments & <span>Intel</span></h2>
+            <p>A brutal breakdown of my professional deployments, academic intel, and creative warfare history.</p>
         </div>
         <div class="timeline">
-            <div class="timeline-item reveal"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2025 — Present</span><h3>Graphics Designer — Oilo</h3><p>Designing and delivering visually compelling graphics for digital marketing campaigns across social media, websites, and branding materials.</p></div></div>
-            <div class="timeline-item reveal"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2024 — 2025</span><h3>Graphics Designer — VortexUp Digital</h3><p>Developing premium visual assets for social media campaigns, digital ads, and print materials with a focus on bold brand consistency.</p></div></div>
-            <div class="timeline-item reveal"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2023 — 2024</span><h3>Marketing Executive — Smart IT</h3><p>Mentoring aspiring designers, reviewing projects, and helping teams build strong visual storytelling.</p></div></div>
+            <div class="timeline-item reveal"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2025 — Present</span><h3>Graphics Designer — Oilo</h3><p>Designing visuals for aggressive digital marketing campaigns across social media, websites, newsletters, and branding systems.</p></div></div>
+            <div class="timeline-item reveal"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2024 — 2025</span><h3>Graphics Designer — VortexUp Digital</h3><p>Developing premium visual assets for high-impact social media campaigns, digital ads, and print materials.</p></div></div>
+            <div class="timeline-item reveal"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2023 — 2024</span><h3>Marketing Executive — Smart IT</h3><p>Mentoring designers, reviewing projects, and helping teams build strong visual narratives.</p></div></div>
             <div class="timeline-item reveal"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2026 — Present</span><h3>Green University of Bangladesh</h3><p>BSS in Journalism & Media Communication</p></div></div>
-            <div class="timeline-item reveal"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2022 — 2023</span><h3>DR. Mahabubur Rahman Mollah College</h3><p>Completed Higher Secondary Certificate (HSC)</p></div></div>
+            <div class="timeline-item reveal"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">2022 — 2023</span><h3>DR. Mahabubur Rahman Mollah College</h3><p>Higher Secondary Certificate (HSC)</p></div></div>
         </div>
     </section>
 
-    <section id="portfolio">
+    <section id="portfolio" class="distort-container">
         <div class="section-top reveal">
-            <div class="mini-badge">FEATURED PROJECTS</div>
-            <h2 class="section-title">Selected <span>Works</span></h2>
-            <p class="section-desc">A showcase of my latest branding, cultural campaign, and digital marketing works. No fluff, just impact.</p>
+            <h2 class="section-title">Field <span style="color: var(--neon-cyan);">Operations</span></h2>
+            <p>Selected operations showcasing modern creative weaponry, cultural warfare, and digital marketing deployments.</p>
         </div>
+        
+        <svg>
+            <filter id="chaosGlitch" x="0" y="0" width="100%" height="100%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.05 0.5" numOctaves="3" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="100" xChannelSelector="R" yChannelSelector="G" result="distorted" />
+                
+                <feColorMatrix in="distorted" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="cyanSplit"/>
+                <feOffset in="cyanSplit" dx="-10" dy="0" result="offsetCyan"/>
+                
+                <feColorMatrix in="distorted" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="greenSplit"/>
+                <feOffset in="greenSplit" dx="10" dy="0" result="offsetGreen"/>
+
+                <feMerge>
+                    <feMergeNode in="offsetCyan"/>
+                    <feMergeNode in="offsetGreen"/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+        </svg>
+
         <div class="works-grid">
             <a href="https://www.behance.net/gallery/248627807/Pohela-Boishakh-Cultural-Program-Design-2026" target="_blank" class="work-card reveal">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4o6srF2YInrs3wqqr2VA3WJdFJ3tAIvl_tr8YAwT7yTqSVGMpDtyMjPF_8TS7xQHf2etXvSa-mAawkoPwneBNnbwXSXA7XbzgCOdS6DEAEF25d-wbYiE_YleN8aYWCzCE7DAz4VglRw6X2WhUYigSKGq-gnEPE_ZLokxOy7ZUlqvPojQxwQthPB685mxz/s16000/Screenshot%202026-05-19%20195145.png" alt="Project 1" class="work-img" loading="lazy">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4o6srF2YInrs3wqqr2VA3WJdFJ3tAIvl_tr8YAwT7yTqSVGMpDtyMjPF_8TS7xQHf2etXvSa-mAawkoPwneBNnbwXSXA7XbzgCOdS6DEAEF25d-wbYiE_YleN8aYWCzCE7DAz4VglRw6X2WhUYigSKGq-gnEPE_ZLokxOy7ZUlqvPojQxwQthPB685mxz/s16000/Screenshot%202026-05-19%20195145.png" alt="Project 1" class="distort-img" loading="lazy">
                 <div class="work-overlay">
                     <div class="work-content">
-                        <div class="work-badge">Cultural Branding</div>
+                        <div class="project-badge">Cultural Warfare</div>
                         <h3>Pohela Boishakh Design</h3>
-                        <p>Bengali cultural campaign design crafted with cinematic storytelling and luxury branding aesthetics.</p>
-                        <span class="work-btn">View Project <i class="fa-solid fa-arrow-right"></i></span>
+                        <p>Bengali cultural campaign design with cinematic storytelling and dominant branding aesthetics.</p>
+                        <span class="work-btn">VIEW INTEL <i class="fa-solid fa-eye"></i></span>
                     </div>
                 </div>
             </a>
             <a href="https://www.behance.net/gallery/245785373/Panda-Station-25-Digital-Marketing-Campaign-Posters" target="_blank" class="work-card reveal">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHFaiqWGBbW7oSozMn5bKrjHs6QbCFv6JDEWS9BJ6FXjnliWog1sJcyRQ0PXEUxcptsCZiW93JDvTrIgXPaDk7Pfsm1TL_6hRQWotfHJvVSQaCail7Amh94VZQA6lCyyxOC_981Xur5SO0jvj2iOWHUv9bpxFdNNTSOFIS7-0kTYCSOeoui6yg5TNcj9hK/s16000/Screenshot%202026-05-19%20195133.png" alt="Project 2" class="work-img" loading="lazy">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHFaiqWGBbW7oSozMn5bKrjHs6QbCFv6JDEWS9BJ6FXjnliWog1sJcyRQ0PXEUxcptsCZiW93JDvTrIgXPaDk7Pfsm1TL_6hRQWotfHJvVSQaCail7Amh94VZQA6lCyyxOC_981Xur5SO0jvj2iOWHUv9bpxFdNNTSOFIS7-0kTYCSOeoui6yg5TNcj9hK/s16000/Screenshot%202026-05-19%20195133.png" alt="Project 2" class="distort-img" loading="lazy">
                 <div class="work-overlay">
                     <div class="work-content">
-                        <div class="work-badge">Marketing Campaign</div>
+                        <div class="project-badge">Marketing Campaign</div>
                         <h3>Panda Station 25</h3>
-                        <p>Social media and digital marketing campaign visuals with modern premium composition.</p>
-                        <span class="work-btn">View Project <i class="fa-solid fa-arrow-right"></i></span>
+                        <p>Aggressive social media and digital marketing campaign visuals with modern premium composition.</p>
+                        <span class="work-btn">VIEW INTEL <i class="fa-solid fa-eye"></i></span>
                     </div>
                 </div>
             </a>
@@ -419,48 +435,86 @@
 
     <section id="contact">
         <div class="section-top reveal">
-            <div class="mini-badge">GET IN TOUCH</div>
-            <h2 class="section-title">Let’s <span>Connect</span></h2>
-            <p class="section-desc">Ready to build something bold? Drop a message.</p>
+            <h2 class="section-title">Establish <span>Link</span></h2>
+            <p>Ready for high-impact creative warfare? Drop intel.</p>
         </div>
         <div class="grid-2">
-            <div class="brutal-card reveal contact-info">
-                <h3>Contact Info</h3>
+            <div class="cyber-card reveal contact-info">
+                <h3>Intel Nodes</h3>
                 <br>
-                <p><i class="fa-solid fa-phone"></i> 01865861015</p>
+                <p><i class="fa-solid fa-phone"></i> +880 1865861015</p>
                 <p><i class="fa-solid fa-location-dot"></i> Dhaka, Bangladesh</p>
-                <p><i class="fa-brands fa-facebook"></i> <a href="https://www.facebook.com/jubayer.jubu.0" target="_blank">Facebook Profile</a></p>
-                <p><i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/aljubayerrayhan/" target="_blank">Instagram Profile</a></p>
-                <p><i class="fa-brands fa-behance"></i> <a href="https://www.behance.net/tamimmollah" target="_blank">Behance Portfolio</a></p>
+                <p><i class="fa-brands fa-facebook"></i> <a href="https://www.facebook.com/jubayer.jubu.0" target="_blank">Facebook/Link</a></p>
+                <p><i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/aljubayerrayhan/" target="_blank">Instagram/Link</a></p>
+                <p><i class="fa-brands fa-behance"></i> <a href="https://www.behance.net/tamimmollah" target="_blank">Behance/Intel</a></p>
             </div>
-            <div class="brutal-card reveal contact-box">
-                <input type="text" placeholder="YOUR NAME">
-                <input type="email" placeholder="YOUR EMAIL">
-                <textarea placeholder="YOUR MESSAGE"></textarea>
-                <button class="btn btn-primary" style="width:100%; justify-content: center;">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+            <div class="cyber-card reveal contact-box">
+                <input type="text" placeholder="YOUR DESIGNATION/NAME">
+                <input type="email" placeholder="YOUR COMMS EMAIL">
+                <textarea placeholder="PROJECT INTEL/MESSAGE"></textarea>
+                <button class="btn btn-primary" style="width:100%; border:none; cursor:pointer; font-family:'Outfit',sans-serif;">TRANSMIT MESSAGE <i class="fa-solid fa-paper-plane"></i></button>
             </div>
         </div>
     </section>
 
     <footer>
-        © 2026 — AL JUBAYER RAYHAN TAMIM MOLLAH | <span>BUILT FOR IMPACT.</span>
+        © 2026 — AL JUBAYER RAYHAN TAMIM MOLLAH | SYSTEM: ACTIVE | <span>NO COMPROMISE.</span>
     </footer>
 
     <script>
-        // Typed JS
+        // --- Custom Mouse Cursor ---
+        const cursor = document.getElementById('cursor');
+        const cursorInner = document.getElementById('cursorInner');
+        
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.2, ease: "power2.out" });
+            cursorInner.style.left = e.clientX + 'px';
+            cursorInner.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('a, button, .work-card').forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(2)';
+                cursor.style.borderColor = 'var(--neon-red)';
+                cursor.style.filter = 'url(#chaosGlitch)';
+            });
+            link.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursor.style.borderColor = '#fff';
+                cursor.style.filter = 'none';
+            });
+        });
+
+        // --- GSAP Scramble Text on Title Load ---
+        gsap.from(".hero-glitch", {
+            scrambleText: { text: "XQY ZJW PVLKM", chars: "01", revealDelay: 0.5 },
+            duration: 1.5, ease: "power4.out"
+        });
+
+        // --- Typed JS setups ---
         new Typed(".typing", {
-            strings: ["BOLD BRANDING DESIGNER.", "AGGRESSIVE UI CREATOR.", "HIGH-IMPACT VISUALS."],
+            strings: ["BOLDEST BRANDING DESIGNER.", "AGGRESSIVE UI CREATOR.", "NO-MERCY VISUALS."],
             typeSpeed: 50, backSpeed: 30, loop: true
         });
 
-        // Scroll Reveal
-        const reveals = document.querySelectorAll(".reveal");
-        window.addEventListener("scroll", () => {
-            reveals.forEach(el => {
-                if(el.getBoundingClientRect().top < window.innerHeight - 100) { el.classList.add("active"); }
-            });
+        new Typed(".typing_about", {
+            strings: ["Artist.", "Weapon.", "Visionary."],
+            typeSpeed: 60, backSpeed: 40, loop: true
         });
-        window.dispatchEvent(new Event('scroll'));
+
+        // --- Violent Scroll Reveal Animation ---
+        const reveals = document.querySelectorAll(".reveal");
+        
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                }
+            });
+        }, { threshold: 0.1 });
+
+        reveals.forEach(el => observer.observe(el));
+
     </script>
 </body>
 </html>
