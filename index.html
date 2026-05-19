@@ -7,21 +7,16 @@
 
 <title>Tamim Portfolio</title>
 
-<!-- GOOGLE FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- FONT AWESOME -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
-<!-- GSAP -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 <style>
 
-/* =========================
-RESET
-========================= */
+/* RESET */
 
 *{
 margin:0;
@@ -37,26 +32,7 @@ overflow-x:hidden;
 color:white;
 }
 
-/* =========================
-CUSTOM CURSOR
-========================= */
-
-.cursor{
-width:30px;
-height:30px;
-border:2px solid #3a86ff;
-border-radius:50%;
-position:fixed;
-pointer-events:none;
-transform:translate(-50%,-50%);
-z-index:99999;
-transition:.08s;
-mix-blend-mode:difference;
-}
-
-/* =========================
-LOADER
-========================= */
+/* LOADER */
 
 .loader{
 position:fixed;
@@ -65,8 +41,7 @@ background:#050816;
 display:flex;
 justify-content:center;
 align-items:center;
-z-index:999999;
-transition:1s;
+z-index:99999;
 }
 
 .loader h1{
@@ -83,19 +58,17 @@ animation:pulse 1.5s infinite;
 transform:scale(1);
 }
 50%{
-transform:scale(1.08);
+transform:scale(1.1);
 }
 }
 
-/* =========================
-BACKGROUND
-========================= */
+/* BACKGROUND */
 
 .bg{
 position:fixed;
 inset:0;
-overflow:hidden;
 z-index:-1;
+overflow:hidden;
 }
 
 .blur{
@@ -110,7 +83,7 @@ animation:float 8s ease-in-out infinite;
 width:500px;
 height:500px;
 background:#3a86ff;
-top:-150px;
+top:-120px;
 left:-120px;
 }
 
@@ -118,18 +91,9 @@ left:-120px;
 width:450px;
 height:450px;
 background:#8338ec;
-bottom:-150px;
-right:-150px;
+bottom:-120px;
+right:-120px;
 animation-delay:2s;
-}
-
-.blur3{
-width:350px;
-height:350px;
-background:#00c6ff;
-top:40%;
-left:45%;
-animation-delay:4s;
 }
 
 @keyframes float{
@@ -137,13 +101,11 @@ animation-delay:4s;
 transform:translateY(0px);
 }
 50%{
-transform:translateY(-35px);
+transform:translateY(-40px);
 }
 }
 
-/* =========================
-NAVBAR
-========================= */
+/* NAVBAR */
 
 nav{
 position:fixed;
@@ -152,13 +114,13 @@ left:50%;
 transform:translateX(-50%);
 width:92%;
 max-width:1450px;
-padding:16px 24px;
+padding:18px 24px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(255,255,255,.06);
+background:rgba(255,255,255,.05);
 border:1px solid rgba(255,255,255,.08);
-backdrop-filter:blur(18px);
+backdrop-filter:blur(20px);
 border-radius:24px;
 z-index:999;
 }
@@ -174,23 +136,16 @@ width:58px;
 height:58px;
 border-radius:18px;
 object-fit:cover;
-border:2px solid rgba(255,255,255,.08);
 }
 
-.logo-text h2{
+.logo h2{
 font-size:18px;
 font-weight:700;
 }
 
-.logo-text p{
-font-size:12px;
-color:#94a3b8;
-margin-top:3px;
-}
-
 .nav-links{
 display:flex;
-gap:34px;
+gap:32px;
 }
 
 .nav-links a{
@@ -216,41 +171,30 @@ transition:.4s;
 width:100%;
 }
 
-/* =========================
-SECTION
-========================= */
-
-section{
-padding:120px 7%;
-}
-
-/* =========================
-HERO
-========================= */
+/* HERO */
 
 .hero{
 min-height:100vh;
 display:flex;
 align-items:center;
+padding:120px 7%;
 }
 
 .hero-content{
+max-width:1450px;
+margin:auto;
 display:grid;
 grid-template-columns:1fr 460px;
 gap:80px;
 align-items:center;
-width:100%;
-max-width:1450px;
-margin:auto;
 }
 
 .small{
 font-size:15px;
-font-weight:700;
 letter-spacing:3px;
-color:#60a5fa;
 text-transform:uppercase;
-margin-bottom:25px;
+color:#60a5fa;
+margin-bottom:24px;
 }
 
 .hero h1{
@@ -271,7 +215,6 @@ margin-top:32px;
 font-size:17px;
 line-height:2;
 color:#cbd5e1;
-max-width:760px;
 }
 
 .hero-btns{
@@ -284,19 +227,17 @@ flex-wrap:wrap;
 .btn{
 padding:18px 30px;
 border-radius:18px;
+text-decoration:none;
+font-weight:600;
 display:flex;
 align-items:center;
 gap:12px;
-text-decoration:none;
-font-size:15px;
-font-weight:600;
 transition:.4s;
 }
 
 .btn-primary{
 background:linear-gradient(135deg,#3a86ff,#8338ec);
 color:white;
-box-shadow:0 15px 30px rgba(58,134,255,.25);
 }
 
 .btn-primary:hover{
@@ -313,20 +254,13 @@ color:white;
 transform:translateY(-8px);
 }
 
-/* =========================
-HERO IMAGE
-========================= */
-
-.hero-image{
-position:relative;
-}
+/* IMAGE */
 
 .hero-box{
 height:650px;
 border-radius:40px;
 overflow:hidden;
 position:relative;
-background:rgba(255,255,255,.05);
 border:1px solid rgba(255,255,255,.08);
 }
 
@@ -336,14 +270,6 @@ height:100%;
 object-fit:cover;
 }
 
-.hero-box:before{
-content:'';
-position:absolute;
-inset:0;
-background:linear-gradient(to top,rgba(5,8,22,.92),transparent);
-z-index:1;
-}
-
 .float-card{
 position:absolute;
 padding:18px 24px;
@@ -351,7 +277,6 @@ background:rgba(255,255,255,.08);
 border:1px solid rgba(255,255,255,.08);
 backdrop-filter:blur(18px);
 border-radius:24px;
-animation:float 6s ease-in-out infinite;
 }
 
 .float1{
@@ -362,33 +287,21 @@ left:-20px;
 .float2{
 bottom:30px;
 right:-20px;
-animation-delay:2s;
 }
 
-.float-card h3{
-font-size:28px;
-margin-bottom:5px;
-}
+/* SECTION */
 
-.float-card p{
-font-size:13px;
-color:#cbd5e1;
+section{
+padding:120px 7%;
 }
-
-/* =========================
-TITLE
-========================= */
 
 .title{
 font-size:58px;
 font-weight:800;
-margin-bottom:25px;
-letter-spacing:-2px;
+margin-bottom:30px;
 }
 
-/* =========================
-ABOUT
-========================= */
+/* ABOUT */
 
 .about-grid{
 display:grid;
@@ -407,11 +320,9 @@ transition:.4s;
 
 .glass:hover{
 transform:translateY(-10px);
-border-color:#3a86ff;
 }
 
 .glass p{
-font-size:16px;
 line-height:2;
 color:#cbd5e1;
 }
@@ -420,7 +331,7 @@ color:#cbd5e1;
 display:flex;
 flex-wrap:wrap;
 gap:14px;
-margin-top:28px;
+margin-top:30px;
 }
 
 .skill{
@@ -428,18 +339,35 @@ padding:14px 18px;
 border-radius:18px;
 background:rgba(255,255,255,.05);
 border:1px solid rgba(255,255,255,.08);
-transition:.4s;
-font-size:14px;
 }
 
-.skill:hover{
-transform:translateY(-6px);
-background:linear-gradient(135deg,#3a86ff,#8338ec);
+/* EXPERIENCE */
+
+.timeline{
+margin-top:60px;
+display:flex;
+flex-direction:column;
+gap:30px;
 }
 
-/* =========================
-PORTFOLIO
-========================= */
+.timeline-box{
+padding:40px;
+border-radius:30px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+}
+
+.timeline-box h3{
+font-size:28px;
+margin-bottom:12px;
+}
+
+.timeline-box p{
+line-height:2;
+color:#cbd5e1;
+}
+
+/* PORTFOLIO */
 
 .portfolio{
 margin-top:60px;
@@ -447,8 +375,8 @@ height:700px;
 border-radius:40px;
 overflow:hidden;
 position:relative;
-background:rgba(255,255,255,.05);
 border:1px solid rgba(255,255,255,.08);
+cursor:pointer;
 }
 
 .portfolio img{
@@ -469,26 +397,13 @@ align-items:flex-end;
 padding:45px;
 }
 
-.overlay h2{
-font-size:42px;
-margin-bottom:14px;
-}
-
-.overlay p{
-max-width:700px;
-line-height:2;
-color:#cbd5e1;
-}
-
-/* =========================
-CONTACT
-========================= */
+/* CONTACT */
 
 .contact{
+margin-top:60px;
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:35px;
-margin-top:60px;
 }
 
 .contact-box{
@@ -503,22 +418,17 @@ border-radius:35px;
 width:100%;
 padding:18px;
 margin-bottom:18px;
-background:rgba(255,255,255,.04);
+background:rgba(255,255,255,.05);
 border:1px solid rgba(255,255,255,.08);
 border-radius:18px;
-font-family:'Sora',sans-serif;
 color:white;
-outline:none;
+font-family:'Sora',sans-serif;
 }
 
 .contact-box textarea{
 height:180px;
 resize:none;
 }
-
-/* =========================
-FOOTER
-========================= */
 
 footer{
 padding:40px;
@@ -527,11 +437,9 @@ color:#94a3b8;
 border-top:1px solid rgba(255,255,255,.08);
 }
 
-/* =========================
-RESPONSIVE
-========================= */
+/* RESPONSIVE */
 
-@media(max-width:1200px){
+@media(max-width:1100px){
 
 .hero-content,
 .about-grid,
@@ -540,29 +448,20 @@ grid-template-columns:1fr;
 }
 
 .hero h1{
-font-size:62px;
+font-size:60px;
 }
 
 }
 
 @media(max-width:768px){
 
-.cursor{
-display:none;
-}
-
 .nav-links{
 display:none;
 }
 
-.hero{
-padding-top:120px;
-}
-
 .hero h1{
-font-size:46px;
-line-height:1.12;
-letter-spacing:-2px;
+font-size:44px;
+line-height:1.15;
 }
 
 .title{
@@ -573,20 +472,8 @@ font-size:40px;
 height:500px;
 }
 
-.hero-btns{
-flex-direction:column;
-}
-
-.btn{
-justify-content:center;
-}
-
-section{
-padding:90px 6%;
-}
-
 .portfolio{
-height:450px;
+height:420px;
 }
 
 }
@@ -597,38 +484,31 @@ height:450px;
 
 <body>
 
-<!-- LOADER -->
 <div class="loader">
 <h1>TAMIM</h1>
 </div>
 
-<!-- CURSOR -->
-<div class="cursor"></div>
-
-<!-- BACKGROUND -->
 <div class="bg">
 <div class="blur blur1"></div>
 <div class="blur blur2"></div>
-<div class="blur blur3"></div>
 </div>
 
 <!-- NAVBAR -->
+
 <nav>
 
 <div class="logo">
 
 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg">
 
-<div class="logo-text">
 <h2>Al Jubayer</h2>
-<p>Creative Designer</p>
-</div>
 
 </div>
 
 <div class="nav-links">
 <a href="#home">Home</a>
 <a href="#about">About</a>
+<a href="#experience">Experience</a>
 <a href="#portfolio">Portfolio</a>
 <a href="#contact">Contact</a>
 </div>
@@ -636,6 +516,7 @@ height:450px;
 </nav>
 
 <!-- HERO -->
+
 <section class="hero" id="home">
 
 <div class="hero-content">
@@ -643,15 +524,15 @@ height:450px;
 <div>
 
 <div class="small">
-Creative Portfolio 2026
+Creative Designer & Photographer
 </div>
 
 <h1>
-Creating <span class="gradient">Premium Visual</span> Experiences
+Creating <span class="gradient">Modern Visual</span> Experiences
 </h1>
 
 <p>
-I’m Al Jubayer Rayhan Tamim Mollah — a passionate Graphic Designer and Photographer focused on branding, social media design, visual storytelling, and cinematic modern experiences.
+I’m Al Jubayer Rayhan Tamim Mollah — a passionate Graphics Designer focused on branding, social media design, photography, and premium visual storytelling experiences.
 </p>
 
 <div class="hero-btns">
@@ -661,31 +542,27 @@ I’m Al Jubayer Rayhan Tamim Mollah — a passionate Graphic Designer and Photo
 View Portfolio
 </a>
 
-<a href="#contact" class="btn btn-secondary">
-<i class="fa-solid fa-paper-plane"></i>
-Contact Me
+<a href="https://www.behance.net/tamimmollah" target="_blank" class="btn btn-secondary">
+<i class="fa-brands fa-behance"></i>
+Behance
 </a>
 
 </div>
 
 </div>
 
-<div class="hero-image">
-
 <div class="hero-box">
 
 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg">
 
-</div>
-
 <div class="float-card float1">
 <h3>200+</h3>
-<p>Projects Completed</p>
+<p>Projects</p>
 </div>
 
 <div class="float-card float2">
 <h3>5+</h3>
-<p>Years Experience</p>
+<p>Experience</p>
 </div>
 
 </div>
@@ -695,6 +572,7 @@ Contact Me
 </section>
 
 <!-- ABOUT -->
+
 <section id="about">
 
 <h2 class="title">
@@ -706,19 +584,19 @@ About <span class="gradient">Me</span>
 <div class="glass">
 
 <p>
-I specialize in creating premium branding visuals, modern social media campaigns, and cinematic storytelling experiences that elevate digital brands professionally.
+Creative and detail-driven Graphics Designer with strong expertise in branding, visual storytelling, social media design, photography, and user-centered design experiences.
 </p>
 
 <div class="skills">
 
-<div class="skill">Brand Identity</div>
-<div class="skill">Photography</div>
-<div class="skill">Poster Design</div>
-<div class="skill">Social Media</div>
 <div class="skill">Photoshop</div>
 <div class="skill">Illustrator</div>
 <div class="skill">Lightroom</div>
-<div class="skill">Creative Direction</div>
+<div class="skill">Figma</div>
+<div class="skill">Canva</div>
+<div class="skill">Branding</div>
+<div class="skill">Typography</div>
+<div class="skill">Photography</div>
 
 </div>
 
@@ -727,7 +605,7 @@ I specialize in creating premium branding visuals, modern social media campaigns
 <div class="glass">
 
 <p>
-My design philosophy combines clean aesthetics, cinematic visuals, modern UI inspiration, and emotional storytelling to create eye-catching premium digital experiences.
+Currently studying BSS in Journalism & Media Communication at Green University of Bangladesh while building modern creative digital experiences professionally.
 </p>
 
 </div>
@@ -736,12 +614,49 @@ My design philosophy combines clean aesthetics, cinematic visuals, modern UI ins
 
 </section>
 
+<!-- EXPERIENCE -->
+
+<section id="experience">
+
+<h2 class="title">
+Professional <span class="gradient">Experience</span>
+</h2>
+
+<div class="timeline">
+
+<div class="timeline-box">
+<h3>Graphics Designer — Oilo</h3>
+<p>2025 — Present</p>
+</div>
+
+<div class="timeline-box">
+<h3>Graphics Designer — VortexUp Digital</h3>
+<p>2024 — 2025</p>
+</div>
+
+<div class="timeline-box">
+<h3>Marketing Executive — Smart IT</h3>
+<p>2023 — 2024</p>
+</div>
+
+<div class="timeline-box">
+<h3>Photographer — DMRC</h3>
+<p>2022</p>
+</div>
+
+</div>
+
+</section>
+
 <!-- PORTFOLIO -->
+
 <section id="portfolio">
 
 <h2 class="title">
 Featured <span class="gradient">Portfolio</span>
 </h2>
+
+<a href="https://www.behance.net/tamimmollah" target="_blank">
 
 <div class="portfolio">
 
@@ -756,7 +671,7 @@ Creative Portfolio Showcase
 </h2>
 
 <p>
-Premium branding, photography, social media campaigns, and modern visual storytelling crafted with cinematic aesthetics.
+Click to view full Behance projects and creative visual works.
 </p>
 
 </div>
@@ -765,9 +680,12 @@ Premium branding, photography, social media campaigns, and modern visual storyte
 
 </div>
 
+</a>
+
 </section>
 
 <!-- CONTACT -->
+
 <section id="contact">
 
 <h2 class="title">
@@ -778,14 +696,23 @@ Let’s <span class="gradient">Connect</span>
 
 <div class="contact-box">
 
-<h3 style="font-size:34px;margin-bottom:20px;">
+<h3 style="font-size:32px;margin-bottom:20px;">
 Contact Information
 </h3>
 
 <p style="line-height:2;color:#cbd5e1;">
+
 Phone: 01865861015 <br><br>
+
 Email: tamimmolla81@gmail.com <br><br>
-Location: Dhaka, Bangladesh
+
+Location: Shantibagh, Demra, Dhaka <br><br>
+
+LinkedIn:
+<a href="https://linkedin.com/in/al-jubayer-rayhan-tamim-mollah" target="_blank" style="color:#3a86ff;">
+View Profile
+</a>
+
 </p>
 
 </div>
@@ -796,7 +723,7 @@ Location: Dhaka, Bangladesh
 <input type="email" placeholder="Your Email">
 <textarea placeholder="Your Message"></textarea>
 
-<a href="#" class="btn btn-primary" style="width:fit-content;">
+<a href="#" class="btn btn-primary">
 <i class="fa-solid fa-paper-plane"></i>
 Send Message
 </a>
@@ -807,7 +734,6 @@ Send Message
 
 </section>
 
-<!-- FOOTER -->
 <footer>
 © 2026 — Al Jubayer Rayhan Tamim Mollah
 </footer>
@@ -820,24 +746,9 @@ window.addEventListener("load",()=>{
 
 setTimeout(()=>{
 
-document.querySelector(".loader").style.opacity="0";
-
-setTimeout(()=>{
 document.querySelector(".loader").style.display="none";
-},1000);
 
 },1500);
-
-});
-
-/* CURSOR */
-
-const cursor=document.querySelector(".cursor");
-
-document.addEventListener("mousemove",(e)=>{
-
-cursor.style.left=e.clientX+"px";
-cursor.style.top=e.clientY+"px";
 
 });
 
@@ -866,7 +777,7 @@ stagger:.2,
 delay:.6
 });
 
-gsap.utils.toArray(".glass,.portfolio,.contact-box").forEach((el)=>{
+gsap.utils.toArray(".glass,.timeline-box,.portfolio,.contact-box").forEach((el)=>{
 
 gsap.from(el,{
 scrollTrigger:{
