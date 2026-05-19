@@ -1,525 +1,1025 @@
-/* =========================
-ULTRA RESPONSIVE FIX
-এই CSS টা তোমার পুরো CSS এর একদম নিচে paste করো
-========================= */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-/* =========================
-TABLET RESPONSIVE
-========================= */
+<title>Al Jubayer Rayhan Tamim Mollah | Creative Portfolio</title>
 
-@media(max-width:1200px){
+<!-- PREMIUM FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-.hero-content,
-.about-grid,
-.contact,
-.portfolio-grid,
-.section-header{
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
-grid-template-columns:1fr !important;
-display:grid !important;
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
-
-.hero-content{
-gap:70px;
-}
-
-.hero-right{
-width:100%;
-display:flex;
-justify-content:center;
-}
-
-.hero-image-wrapper{
-height:auto !important;
-}
-
-.hero-image{
-width:100% !important;
-max-width:500px;
-height:650px !important;
-}
-
-.portfolio-card,
-.small-card,
-.large-card{
-min-height:650px !important;
-}
-
-.section-header{
-gap:40px;
-}
-
-.hero-title{
-font-size:72px !important;
-line-height:1.05 !important;
-letter-spacing:-3px !important;
-}
-
-.portfolio-title,
-.ultra-title,
-.title{
-font-size:60px !important;
-line-height:1.1;
-}
-
-}
-
-/* =========================
-MOBILE RESPONSIVE
-========================= */
-
-@media(max-width:768px){
-
-/* BODY */
 
 body{
+font-family:'Sora',sans-serif;
+background:#050816;
+color:white;
 overflow-x:hidden;
-cursor:auto;
 }
 
-/* REMOVE HEAVY EFFECTS */
+/* =========================
+BACKGROUND
+========================= */
 
-.cursor,
-.cursor2,
-.blur3,
-.floating-card,
-.hero-bg-lines{
-display:none !important;
+.bg{
+position:fixed;
+inset:0;
+z-index:-10;
+overflow:hidden;
 }
-
-/* LIGHTER BACKGROUND */
 
 .blur{
-filter:blur(80px) !important;
-opacity:.15 !important;
+position:absolute;
+border-radius:50%;
+filter:blur(120px);
+opacity:.25;
+animation:float 10s ease-in-out infinite;
 }
 
-/* NAVBAR */
+.blur1{
+width:500px;
+height:500px;
+background:#3a86ff;
+top:-150px;
+left:-100px;
+}
+
+.blur2{
+width:450px;
+height:450px;
+background:#8338ec;
+bottom:-120px;
+right:-120px;
+animation-delay:3s;
+}
+
+.blur3{
+width:350px;
+height:350px;
+background:#00c6ff;
+top:45%;
+left:45%;
+animation-delay:6s;
+}
+
+@keyframes float{
+0%,100%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-40px);
+}
+}
+
+/* =========================
+NAVBAR
+========================= */
 
 nav{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+width:92%;
+max-width:1400px;
+padding:16px 24px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(18px);
+border-radius:24px;
+z-index:999;
+}
 
-top:12px !important;
-
-width:94% !important;
-
-padding:14px 16px !important;
-
-border-radius:18px !important;
-
+.logo{
+display:flex;
+align-items:center;
+gap:14px;
 }
 
 .logo img{
-width:48px !important;
-height:48px !important;
-border-radius:14px;
+width:55px;
+height:55px;
+border-radius:18px;
+object-fit:cover;
+border:2px solid rgba(255,255,255,.08);
 }
 
 .logo-text h2{
-font-size:15px !important;
+font-size:18px;
+font-weight:700;
 }
 
 .logo-text p{
-font-size:11px !important;
+font-size:12px;
+color:#94a3b8;
+margin-top:3px;
 }
 
 .nav-links{
-display:none !important;
+display:flex;
+gap:32px;
 }
 
-/* SECTION */
+.nav-links a{
+text-decoration:none;
+color:white;
+font-size:14px;
+font-weight:500;
+position:relative;
+}
+
+.nav-links a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-8px;
+width:0%;
+height:2px;
+background:linear-gradient(90deg,#3a86ff,#8338ec);
+transition:.4s;
+}
+
+.nav-links a:hover::after{
+width:100%;
+}
+
+.social-nav{
+display:flex;
+gap:12px;
+}
+
+.social-nav a{
+width:42px;
+height:42px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:rgba(255,255,255,.06);
+border-radius:14px;
+color:white;
+text-decoration:none;
+transition:.4s;
+}
+
+.social-nav a:hover{
+transform:translateY(-5px);
+background:linear-gradient(135deg,#3a86ff,#8338ec);
+}
+
+/* =========================
+SECTION
+========================= */
 
 section{
-padding:90px 20px !important;
+padding:120px 7%;
 }
 
-/* HERO */
+/* =========================
+HERO
+========================= */
 
 .hero{
-padding-top:140px !important;
-min-height:auto !important;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
 }
 
 .hero-content{
-gap:50px !important;
+max-width:1300px;
+display:grid;
+grid-template-columns:1fr 450px;
+gap:80px;
+align-items:center;
 }
 
-.hero-badge{
-padding:12px 18px !important;
-font-size:12px !important;
-margin-bottom:24px !important;
+.small-text{
+font-size:15px;
+font-weight:600;
+letter-spacing:3px;
+text-transform:uppercase;
+color:#60a5fa;
+margin-bottom:28px;
 }
 
-.hero-title{
-
-font-size:46px !important;
-
-line-height:1.08 !important;
-
-letter-spacing:-2px !important;
-
-word-break:break-word;
-
+.hero h1{
+font-size:90px;
+line-height:1.02;
+font-weight:800;
+letter-spacing:-4px;
 }
 
-.hero-description{
-
-font-size:15px !important;
-
-line-height:2 !important;
-
-margin-top:24px !important;
-
+.gradient{
+background:linear-gradient(
+to right,
+#3a86ff,
+#00c6ff,
+#8338ec
+);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-/* BUTTONS */
+.hero p{
+margin-top:35px;
+font-size:18px;
+line-height:2;
+color:#cbd5e1;
+max-width:750px;
+}
 
-.hero-buttons,
 .hero-btns{
-flex-direction:column !important;
-width:100%;
-margin-top:30px !important;
+display:flex;
+gap:18px;
+margin-top:40px;
+flex-wrap:wrap;
 }
 
 .btn{
-
-width:100% !important;
-
-justify-content:center !important;
-
-padding:16px 22px !important;
-
-font-size:14px !important;
-
-border-radius:18px !important;
-
+padding:18px 30px;
+border-radius:18px;
+text-decoration:none;
+font-size:15px;
+font-weight:600;
+display:flex;
+align-items:center;
+gap:12px;
+transition:.4s;
 }
 
-/* STATS */
-
-.hero-stats{
-flex-direction:column !important;
-gap:16px !important;
-margin-top:35px !important;
+.btn-primary{
+background:linear-gradient(
+135deg,
+#3a86ff,
+#8338ec
+);
+color:white;
+box-shadow:0 15px 30px rgba(58,134,255,.3);
 }
 
-.stat-box{
-width:100%;
-padding:22px !important;
-border-radius:22px !important;
+.btn-primary:hover{
+transform:translateY(-8px);
 }
 
-.stat-box h2{
-font-size:34px !important;
+.btn-secondary{
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.08);
+color:white;
 }
 
-.stat-box p{
-font-size:13px !important;
+.btn-secondary:hover{
+transform:translateY(-8px);
+background:rgba(255,255,255,.1);
 }
 
 /* HERO IMAGE */
 
 .hero-image{
-
-width:100% !important;
-
-height:480px !important;
-
-border-radius:28px !important;
-
+position:relative;
 }
 
-.hero-image img{
+.hero-box{
+position:relative;
+width:100%;
+height:650px;
+border-radius:40px;
+overflow:hidden;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+}
+
+.hero-box::before{
+content:'';
+position:absolute;
+inset:0;
+background:linear-gradient(
+to top,
+rgba(5,8,22,.85),
+transparent
+);
+z-index:1;
+}
+
+.hero-box img{
+width:100%;
+height:100%;
 object-fit:cover;
 }
 
-/* TITLES */
-
-.title,
-.ultra-title,
-.portfolio-title{
-
-font-size:42px !important;
-
-line-height:1.08 !important;
-
-letter-spacing:-2px !important;
-
-word-break:break-word;
-
+.floating-card{
+position:absolute;
+padding:18px 22px;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(18px);
+border-radius:22px;
+animation:float 6s ease-in-out infinite;
 }
 
-/* TEXT */
-
-.section-description,
-.portfolio-description,
-.glass p,
-.timeline-box p,
-.overlay-content p{
-
-font-size:14px !important;
-
-line-height:2 !important;
-
+.card1{
+top:40px;
+left:-30px;
 }
 
-/* CARDS */
-
-.glass,
-.timeline-box,
-.contact-box{
-
-padding:26px !important;
-
-border-radius:24px !important;
-
+.card2{
+bottom:40px;
+right:-20px;
+animation-delay:2s;
 }
 
-/* SKILLS */
+.floating-card h3{
+font-size:26px;
+margin-bottom:6px;
+}
+
+.floating-card p{
+font-size:13px;
+color:#cbd5e1;
+}
+
+/* =========================
+ABOUT
+========================= */
+
+.title{
+font-size:55px;
+font-weight:800;
+margin-bottom:20px;
+letter-spacing:-2px;
+}
+
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+margin-top:60px;
+}
+
+.glass{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:35px;
+padding:40px;
+transition:.4s;
+position:relative;
+overflow:hidden;
+}
+
+.glass:hover{
+transform:translateY(-10px);
+border-color:#3a86ff;
+}
+
+.glass::before{
+content:'';
+position:absolute;
+width:250px;
+height:250px;
+background:#3a86ff;
+filter:blur(120px);
+opacity:.08;
+top:-120px;
+right:-120px;
+}
+
+.glass p{
+font-size:16px;
+line-height:2;
+color:#cbd5e1;
+}
 
 .skills{
-gap:10px !important;
+display:flex;
+flex-wrap:wrap;
+gap:14px;
+margin-top:30px;
 }
 
 .skill{
-
-padding:12px 16px !important;
-
-font-size:13px !important;
-
-border-radius:14px !important;
-
+padding:14px 18px;
+border-radius:18px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+transition:.4s;
+font-size:14px;
 }
 
-/* EXPERIENCE */
-
-.timeline{
-gap:20px !important;
-margin-top:40px !important;
-}
-
-.timeline-box h3{
-font-size:24px !important;
-line-height:1.3;
-}
-
-/* PORTFOLIO */
-
-.portfolio-grid{
-gap:24px !important;
-}
-
-.portfolio-card,
-.large-card,
-.small-card{
-
-min-height:420px !important;
-
-border-radius:24px !important;
-
-transform:none !important;
-
-}
-
-.portfolio-image img{
-
-height:100% !important;
-
-transform:none !important;
-
-transition:.6s ease !important;
-
-}
-
-.portfolio-card:hover img{
-transform:scale(1.05) !important;
-}
-
-.portfolio-overlay{
-
-padding:24px !important;
-
-background:
-linear-gradient(
-to top,
-rgba(5,8,22,.96),
-rgba(5,8,22,.5),
-transparent
-) !important;
-
-}
-
-.overlay-content{
-
-opacity:1 !important;
-
-transform:none !important;
-
-}
-
-.overlay-content h3{
-
-font-size:28px !important;
-
-line-height:1.1 !important;
-
-margin-bottom:14px !important;
-
-}
-
-.portfolio-buttons{
-flex-direction:column !important;
-gap:12px !important;
-margin-top:24px !important;
-}
-
-.portfolio-btn{
-
-width:100% !important;
-
-justify-content:center !important;
-
-padding:15px 18px !important;
-
-border-radius:16px !important;
-
-font-size:13px !important;
-
-}
-
-/* CONTACT */
-
-.contact{
-gap:24px !important;
-margin-top:40px !important;
-}
-
-.contact-box input,
-.contact-box textarea{
-
-padding:16px !important;
-
-font-size:14px !important;
-
-border-radius:16px !important;
-
-}
-
-.contact-box textarea{
-height:150px !important;
-}
-
-/* FOOTER */
-
-footer{
-
-padding:28px 20px !important;
-
-font-size:13px !important;
-
-line-height:1.8;
-
-}
-
-/* REMOVE HEAVY HOVER */
-
-.portfolio-card:hover,
-.glass:hover,
-.timeline-box:hover,
-.contact-box:hover,
-.stat-box:hover,
-.btn:hover{
-
-transform:none !important;
-
-}
-
-/* PERFORMANCE FIX */
-
-.portfolio-card,
-.hero-image,
-.glass,
-.timeline-box,
-.contact-box{
-
-backdrop-filter:blur(10px) !important;
-
-}
-
-/* LOADER */
-
-.loader h1{
-
-font-size:42px !important;
-
-text-align:center;
-
-padding:0 20px;
-
-line-height:1.2;
-
-}
-
+.skill:hover{
+transform:translateY(-6px);
+background:linear-gradient(
+135deg,
+#3a86ff,
+#8338ec
+);
 }
 
 /* =========================
-SMALL MOBILE
+PORTFOLIO
 ========================= */
 
-@media(max-width:480px){
-
-.hero-title{
-font-size:38px !important;
+.portfolio-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:35px;
+margin-top:60px;
 }
 
-.title,
-.ultra-title,
-.portfolio-title{
-font-size:34px !important;
+.project{
+height:520px;
+border-radius:35px;
+overflow:hidden;
+position:relative;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
 }
 
-.hero-image{
-height:400px !important;
+.project img{
+width:100%;
+transition:8s linear;
 }
 
-.portfolio-card{
-min-height:360px !important;
+.project:hover img{
+transform:translateY(-68%);
 }
 
-.overlay-content h3{
-font-size:24px !important;
+.project-overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(
+to top,
+rgba(5,8,22,.96),
+transparent
+);
+display:flex;
+align-items:flex-end;
+padding:35px;
+}
+
+.project-overlay h2{
+font-size:30px;
+margin-bottom:12px;
+}
+
+.project-overlay p{
+line-height:1.9;
+color:#cbd5e1;
+}
+
+/* =========================
+TIMELINE
+========================= */
+
+.timeline{
+margin-top:60px;
+position:relative;
+padding-left:40px;
+}
+
+.timeline::before{
+content:'';
+position:absolute;
+left:9px;
+top:0;
+width:2px;
+height:100%;
+background:rgba(255,255,255,.08);
+}
+
+.item{
+position:relative;
+margin-bottom:50px;
+}
+
+.item::before{
+content:'';
+position:absolute;
+left:-39px;
+top:10px;
+width:20px;
+height:20px;
+border-radius:50%;
+background:linear-gradient(
+135deg,
+#3a86ff,
+#8338ec
+);
+box-shadow:0 0 20px #3a86ff;
+}
+
+.item h3{
+font-size:30px;
+margin-bottom:10px;
+}
+
+.item h4{
+font-size:15px;
+color:#60a5fa;
+margin-bottom:15px;
+}
+
+.item p{
+line-height:2;
+color:#cbd5e1;
+}
+
+/* =========================
+CONTACT
+========================= */
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+margin-top:60px;
+}
+
+.contact-card{
+padding:35px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:35px;
+}
+
+.contact-card input,
+.contact-card textarea{
+width:100%;
+padding:18px;
+margin-bottom:18px;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08);
+border-radius:18px;
+color:white;
+font-family:'Sora',sans-serif;
+outline:none;
+}
+
+.contact-card textarea{
+height:180px;
+resize:none;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+padding:40px 7%;
+text-align:center;
+color:#94a3b8;
+border-top:1px solid rgba(255,255,255,.08);
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:1200px){
+
+.hero-content{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:65px;
+}
+
+.about-grid,
+.contact-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+body{
+overflow-x:hidden;
+}
+
+nav{
+padding:14px 16px;
+}
+
+.nav-links{
+display:none;
+}
+
+.hero{
+padding-top:120px;
+}
+
+.hero h1{
+font-size:46px;
+line-height:1.15;
+letter-spacing:-2px;
+}
+
+.title{
+font-size:38px;
+}
+
+.hero-box{
+height:500px;
+}
+
+.hero-btns{
+flex-direction:column;
 }
 
 .btn{
-font-size:13px !important;
-padding:15px 18px !important;
+justify-content:center;
+}
+
+.project{
+height:420px;
+}
+
+section{
+padding:90px 6%;
 }
 
 }
 
-/* =========================
-PERFORMANCE OPTIMIZATION
-========================= */
+</style>
+</head>
 
-img{
-max-width:100%;
-display:block;
-}
+<body>
 
-.hero-image img,
-.portfolio-image img{
+<!-- BACKGROUND -->
+<div class="bg">
+<div class="blur blur1"></div>
+<div class="blur blur2"></div>
+<div class="blur blur3"></div>
+</div>
 
-will-change:transform;
+<!-- NAVBAR -->
+<nav>
 
-}
+<div class="logo">
 
-/* SMOOTH GPU */
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg">
 
-.hero-image,
-.portfolio-card,
-.glass,
-.timeline-box{
+<div class="logo-text">
+<h2>Al Jubayer</h2>
+<p>Creative Designer</p>
+</div>
 
-transform:translateZ(0);
+</div>
 
-}
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#experience">Experience</a>
+<a href="#contact">Contact</a>
+</div>
+
+<div class="social-nav">
+
+<a href="#">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="#">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="#">
+<i class="fab fa-behance"></i>
+</a>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div>
+
+<div class="small-text">
+Creative Portfolio 2026
+</div>
+
+<h1>
+Creating <span class="gradient">Premium Digital</span> Experiences That Inspire
+</h1>
+
+<p>
+I’m Al Jubayer Rayhan Tamim Mollah — a passionate Graphic Designer and Photographer specializing in branding, social media design, premium visuals, and visual storytelling. I craft modern digital experiences that combine creativity, strategy, and eye-catching aesthetics.
+</p>
+
+<div class="hero-btns">
+
+<a href="#portfolio" class="btn btn-primary">
+<i class="fa-solid fa-layer-group"></i>
+View Portfolio
+</a>
+
+<a href="#contact" class="btn btn-secondary">
+<i class="fa-solid fa-paper-plane"></i>
+Contact Me
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<div class="hero-box">
+
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg">
+
+</div>
+
+<div class="floating-card card1">
+<h3>5+</h3>
+<p>Years Experience</p>
+</div>
+
+<div class="floating-card card2">
+<h3>200+</h3>
+<p>Projects Completed</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+
+<h2 class="title">
+About <span class="gradient">Me</span>
+</h2>
+
+<div class="about-grid">
+
+<div class="glass">
+
+<p>
+I’m a Creative Graphic Designer and Photographer focused on creating modern brand experiences through powerful visuals, clean aesthetics, and strategic storytelling. My work blends creativity with premium design to build visually impactful digital identities.
+</p>
+
+<div class="skills">
+
+<div class="skill">Brand Identity</div>
+<div class="skill">Photography</div>
+<div class="skill">Poster Design</div>
+<div class="skill">Social Media</div>
+<div class="skill">Photoshop</div>
+<div class="skill">Illustrator</div>
+<div class="skill">Lightroom</div>
+<div class="skill">Visual Storytelling</div>
+
+</div>
+
+</div>
+
+<div class="glass">
+
+<p>
+I specialize in creating cinematic visual experiences, modern social media campaigns, premium branding systems, and photography content that connects emotionally with audiences and elevates digital brands professionally.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+
+<h2 class="title">
+Featured <span class="gradient">Projects</span>
+</h2>
+
+<div class="portfolio-grid">
+
+<div class="project">
+
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicWMHRE6xXHxO-ILL4BYF-Z14u_BexQ3hDOAFCx4_pNF27UUevUR_EEXcsVmdszaC1aKtPC8bGdEf9OZALuFpw8YZdTHNmqhK_Q2ecVcu19Xp5-91V-0Y-rcs_hzkNwSHCs9_iIEdNg4xg8hOGw240-wLxiC3CrhcyYoERu8gkACE86rWxRnDBfz3odNQz/s16000/Screenshot%202026-05-19%20160117.png">
+
+<div class="project-overlay">
+
+<div>
+
+<h2>Creative Portfolio</h2>
+
+<p>
+Premium branding and social media campaign design with modern visual aesthetics.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="project">
+
+<img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4">
+
+<div class="project-overlay">
+
+<div>
+
+<h2>Photography Project</h2>
+
+<p>
+Cinematic photography and premium visual storytelling with modern editing style.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="project">
+
+<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f">
+
+<div class="project-overlay">
+
+<div>
+
+<h2>Brand Campaign</h2>
+
+<p>
+Creative visual campaign focused on fashion branding and audience engagement.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+
+<h2 class="title">
+Work <span class="gradient">Experience</span>
+</h2>
+
+<div class="timeline">
+
+<div class="item">
+
+<h3>Graphics Designer — Oilo</h3>
+
+<h4>2025 — Present</h4>
+
+<p>
+Designed high-end branding visuals, social media campaigns, and promotional materials focused on premium aesthetics and digital audience engagement.
+</p>
+
+</div>
+
+<div class="item">
+
+<h3>Graphics Designer — VortexUp Digital</h3>
+
+<h4>2024 — 2025</h4>
+
+<p>
+Created digital campaigns, advertising visuals, and branding assets while collaborating with creative and marketing teams.
+</p>
+
+</div>
+
+<div class="item">
+
+<h3>Marketing Executive — Smart IT</h3>
+
+<h4>2023 — 2024</h4>
+
+<p>
+Worked on visual marketing strategies, creative communication, and premium design production.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+
+<h2 class="title">
+Let’s <span class="gradient">Connect</span>
+</h2>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+
+<h3 style="font-size:32px;margin-bottom:20px;">
+Contact Information
+</h3>
+
+<p style="line-height:2;color:#cbd5e1;">
+Phone: 01865861015 <br><br>
+Email: tamimmolla81@gmail.com <br><br>
+Location: Shantibagh, Demra, Dhaka
+</p>
+
+</div>
+
+<div class="contact-card">
+
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<textarea placeholder="Your Message"></textarea>
+
+<a href="#" class="btn btn-primary" style="width:fit-content;">
+<i class="fa-solid fa-paper-plane"></i>
+Send Message
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+© 2026 — Al Jubayer Rayhan Tamim Mollah • Creative Portfolio Website
+</footer>
+
+<!-- GSAP ANIMATION -->
+<script>
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from(".hero h1",{
+y:100,
+opacity:0,
+duration:1.2
+});
+
+gsap.from(".hero p",{
+y:60,
+opacity:0,
+duration:1.2,
+delay:.3
+});
+
+gsap.from(".btn",{
+y:40,
+opacity:0,
+duration:1,
+stagger:.2,
+delay:.6
+});
+
+gsap.utils.toArray(".glass,.project,.item,.contact-card").forEach((el)=>{
+
+gsap.from(el,{
+scrollTrigger:{
+trigger:el,
+start:"top 85%"
+},
+y:80,
+opacity:0,
+duration:1.2
+});
+
+});
+
+</script>
+
+</body>
+</html>
