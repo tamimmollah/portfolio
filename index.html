@@ -1,614 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tamim's Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <style>
 
-/* =========================
-PREMIUM IMAGE + ANIMATION FIX
-========================= */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
 
-/* HERO IMAGE */
+body{
+font-family:'Sora',sans-serif;
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+.bg{
+position:fixed;
+inset:0;
+z-index:-1;
+overflow:hidden;
+}
+
+.blur{
+position:absolute;
+border-radius:50%;
+filter:blur(120px);
+opacity:.18;
+animation:float 8s infinite ease-in-out;
+}
+
+.blur1{
+width:450px;
+height:450px;
+background:#3a86ff;
+top:-120px;
+left:-120px;
+}
+
+.blur2{
+width:450px;
+height:450px;
+background:#8338ec;
+bottom:-120px;
+right:-120px;
+animation-delay:3s;
+}
+
+@keyframes float{
+50%{
+transform:translateY(-40px);
+}
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:16px;
+left:50%;
+transform:translateX(-50%);
+width:92%;
+max-width:1350px;
+padding:16px 22px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(16px);
+border-radius:22px;
+z-index:999;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.logo img{
+width:52px;
+height:52px;
+border-radius:16px;
+object-fit:cover;
+}
+
+.logo h2{
+font-size:16px;
+font-weight:700;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+font-size:14px;
+position:relative;
+}
+
+.nav-links a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-6px;
+width:0%;
+height:2px;
+background:linear-gradient(90deg,#3a86ff,#8338ec);
+transition:.4s;
+}
+
+.nav-links a:hover::after{
+width:100%;
+}
+
+.social-nav{
+display:flex;
+gap:10px;
+}
+
+.social-nav a{
+width:42px;
+height:42px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:14px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+color:white;
+text-decoration:none;
+transition:.5s;
+}
+
+.social-nav a:hover{
+transform:translateY(-6px);
+background:linear-gradient(135deg,#3a86ff,#8338ec);
+}
+
+/* SECTION */
+
+section{
+padding:120px 6%;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+padding-top:120px;
+}
+
+.hero-content{
+max-width:1400px;
+margin:auto;
+width:100%;
+display:grid;
+grid-template-columns:1fr 420px;
+gap:70px;
+align-items:center;
+}
+
+.hero-badge{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:14px 22px;
+border-radius:50px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+margin-bottom:28px;
+font-size:14px;
+animation:fadeUp 1s ease;
+}
+
+.hero-title{
+font-size:88px;
+font-weight:800;
+line-height:.95;
+letter-spacing:-4px;
+margin-bottom:26px;
+animation:fadeUp 1.2s ease;
+}
+
+.gradient{
+background:linear-gradient(90deg,#3a86ff,#00c6ff,#8338ec);
+background-size:300% 300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:gradient 6s infinite;
+}
+
+@keyframes gradient{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.hero-description{
+font-size:16px;
+line-height:2;
+color:#cbd5e1;
+max-width:700px;
+animation:fadeUp 1.4s ease;
+}
+
+.hero-buttons{
+display:flex;
+gap:16px;
+margin-top:38px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:16px 28px;
+border-radius:18px;
+display:flex;
+align-items:center;
+gap:10px;
+font-size:14px;
+font-weight:600;
+text-decoration:none;
+transition:.5s;
+}
+
+.btn:hover{
+transform:translateY(-8px);
+}
+
+.btn-primary{
+background:linear-gradient(135deg,#3a86ff,#8338ec);
+color:white;
+}
+
+.btn-secondary{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+color:white;
+}
 
 .hero-image-wrap{
 position:relative;
 display:flex;
 justify-content:center;
 align-items:center;
-perspective:1200px;
 }
 
 .hero-glow{
 position:absolute;
-width:320px;
-height:320px;
-border-radius:50%;
+width:300px;
+height:300px;
 background:linear-gradient(135deg,#3a86ff,#8338ec);
+border-radius:50%;
 filter:blur(90px);
-opacity:.18;
-animation:heroGlow 6s ease-in-out infinite;
-}
-
-@keyframes heroGlow{
-
-50%{
-transform:scale(1.08);
-opacity:.25;
-}
-
+opacity:.2;
+animation:float 6s infinite ease-in-out;
 }
 
 .hero-image{
-
 width:360px;
 height:500px;
-
 border-radius:34px;
-
 overflow:hidden;
-
 position:relative;
-
 background:rgba(255,255,255,.04);
-
 border:1px solid rgba(255,255,255,.08);
-
-backdrop-filter:blur(16px);
-
-box-shadow:
-0 20px 60px rgba(0,0,0,.35);
-
-animation:heroFloat 6s ease-in-out infinite;
-
-transition:
-transform .8s ease,
-box-shadow .8s ease;
-
-}
-
-.hero-image:hover{
-
-transform:
-translateY(-12px)
-rotateY(4deg)
-scale(1.02);
-
-box-shadow:
-0 30px 70px rgba(58,134,255,.18);
-
-}
-
-.hero-image::before{
-
-content:'';
-
-position:absolute;
-inset:0;
-
-background:
-linear-gradient(
-to top,
-rgba(5,8,22,.45),
-transparent
-);
-
-z-index:2;
-
+box-shadow:0 20px 60px rgba(0,0,0,.35);
+animation:fadeUp 1.5s ease;
 }
 
 .hero-image img{
-
 width:100%;
 height:100%;
-
 object-fit:cover;
 object-position:center top;
-
-transition:
-transform 1.4s ease,
-filter .8s ease;
-
+transition:1s;
 }
 
 .hero-image:hover img{
-
-transform:scale(1.06);
-
-filter:
-contrast(1.05)
-brightness(1.03);
-
+transform:scale(1.05);
 }
 
-@keyframes heroFloat{
+/* TITLES */
 
-0%,100%{
-transform:translateY(0px);
+.title{
+font-size:70px;
+font-weight:800;
+line-height:1;
+letter-spacing:-3px;
+margin-bottom:28px;
 }
 
-50%{
-transform:translateY(-18px);
+/* GLASS CARD */
+
+.glass{
+padding:36px;
+border-radius:30px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+transition:.5s;
 }
 
+.glass:hover{
+transform:translateY(-10px);
+border-color:#3a86ff;
 }
 
-/* PORTFOLIO GRID */
+.glass p{
+line-height:2;
+color:#cbd5e1;
+}
+
+/* ABOUT */
+
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:28px;
+margin-top:40px;
+}
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin-top:26px;
+}
+
+.skill{
+padding:12px 18px;
+border-radius:14px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+font-size:13px;
+transition:.4s;
+}
+
+.skill:hover{
+transform:translateY(-5px);
+background:linear-gradient(135deg,#3a86ff,#8338ec);
+}
+
+/* EXPERIENCE */
+
+.timeline{
+display:flex;
+flex-direction:column;
+gap:24px;
+margin-top:50px;
+}
+
+.timeline-box{
+padding:34px;
+border-radius:28px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+transition:.5s;
+}
+
+.timeline-box:hover{
+transform:translateY(-10px);
+border-color:#3a86ff;
+}
+
+.timeline-box h3{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.timeline-box p{
+line-height:2;
+color:#cbd5e1;
+}
+
+/* PORTFOLIO */
+
+.portfolio-header{
+display:flex;
+justify-content:space-between;
+gap:50px;
+align-items:flex-end;
+margin-bottom:60px;
+flex-wrap:wrap;
+}
+
+.portfolio-text{
+max-width:620px;
+line-height:2;
+color:#cbd5e1;
+}
 
 .portfolio-grid{
-
 display:grid;
-
 grid-template-columns:1fr 1fr;
-
 gap:28px;
-
-align-items:stretch;
-
 }
 
-/* PROJECT CARD */
-
 .project{
-
 position:relative;
-
-min-height:520px;
-
-border-radius:34px;
-
+min-height:500px;
 overflow:hidden;
-
+border-radius:32px;
 background:rgba(255,255,255,.04);
-
 border:1px solid rgba(255,255,255,.08);
-
-backdrop-filter:blur(16px);
-
-transition:
-transform .8s ease,
-border .8s ease,
-box-shadow .8s ease;
-
-transform-style:preserve-3d;
-
+transition:.6s;
 }
 
 .project:hover{
-
-transform:
-translateY(-14px)
-scale(1.015);
-
+transform:translateY(-12px);
 border-color:#3a86ff;
-
-box-shadow:
-0 25px 70px rgba(58,134,255,.16);
-
 }
 
-/* IMAGE */
-
 .project img{
-
 position:absolute;
 inset:0;
-
 width:100%;
 height:100%;
-
 object-fit:cover;
-object-position:top center;
-
-transition:
-transform 1.5s ease,
-filter .8s ease;
-
+object-position:center;
+transition:1s;
 }
 
 .project:hover img{
-
 transform:scale(1.08);
-
-filter:
-brightness(.5)
-blur(.5px);
-
+filter:brightness(.45);
 }
-
-/* OVERLAY */
 
 .project-overlay{
-
 position:absolute;
 inset:0;
-
-background:
-linear-gradient(
+background:linear-gradient(
 to top,
-rgba(5,8,22,.98) 10%,
-rgba(5,8,22,.78) 45%,
-rgba(5,8,22,.15) 100%
+rgba(5,8,22,.98),
+rgba(5,8,22,.55),
+rgba(5,8,22,.1)
 );
-
 display:flex;
 align-items:flex-end;
-
 padding:34px;
-
 }
-
-/* CONTENT */
 
 .project-content{
-
 position:relative;
-z-index:3;
-
-transform:translateY(40px);
-
-opacity:0;
-
-transition:
-transform .9s ease,
-opacity .9s ease;
-
+z-index:2;
 }
-
-.project:hover .project-content{
-
-transform:translateY(0px);
-
-opacity:1;
-
-}
-
-/* TAG */
 
 .project-tag{
-
 display:inline-flex;
-align-items:center;
-
 padding:10px 18px;
-
-border-radius:50px;
-
+border-radius:40px;
 background:rgba(255,255,255,.08);
-
 border:1px solid rgba(255,255,255,.08);
-
-backdrop-filter:blur(12px);
-
 font-size:12px;
-
 margin-bottom:18px;
-
-color:white;
-
 }
-
-/* TITLE */
 
 .project-content h2{
-
 font-size:34px;
-
-line-height:1.1;
-
 margin-bottom:14px;
-
-font-weight:700;
-
-text-shadow:
-0 4px 20px rgba(0,0,0,.4);
-
 }
-
-/* DESCRIPTION */
 
 .project-content p{
-
 font-size:14px;
-
-line-height:1.9;
-
+line-height:2;
 color:#dbe4f0;
-
-max-width:500px;
-
-text-shadow:
-0 4px 14px rgba(0,0,0,.5);
-
 }
 
-/* BUTTONS */
-
 .project-buttons{
-
 display:flex;
-
 gap:14px;
-
 margin-top:24px;
-
 flex-wrap:wrap;
-
 }
 
 .project-btn{
-
 padding:14px 22px;
-
 border-radius:16px;
-
-background:
-linear-gradient(
-135deg,
-#3a86ff,
-#8338ec
-);
-
+background:linear-gradient(135deg,#3a86ff,#8338ec);
 display:flex;
 align-items:center;
 gap:10px;
-
 font-size:13px;
 font-weight:600;
+}
 
+/* CONTACT */
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:28px;
+margin-top:40px;
+}
+
+.contact-box{
+padding:36px;
+border-radius:30px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+}
+
+.contact-box input,
+.contact-box textarea{
+width:100%;
+padding:16px;
+margin-bottom:16px;
+border:none;
+outline:none;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:16px;
+font-family:'Sora',sans-serif;
 color:white;
-
-transition:
-transform .5s ease,
-box-shadow .5s ease;
-
 }
 
-.project-btn:hover{
-
-transform:
-translateY(-6px)
-scale(1.03);
-
-box-shadow:
-0 14px 30px rgba(58,134,255,.25);
-
+.contact-box textarea{
+height:150px;
+resize:none;
 }
 
-/* MOBILE */
+/* FOOTER */
+
+footer{
+padding:30px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.08);
+color:#b6c2d1;
+font-size:14px;
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+
+.hero-content,
+.about-grid,
+.contact-grid,
+.portfolio-grid{
+grid-template-columns:1fr;
+}
+
+.hero-title{
+font-size:68px;
+}
+
+.hero-image{
+margin:auto;
+}
+
+}
 
 @media(max-width:768px){
 
-.hero-image{
+nav{
+padding:14px;
+}
 
+.nav-links{
+display:none;
+}
+
+.social-nav{
+display:none;
+}
+
+section{
+padding:90px 20px;
+}
+
+.hero{
+padding-top:140px;
+}
+
+.hero-title{
+font-size:46px;
+line-height:1.08;
+letter-spacing:-2px;
+}
+
+.title{
+font-size:42px;
+line-height:1.08;
+}
+
+.hero-description,
+.portfolio-text,
+.glass p,
+.timeline-box p{
+font-size:14px;
+line-height:2;
+}
+
+.hero-buttons{
+flex-direction:column;
+}
+
+.btn{
+width:100%;
+justify-content:center;
+}
+
+.hero-image{
 width:100%;
 max-width:320px;
-
-height:420px;
-
+height:430px;
 border-radius:28px;
-
-}
-
-.hero-glow{
-
-width:250px;
-height:250px;
-
-}
-
-.portfolio-grid{
-
-grid-template-columns:1fr;
-
-gap:22px;
-
 }
 
 .project{
-
 min-height:420px;
-
 border-radius:26px;
-
-transform:none !important;
-
-}
-
-.project img{
-
-transform:none !important;
-
-filter:none !important;
-
-transition:.6s ease;
-
-}
-
-.project:hover img{
-
-transform:scale(1.04) !important;
-
-filter:brightness(.65);
-
 }
 
 .project-overlay{
-
 padding:24px;
-
-background:
-linear-gradient(
-to top,
-rgba(5,8,22,.98),
-rgba(5,8,22,.72),
-rgba(5,8,22,.2)
-);
-
-}
-
-.project-content{
-
-opacity:1 !important;
-
-transform:none !important;
-
 }
 
 .project-content h2{
-
 font-size:26px;
-
 }
 
 .project-content p{
-
 font-size:13px;
-
 line-height:1.8;
-
 }
 
 .project-buttons{
-
 flex-direction:column;
-
 }
 
 .project-btn{
-
 justify-content:center;
-
 }
 
+.glass,
+.timeline-box,
+.contact-box{
+padding:24px;
+border-radius:24px;
 }
 
-/* SMOOTH REVEAL */
-
-.reveal{
-opacity:0;
-transform:translateY(70px);
-transition:1.2s ease;
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0px);
 }
 
 </style>
 
-<script>
+</head>
 
-/* =========================
-ULTRA PREMIUM ANIMATION
-========================= */
+<body>
 
-gsap.registerPlugin(ScrollTrigger);
+<div class="bg">
+<div class="blur blur1"></div>
+<div class="blur blur2"></div>
+</div>
 
-/* HERO */
+<nav>
 
-gsap.from(".hero-badge",{
-y:40,
-opacity:0,
-duration:1,
-ease:"power4.out"
-});
+<div class="logo">
 
-gsap.from(".hero-title",{
-y:100,
-opacity:0,
-duration:1.4,
-delay:.2,
-ease:"power4.out"
-});
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg">
 
-gsap.from(".hero-description",{
-y:80,
-opacity:0,
-duration:1.2,
-delay:.4,
-ease:"power4.out"
-});
+<h2>Al Jubayer</h2>
 
-gsap.from(".btn",{
-y:50,
-opacity:0,
-duration:1,
-delay:.7,
-stagger:.15,
-ease:"power4.out"
-});
+</div>
 
-gsap.from(".stat-box",{
-y:60,
-opacity:0,
-duration:1,
-delay:1,
-stagger:.2,
-ease:"power4.out"
-});
+<div class="nav-links">
 
-gsap.from(".hero-image",{
-scale:.8,
-opacity:0,
-rotate:4,
-duration:1.8,
-delay:.4,
-ease:"expo.out"
-});
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#experience">Experience</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#contact">Contact</a>
 
-/* SECTIONS */
+</div>
 
-gsap.utils.toArray(".glass,.timeline-box,.project,.contact-box").forEach((el)=>{
+<div class="social-nav">
 
-gsap.from(el,{
+<a href="https://www.facebook.com/jubayer.jubu.0" target="_blank">
+<i class="fab fa-facebook-f"></i>
+</a>
 
-scrollTrigger:{
-trigger:el,
-start:"top 88%"
-},
+<a href="https://www.instagram.com/aljubayerrayhan/" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
 
-y:90,
-opacity:0,
-duration:1.3,
-ease:"power4.out"
+<a href="https://www.behance.net/tamimmollah" target="_blank">
+<i class="fab fa-behance"></i>
+</a>
 
-});
+</div>
 
-});
+</nav>
 
-/* PORTFOLIO PARALLAX */
+<section class="hero" id="home">
 
-document.querySelectorAll(".project").forEach(card=>{
+<div class="hero-content">
 
-card.addEventListener("mousemove",(e)=>{
+<div>
 
-if(window.innerWidth < 768) return;
+<div class="hero-badge">
 
-const rect=card.getBoundingClientRect();
+<i class="fa-solid fa-sparkles"></i>
 
-const x=e.clientX-rect.left;
-const y=e.clientY-rect.top;
+Creative Designer & Photographer
 
-const moveX=(x-rect.width/2)/28;
-const moveY=(y-rect.height/2)/28;
+</div>
 
-card.style.transform=`
+<h1 class="hero-title">
 
-translateY(-14px)
+Tamim’s <br>
 
-rotateX(${-moveY}deg)
+<span class="gradient">
+Portfolio
+</span>
 
-rotateY(${moveX}deg)
+</h1>
 
-scale(1.015)
+<p class="hero-description">
 
-`;
+Creative and detail-driven Graphics Designer specializing in branding, photography, visual storytelling, premium social media design, and modern digital creative experiences.
 
-});
+</p>
 
-card.addEventListener("mouseleave",()=>{
+<div class="hero-buttons">
 
-card.style.transform="";
+<a href="#portfolio" class="btn btn-primary">
 
-});
+<i class="fa-solid fa-grid-2"></i>
 
-});
+Explore Portfolio
 
-</script>
+</a>
+
+<a href="https://www.behance.net/tamimmollah" target="_blank" class="btn btn-secondary">
+
+<i class="fab fa-behance"></i>
+
+Behance
+
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-image-wrap">
+
+<div class="hero-glow"></div>
+
+<div class="hero-image">
+
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="title">
+
+About <span class="gradient">Me</span>
+
+</h2>
+
+<div class="about-grid">
+
+<div class="glass">
+
+<p>
+
+I am Al Jubayer Rayhan Tamim Mollah, a creative graphics designer and photographer passionate about cinematic visuals, branding, luxury aesthetics, and modern storytelling.
+
+</p>
+
+<div class="skills">
+
+<div class="skill">Photoshop</div>
+<div class="skill">Illustrator</div>
+<div class="skill">Photography</div>
+<div class="skill">Branding</div>
+<div class="skill">Lightroom</div>
+<div class="skill">Typography</div>
+<div class="skill">Canva</div>
+<div class="skill">Figma</div>
+
+</div>
+
+</div>
+
+<div class="glass">
+
+<p>
+
+Currently building impactful visual experiences through creative direction, social media branding, poster design, photography, and digital content creation.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="portfolio">
+
+<div class="portfolio-header">
+
+<div>
+
+<h2 class="title">
+
+Featured <span class="gradient">
+Projects
+</span>
+
+</h2>
+
+</div>
+
+<p class="portfolio-text">
+
+Premium photography and creative branding projects crafted with cinematic visuals and luxury storytelling aesthetics.
+
+</p>
+
+</div>
+
+<div class="portfolio-grid">
+
+<a href="https://www.behance.net/tamimmollah" target="_blank" class="project">
+
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1zI7jVwnJgl_rffww_4ZLRfS6rYs2vRAXKWyYWJ3rk-uGFiQXiWEXc20bTMVsi3OI141wZGEV6AAJz34xNWTwGqiEuEu1M5ODxQQQx49q9cISTw-f93cDYdtuV4QbH9VQM_W2Ii9c7yByNEN2ZcazjVL5fBS0BNWGJbLpJkqicXv4kShgU6QVaEj-tjR2/s16000/Screenshot%202026-05-19%20163952.png">
+
+<div class="project-overlay">
+
+<div class="project-content">
+
+<div class="project-tag">
+Photography Project
+</div>
+
+<h2>
+Cinematic Photography
+</h2>
+
+<p>
+
+Creative photography direction with cinematic composition and emotional storytelling aesthetics.
+
+</p>
+
+<div class="project-buttons">
+
+<div class="project-btn">
+
+<i class="fab fa-behance"></i>
+
+View Project
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</a>
+
+<a href="https://www.behance.net/tamimmollah" target="_blank" class="project">
+
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicWMHRE6xXHxO-ILL4BYF-Z14u_BexQ3hDOAFCx4_pNF27UUevUR_EEXcsVmdszaC1aKtPC8bGdEf9OZALuFpw8YZdTHNmqhK_Q2ecVcu19Xp5-91V-0Y-rcs_hzkNwSHCs9_iIEdNg4xg8hOGw240-wLxiC3CrhcyYoERu8gkACE86rWxRnDBfz3odNQz/s16000/Screenshot%202026-05-19%20160117.png">
+
+<div class="project-overlay">
+
+<div class="project-content">
+
+<div class="project-tag">
+Creative Portfolio
+</div>
+
+<h2>
+Creative Branding
+</h2>
+
+<p>
+
+Modern poster design, visual branding, and premium digital creative experiences.
+
+</p>
+
+<div class="project-buttons">
+
+<div class="project-btn">
+
+<i class="fab fa-behance"></i>
+
+View Portfolio
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</a>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="title">
+
+Let’s <span class="gradient">Connect</span>
+
+</h2>
+
+<div class="contact-grid">
+
+<div class="contact-box">
+
+<h3 style="font-size:28px;margin-bottom:18px;">
+Contact Information
+</h3>
+
+<p style="line-height:2;color:#cbd5e1;">
+
+Phone: 01865861015 <br><br>
+
+Facebook:
+<a href="https://www.facebook.com/jubayer.jubu.0" target="_blank" style="color:#3a86ff;">
+Visit Profile
+</a>
+
+<br><br>
+
+Instagram:
+<a href="https://www.instagram.com/aljubayerrayhan/" target="_blank" style="color:#3a86ff;">
+Visit Profile
+</a>
+
+<br><br>
+
+Behance:
+<a href="https://www.behance.net/tamimmollah" target="_blank" style="color:#3a86ff;">
+View Portfolio
+</a>
+
+</p>
+
+</div>
+
+<div class="contact-box">
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Your Email">
+
+<textarea placeholder="Your Message"></textarea>
+
+<a href="#" class="btn btn-primary">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+Send Message
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 — Al Jubayer Rayhan Tamim Mollah
+
+</footer>
+
+</body>
+</html>
