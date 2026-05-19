@@ -1,140 +1,230 @@
 <!-- =========================
-UPDATE THESE PARTS ONLY
+ULTRA PREMIUM HERO SECTION
+OLD HERO SECTION REMOVE করে এটা বসাও
 ========================= -->
 
-<!-- LOADER TEXT -->
-<h1 class="loader-text">
-Tamim’s Portfolio
-</h1>
+<section class="hero" id="home">
 
-<!-- HERO TITLE -->
+<div class="hero-bg-lines"></div>
+
+<div class="hero-content">
+
+<div class="hero-left">
+
+<div class="hero-badge">
+<i class="fa-solid fa-sparkles"></i>
+Creative Designer & Photographer
+</div>
+
 <h1 class="hero-title">
-Al Jubayer Rayhan <br>
+
+Al Jubayer <br>
+
 <span class="gradient">
-Tamim Mollah
+Rayhan Tamim
 </span>
+
+<br>
+
+Mollah
+
 </h1>
 
-<!-- HERO DESCRIPTION -->
 <p class="hero-description">
-Creative Graphics Designer & Photographer crafting premium visual experiences, cinematic branding, and modern digital storytelling with innovative creative direction.
+
+I create cinematic branding visuals, premium social media designs, creative storytelling experiences, and modern digital identities that emotionally connect with audiences and elevate brands professionally.
+
 </p>
+
+<div class="hero-buttons">
+
+<a href="#portfolio" class="btn btn-primary">
+
+<i class="fa-solid fa-grid-2"></i>
+
+Explore Portfolio
+
+</a>
+
+<a href="https://www.behance.net/tamimmollah" target="_blank" class="btn btn-secondary">
+
+<i class="fa-brands fa-behance"></i>
+
+View Behance
+
+</a>
+
+</div>
+
+<div class="hero-stats">
+
+<div class="stat-box">
+
+<h2>200+</h2>
+
+<p>Projects</p>
+
+</div>
+
+<div class="stat-box">
+
+<h2>5+</h2>
+
+<p>Experience</p>
+
+</div>
+
+<div class="stat-box">
+
+<h2>100+</h2>
+
+<p>Clients</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="hero-right">
+
+<div class="hero-image-wrapper">
+
+<div class="hero-glow"></div>
+
+<div class="hero-image">
+
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg">
+
+</div>
+
+<div class="floating-card card1">
+
+<i class="fa-solid fa-pen-ruler"></i>
+
+<span>Creative Direction</span>
+
+</div>
+
+<div class="floating-card card2">
+
+<i class="fa-solid fa-camera"></i>
+
+<span>Photography</span>
+
+</div>
+
+<div class="floating-card card3">
+
+<i class="fa-solid fa-layer-group"></i>
+
+<span>Brand Identity</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 <!-- =========================
 ADD THIS CSS
-OLD CSS এর নিচে paste করো
 ========================= -->
 
 <style>
 
 /* =========================
-ULTRA PREMIUM ANIMATION
+ULTRA HERO SECTION
 ========================= */
 
-.loader{
-position:fixed;
-inset:0;
-background:#050816;
+.hero{
+min-height:100vh;
 display:flex;
-justify-content:center;
 align-items:center;
-z-index:999999;
-overflow:hidden;
-}
-
-.loader:before{
-content:'';
-position:absolute;
-width:500px;
-height:500px;
-background:linear-gradient(
-135deg,
-#3a86ff,
-#8338ec
-);
-filter:blur(120px);
-opacity:.3;
-animation:loaderGlow 3s infinite;
-}
-
-.loader-text{
-font-size:72px;
-font-weight:800;
-letter-spacing:-3px;
-background:linear-gradient(
-to right,
-#ffffff,
-#3a86ff,
-#8338ec
-);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
 position:relative;
-animation:
-loaderZoom 2s ease infinite,
-loaderFloat 4s ease-in-out infinite;
+overflow:hidden;
+padding:160px 7% 120px;
 }
 
-@keyframes loaderGlow{
+.hero-bg-lines{
+position:absolute;
+inset:0;
+background-image:
+linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
 
-0%,100%{
-transform:scale(1);
-opacity:.25;
+background-size:80px 80px;
+mask-image:linear-gradient(to bottom,transparent,black,transparent);
 }
 
-50%{
-transform:scale(1.2);
-opacity:.45;
+.hero-content{
+max-width:1450px;
+width:100%;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 520px;
+gap:80px;
+align-items:center;
+position:relative;
+z-index:2;
 }
 
+/* LEFT */
+
+.hero-badge{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:14px 22px;
+border-radius:50px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
+font-size:14px;
+margin-bottom:35px;
+animation:badgeFloat 5s ease-in-out infinite;
 }
 
-@keyframes loaderZoom{
-
-0%,100%{
-transform:scale(1);
-}
-
-50%{
-transform:scale(1.08);
-}
-
-}
-
-@keyframes loaderFloat{
+@keyframes badgeFloat{
 
 0%,100%{
 transform:translateY(0px);
 }
 
 50%{
-transform:translateY(-10px);
+transform:translateY(-8px);
 }
 
 }
-
-/* HERO TITLE ANIMATION */
 
 .hero-title{
-animation:heroFade 1.5s ease forwards;
-opacity:0;
-transform:translateY(80px);
+font-size:110px;
+line-height:.95;
+font-weight:800;
+letter-spacing:-6px;
+margin-bottom:35px;
 }
-
-@keyframes heroFade{
-
-to{
-opacity:1;
-transform:translateY(0px);
-}
-
-}
-
-/* GRADIENT ANIMATION */
 
 .gradient{
+background:linear-gradient(
+90deg,
+#3a86ff,
+#00c6ff,
+#8338ec,
+#3a86ff
+);
+
 background-size:300% 300%;
-animation:gradientMove 6s ease infinite;
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation:gradientMove 8s ease infinite;
 }
 
 @keyframes gradientMove{
@@ -153,27 +243,29 @@ background-position:0% 50%;
 
 }
 
-/* HERO IMAGE FLOAT */
-
-.hero-box{
-animation:heroImageFloat 6s ease-in-out infinite;
+.hero-description{
+font-size:18px;
+line-height:2.1;
+color:#cbd5e1;
+max-width:760px;
 }
 
-@keyframes heroImageFloat{
-
-0%,100%{
-transform:translateY(0px);
+.hero-buttons{
+display:flex;
+gap:18px;
+margin-top:45px;
+flex-wrap:wrap;
 }
-
-50%{
-transform:translateY(-18px);
-}
-
-}
-
-/* BUTTON ANIMATION */
 
 .btn{
+padding:20px 34px;
+border-radius:22px;
+font-size:15px;
+font-weight:600;
+display:flex;
+align-items:center;
+gap:12px;
+transition:.5s;
 position:relative;
 overflow:hidden;
 }
@@ -188,10 +280,11 @@ height:100%;
 background:linear-gradient(
 90deg,
 transparent,
-rgba(255,255,255,.25),
+rgba(255,255,255,.2),
 transparent
 );
-transition:.7s;
+
+transition:.8s;
 }
 
 .btn:hover:before{
@@ -204,64 +297,177 @@ translateY(-10px)
 scale(1.03);
 }
 
-/* GLASS CARD ANIMATION */
+.btn-primary{
+background:linear-gradient(
+135deg,
+#3a86ff,
+#8338ec
+);
 
-.glass,
-.timeline-box,
-.contact-box{
-transition:
-transform .5s ease,
-border .5s ease,
-box-shadow .5s ease;
+box-shadow:
+0 20px 50px rgba(58,134,255,.25);
+
+color:white;
 }
 
-.glass:hover,
-.timeline-box:hover,
-.contact-box:hover{
+.btn-secondary{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+color:white;
+}
 
+/* STATS */
+
+.hero-stats{
+display:flex;
+gap:22px;
+margin-top:60px;
+flex-wrap:wrap;
+}
+
+.stat-box{
+padding:24px 30px;
+border-radius:28px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(14px);
+transition:.5s;
+}
+
+.stat-box:hover{
 transform:
-translateY(-12px)
-scale(1.01);
+translateY(-10px)
+scale(1.03);
 
 border-color:#3a86ff;
 
 box-shadow:
-0 20px 40px rgba(58,134,255,.15);
+0 20px 40px rgba(58,134,255,.12);
+}
+
+.stat-box h2{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.stat-box p{
+font-size:14px;
+color:#94a3b8;
+}
+
+/* RIGHT */
+
+.hero-right{
+position:relative;
+}
+
+.hero-image-wrapper{
+position:relative;
+height:760px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.hero-glow{
+position:absolute;
+width:550px;
+height:550px;
+border-radius:50%;
+background:linear-gradient(
+135deg,
+#3a86ff,
+#8338ec
+);
+
+filter:blur(120px);
+opacity:.25;
+
+animation:glowPulse 6s ease infinite;
+}
+
+@keyframes glowPulse{
+
+0%,100%{
+transform:scale(1);
+opacity:.2;
+}
+
+50%{
+transform:scale(1.12);
+opacity:.35;
+}
 
 }
 
-/* PORTFOLIO CARD */
+.hero-image{
+width:460px;
+height:680px;
+border-radius:42px;
+overflow:hidden;
+position:relative;
+border:1px solid rgba(255,255,255,.08);
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(14px);
 
-.portfolio{
-transition:.5s;
+animation:imageFloat 6s ease-in-out infinite;
 }
 
-.portfolio:hover{
-transform:scale(1.02);
-box-shadow:
-0 25px 60px rgba(58,134,255,.18);
+@keyframes imageFloat{
+
+0%,100%{
+transform:translateY(0px);
 }
 
-/* NAVBAR SCROLL EFFECT */
-
-nav{
-transition:
-background .5s ease,
-padding .5s ease,
-transform .5s ease;
+50%{
+transform:translateY(-20px);
 }
 
-nav.scrolled{
-background:rgba(5,8,22,.85);
-backdrop-filter:blur(25px);
-padding:14px 22px;
+}
+
+.hero-image img{
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
 /* FLOATING CARDS */
 
-.float-card{
-animation:
-floatCard 5s ease-in-out infinite;
+.floating-card{
+position:absolute;
+padding:18px 24px;
+border-radius:24px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(18px);
+
+display:flex;
+align-items:center;
+gap:12px;
+
+animation:floatCard 5s ease-in-out infinite;
+}
+
+.floating-card i{
+font-size:20px;
+color:#3a86ff;
+}
+
+.card1{
+top:70px;
+left:-40px;
+}
+
+.card2{
+bottom:100px;
+right:-30px;
+animation-delay:2s;
+}
+
+.card3{
+top:50%;
+left:-60px;
+animation-delay:4s;
 }
 
 @keyframes floatCard{
@@ -271,76 +477,70 @@ transform:translateY(0px);
 }
 
 50%{
-transform:translateY(-15px);
+transform:translateY(-14px);
 }
 
 }
 
-/* SKILLS HOVER */
+/* RESPONSIVE */
 
-.skill{
-transition:
-transform .4s ease,
-background .4s ease;
-}
+@media(max-width:1200px){
 
-.skill:hover{
-transform:
-translateY(-8px)
-scale(1.05);
-
-background:
-linear-gradient(
-135deg,
-#3a86ff,
-#8338ec
-);
-}
-
-/* FOOTER ANIMATION */
-
-footer{
-position:relative;
-overflow:hidden;
-}
-
-footer:before{
-content:'';
-position:absolute;
-top:0;
-left:-100%;
-width:100%;
-height:1px;
-background:linear-gradient(
-90deg,
-transparent,
-#3a86ff,
-transparent
-);
-animation:footerLine 4s linear infinite;
-}
-
-@keyframes footerLine{
-
-100%{
-left:100%;
-}
-
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.loader-text{
-font-size:42px;
-text-align:center;
-padding:0 20px;
+.hero-content{
+grid-template-columns:1fr;
 }
 
 .hero-title{
-font-size:48px !important;
-line-height:1.15;
+font-size:82px;
+}
+
+.hero-image-wrapper{
+height:auto;
+margin-top:60px;
+}
+
+}
+
+@media(max-width:768px){
+
+.hero{
+padding-top:140px;
+}
+
+.hero-title{
+font-size:54px;
+line-height:1.08;
+letter-spacing:-2px;
+}
+
+.hero-description{
+font-size:16px;
+line-height:2;
+}
+
+.hero-image{
+width:100%;
+height:540px;
+}
+
+.hero-image-wrapper{
+height:auto;
+}
+
+.hero-buttons{
+flex-direction:column;
+}
+
+.btn{
+justify-content:center;
+}
+
+.hero-stats{
+flex-direction:column;
+}
+
+.floating-card{
+display:none;
 }
 
 }
@@ -349,56 +549,27 @@ line-height:1.15;
 
 <!-- =========================
 ADD THIS JS
-OLD SCRIPT এর নিচে paste করো
 ========================= -->
 
 <script>
 
-/* LOADER */
+/* HERO INTRO */
 
-window.addEventListener("load",()=>{
+gsap.from(".hero-badge",{
 
-gsap.to(".loader",{
-
+y:40,
 opacity:0,
-duration:1.2,
-delay:2,
-
-onComplete:()=>{
-
-document.querySelector(".loader").style.display="none";
-
-}
+duration:1,
+ease:"power4.out"
 
 });
-
-});
-
-/* NAVBAR SCROLL */
-
-window.addEventListener("scroll",()=>{
-
-const nav=document.querySelector("nav");
-
-if(window.scrollY>50){
-
-nav.classList.add("scrolled");
-
-}else{
-
-nav.classList.remove("scrolled");
-
-}
-
-});
-
-/* HERO ANIMATION */
 
 gsap.from(".hero-title",{
 
 y:120,
 opacity:0,
-duration:1.4,
+duration:1.5,
+delay:.2,
 ease:"power4.out"
 
 });
@@ -408,25 +579,34 @@ gsap.from(".hero-description",{
 y:80,
 opacity:0,
 duration:1.4,
-delay:.3,
+delay:.5,
 ease:"power4.out"
 
 });
 
 gsap.from(".btn",{
 
-y:50,
+y:40,
 opacity:0,
 duration:1,
-delay:.6,
+delay:.8,
 stagger:.2,
 ease:"power4.out"
 
 });
 
-/* IMAGE ANIMATION */
+gsap.from(".stat-box",{
 
-gsap.from(".hero-box",{
+y:60,
+opacity:0,
+duration:1,
+delay:1,
+stagger:.15,
+ease:"power4.out"
+
+});
+
+gsap.from(".hero-image",{
 
 scale:.8,
 opacity:0,
@@ -436,7 +616,18 @@ ease:"power4.out"
 
 });
 
-/* SECTION ANIMATION */
+gsap.from(".floating-card",{
+
+y:50,
+opacity:0,
+duration:1,
+delay:1.2,
+stagger:.2,
+ease:"power4.out"
+
+});
+
+/* SCROLL REVEAL */
 
 gsap.utils.toArray(
 
@@ -453,27 +644,11 @@ start:"top 85%"
 
 y:100,
 opacity:0,
-scale:.9,
+scale:.95,
 duration:1.3,
 ease:"power4.out"
 
 });
-
-});
-
-/* SKILL STAGGER */
-
-gsap.from(".skill",{
-
-scrollTrigger:{
-trigger:".skills",
-start:"top 85%"
-},
-
-y:40,
-opacity:0,
-duration:.8,
-stagger:.08
 
 });
 
