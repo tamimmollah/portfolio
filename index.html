@@ -1,22 +1,32 @@
 <!-- =========================
-ULTRA PREMIUM PORTFOLIO SECTION
+ULTRA PREMIUM FEATURED PORTFOLIO
 OLD PORTFOLIO SECTION REMOVE করে এটা বসাও
 ========================= -->
 
 <section id="portfolio" class="portfolio-section">
 
-<div class="section-top">
+<!-- BACKGROUND EFFECT -->
+
+<div class="portfolio-bg-glow glow-left"></div>
+<div class="portfolio-bg-glow glow-right"></div>
+
+<!-- TOP -->
+
+<div class="section-header">
 
 <div>
 
 <div class="section-badge">
+
 <i class="fa-solid fa-sparkles"></i>
-Featured Creative Works
+
+Featured Creative Showcase
+
 </div>
 
-<h2 class="ultra-title">
+<h2 class="portfolio-title">
 
-Creative <span class="gradient">
+Featured <span class="gradient">
 Portfolio
 </span>
 
@@ -24,9 +34,9 @@ Portfolio
 
 </div>
 
-<p class="section-description">
+<p class="portfolio-description">
 
-A curated collection of premium branding, cinematic visuals, photography, poster design, social media campaigns, and creative storytelling experiences crafted with modern aesthetics and emotional visual direction.
+A cinematic collection of premium branding, visual storytelling, photography, social media campaigns, poster design, and modern creative experiences crafted with luxury aesthetics and emotional visual direction.
 
 </p>
 
@@ -42,7 +52,7 @@ A curated collection of premium branding, cinematic visuals, photography, poster
 
 <div class="portfolio-image">
 
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicWMHRE6xXHxO-ILL4BYF-Z14u_BexQ3hDOAFCx4_pNF27UUevUR_EEXcsVmdszaC1aKtPC8bGdEf9OZALuFpw8YZdTHNmqhK_Q2ecVcu19Xp5-91V-0Y-rcs_hzkNwSHCs9_iIEdNg4xg8hOGw240-wLxiC3CrhcyYoERu8gkACE86rWxRnDBfz3odNQz/s16000/Screenshot%202026-05-19%20160117.png">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1zI7jVwnJgl_rffww_4ZLRfS6rYs2vRAXKWyYWJ3rk-uGFiQXiWEXc20bTMVsi3OI141wZGEV6AAJz34xNWTwGqiEuEu1M5ODxQQQx49q9cISTw-f93cDYdtuV4QbH9VQM_W2Ii9c7yByNEN2ZcazjVL5fBS0BNWGJbLpJkqicXv4kShgU6QVaEj-tjR2/s16000/Screenshot%202026-05-19%20163952.png">
 
 </div>
 
@@ -51,15 +61,17 @@ A curated collection of premium branding, cinematic visuals, photography, poster
 <div class="overlay-content">
 
 <div class="portfolio-tag">
-Brand Identity
+Photography Direction
 </div>
 
 <h3>
-Creative Brand Showcase
+Cinematic Visual Storytelling
 </h3>
 
 <p>
-Premium branding visuals, poster design, and modern digital storytelling experiences crafted with cinematic aesthetics.
+
+Creative photography compositions, emotional storytelling visuals, premium editing aesthetics, and cinematic branding crafted with luxury modern presentation styles.
+
 </p>
 
 <div class="portfolio-buttons">
@@ -68,7 +80,7 @@ Premium branding visuals, poster design, and modern digital storytelling experie
 
 <i class="fa-brands fa-behance"></i>
 
-View Project
+View Behance
 
 </div>
 
@@ -94,7 +106,7 @@ Live Preview
 
 <div class="portfolio-image">
 
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1zI7jVwnJgl_rffww_4ZLRfS6rYs2vRAXKWyYWJ3rk-uGFiQXiWEXc20bTMVsi3OI141wZGEV6AAJz34xNWTwGqiEuEu1M5ODxQQQx49q9cISTw-f93cDYdtuV4QbH9VQM_W2Ii9c7yByNEN2ZcazjVL5fBS0BNWGJbLpJkqicXv4kShgU6QVaEj-tjR2/s16000/Screenshot%202026-05-19%20163952.png">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicWMHRE6xXHxO-ILL4BYF-Z14u_BexQ3hDOAFCx4_pNF27UUevUR_EEXcsVmdszaC1aKtPC8bGdEf9OZALuFpw8YZdTHNmqhK_Q2ecVcu19Xp5-91V-0Y-rcs_hzkNwSHCs9_iIEdNg4xg8hOGw240-wLxiC3CrhcyYoERu8gkACE86rWxRnDBfz3odNQz/s16000/Screenshot%202026-05-19%20160117.png">
 
 </div>
 
@@ -103,15 +115,17 @@ Live Preview
 <div class="overlay-content">
 
 <div class="portfolio-tag">
-Photography
+Brand Identity
 </div>
 
 <h3>
-Visual Storytelling
+Modern Creative Branding
 </h3>
 
 <p>
-Creative photography, cinematic editing, and emotionally engaging visual compositions designed for modern brands.
+
+Premium poster design, social media campaigns, branding visuals, typography systems, and powerful modern digital identity experiences.
+
 </p>
 
 <div class="portfolio-buttons">
@@ -120,7 +134,7 @@ Creative photography, cinematic editing, and emotionally engaging visual composi
 
 <i class="fa-brands fa-behance"></i>
 
-View Gallery
+View Project
 
 </div>
 
@@ -144,20 +158,61 @@ OLD PORTFOLIO CSS REMOVE করে এটা বসাও
 <style>
 
 /* =========================
-ULTRA PREMIUM PORTFOLIO
+ULTRA PORTFOLIO
 ========================= */
 
 .portfolio-section{
 position:relative;
 overflow:hidden;
+padding-top:160px;
 }
 
-.section-top{
+/* BACKGROUND GLOW */
+
+.portfolio-bg-glow{
+position:absolute;
+width:500px;
+height:500px;
+border-radius:50%;
+filter:blur(140px);
+opacity:.18;
+z-index:-1;
+animation:glowMove 8s ease-in-out infinite;
+}
+
+.glow-left{
+background:#3a86ff;
+left:-180px;
+top:150px;
+}
+
+.glow-right{
+background:#8338ec;
+right:-180px;
+bottom:0;
+animation-delay:3s;
+}
+
+@keyframes glowMove{
+
+0%,100%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-40px);
+}
+
+}
+
+/* HEADER */
+
+.section-header{
 display:flex;
 justify-content:space-between;
-gap:60px;
+gap:70px;
 align-items:flex-end;
-margin-bottom:70px;
+margin-bottom:90px;
 flex-wrap:wrap;
 }
 
@@ -166,7 +221,6 @@ display:inline-flex;
 align-items:center;
 gap:12px;
 padding:14px 24px;
-border-radius:50px;
 
 background:rgba(255,255,255,.05);
 
@@ -174,23 +228,25 @@ border:1px solid rgba(255,255,255,.08);
 
 backdrop-filter:blur(12px);
 
-margin-bottom:28px;
+border-radius:50px;
 
 font-size:14px;
+
+margin-bottom:28px;
 
 animation:badgeFloat 5s infinite;
 }
 
-.ultra-title{
-font-size:78px;
+.portfolio-title{
+font-size:88px;
 line-height:1;
 font-weight:800;
-letter-spacing:-4px;
+letter-spacing:-5px;
 }
 
-.section-description{
-max-width:600px;
-line-height:2.1;
+.portfolio-description{
+max-width:620px;
+line-height:2.2;
 font-size:16px;
 color:#cbd5e1;
 }
@@ -200,7 +256,7 @@ color:#cbd5e1;
 .portfolio-grid{
 display:grid;
 grid-template-columns:1.2fr .8fr;
-gap:32px;
+gap:34px;
 align-items:stretch;
 }
 
@@ -208,38 +264,40 @@ align-items:stretch;
 
 .portfolio-card{
 position:relative;
-border-radius:40px;
+border-radius:42px;
 overflow:hidden;
-min-height:780px;
+min-height:820px;
 
 background:rgba(255,255,255,.04);
 
 border:1px solid rgba(255,255,255,.08);
 
-backdrop-filter:blur(14px);
+backdrop-filter:blur(18px);
 
 transition:
-transform .7s ease,
-box-shadow .7s ease,
-border .7s ease;
+transform .8s ease,
+box-shadow .8s ease,
+border .8s ease;
+
+transform-style:preserve-3d;
 
 cursor:pointer;
 }
 
 .small-card{
-min-height:780px;
+min-height:820px;
 }
 
 .portfolio-card:hover{
 
 transform:
-translateY(-15px)
+translateY(-16px)
 scale(1.015);
 
 border-color:#3a86ff;
 
 box-shadow:
-0 30px 70px rgba(58,134,255,.18);
+0 35px 80px rgba(58,134,255,.18);
 
 }
 
@@ -253,17 +311,24 @@ overflow:hidden;
 
 .portfolio-image img{
 width:100%;
-height:130%;
+height:135%;
 object-fit:cover;
 
 transition:
-transform 12s linear,
+transform 14s linear,
 filter .8s ease;
 }
 
 .portfolio-card:hover img{
-transform:translateY(-18%);
-filter:brightness(.7);
+
+transform:
+translateY(-18%)
+scale(1.06);
+
+filter:
+brightness(.65)
+contrast(1.1);
+
 }
 
 /* OVERLAY */
@@ -282,11 +347,12 @@ transparent
 
 display:flex;
 align-items:flex-end;
-padding:45px;
+
+padding:50px;
 }
 
 .overlay-content{
-transform:translateY(40px);
+transform:translateY(60px);
 opacity:0;
 transition:1s ease;
 }
@@ -301,7 +367,9 @@ opacity:1;
 .portfolio-tag{
 display:inline-flex;
 align-items:center;
+
 padding:12px 20px;
+
 border-radius:50px;
 
 background:rgba(255,255,255,.08);
@@ -311,15 +379,16 @@ border:1px solid rgba(255,255,255,.08);
 backdrop-filter:blur(10px);
 
 font-size:13px;
-margin-bottom:22px;
+
+margin-bottom:24px;
 }
 
 /* CONTENT */
 
 .overlay-content h3{
-font-size:42px;
-line-height:1.1;
-margin-bottom:18px;
+font-size:46px;
+line-height:1.05;
+margin-bottom:20px;
 }
 
 .overlay-content p{
@@ -334,13 +403,14 @@ max-width:540px;
 .portfolio-buttons{
 display:flex;
 gap:16px;
-margin-top:32px;
+margin-top:34px;
 flex-wrap:wrap;
 }
 
 .portfolio-btn{
-padding:16px 26px;
-border-radius:18px;
+padding:16px 28px;
+
+border-radius:20px;
 
 background:
 linear-gradient(
@@ -365,12 +435,14 @@ border:1px solid rgba(255,255,255,.08);
 }
 
 .portfolio-btn:hover{
+
 transform:
 translateY(-8px)
-scale(1.03);
+scale(1.04);
+
 }
 
-/* GLOW EFFECT */
+/* BORDER GLOW */
 
 .portfolio-card::before{
 content:'';
@@ -381,7 +453,7 @@ background:
 linear-gradient(
 135deg,
 transparent,
-rgba(58,134,255,.4),
+rgba(58,134,255,.5),
 transparent
 );
 
@@ -405,19 +477,20 @@ grid-template-columns:1fr;
 
 .portfolio-card,
 .small-card{
-min-height:680px;
+min-height:700px;
 }
 
 }
 
 @media(max-width:768px){
 
-.section-top{
+.section-header{
 gap:30px;
+margin-bottom:60px;
 }
 
-.ultra-title{
-font-size:48px;
+.portfolio-title{
+font-size:52px;
 line-height:1.08;
 letter-spacing:-2px;
 }
@@ -425,20 +498,20 @@ letter-spacing:-2px;
 .portfolio-card,
 .small-card{
 min-height:520px;
-border-radius:28px;
+border-radius:30px;
 }
 
 .portfolio-overlay{
 padding:28px;
 }
 
-.overlay-content h3{
-font-size:30px;
-}
-
 .overlay-content{
 transform:none;
 opacity:1;
+}
+
+.overlay-content h3{
+font-size:30px;
 }
 
 .portfolio-buttons{
@@ -454,15 +527,15 @@ justify-content:center;
 </style>
 
 <!-- =========================
-ADD THIS GSAP JS
+ADD THIS JS
 OLD PORTFOLIO JS REMOVE করে এটা বসাও
 ========================= -->
 
 <script>
 
-/* ULTRA PORTFOLIO ANIMATION */
+/* PORTFOLIO REVEAL */
 
-gsap.from(".section-top",{
+gsap.from(".section-header",{
 
 scrollTrigger:{
 trigger:".portfolio-section",
@@ -471,10 +544,12 @@ start:"top 80%"
 
 y:100,
 opacity:0,
-duration:1.4,
+duration:1.5,
 ease:"power4.out"
 
 });
+
+/* CARDS */
 
 gsap.from(".portfolio-card",{
 
@@ -485,13 +560,13 @@ start:"top 80%"
 
 y:140,
 opacity:0,
-duration:1.5,
+duration:1.6,
 stagger:.25,
 ease:"power4.out"
 
 });
 
-/* HOVER PARALLAX */
+/* 3D PARALLAX */
 
 document.querySelectorAll(".portfolio-card").forEach(card=>{
 
@@ -506,10 +581,15 @@ const moveX=(x-rect.width/2)/25;
 const moveY=(y-rect.height/2)/25;
 
 card.style.transform=`
-translateY(-15px)
+
+translateY(-16px)
+
 rotateX(${-moveY}deg)
+
 rotateY(${moveX}deg)
+
 scale(1.015)
+
 `;
 
 });
