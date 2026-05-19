@@ -1,377 +1,167 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!-- =========================
+ULTRA PREMIUM PORTFOLIO SECTION
+OLD PORTFOLIO SECTION REMOVE করে এটা বসাও
+========================= -->
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<section id="portfolio" class="portfolio-section">
 
-<title>Al Jubayer Rayhan Tamim Mollah</title>
+<div class="section-top">
 
-<!-- FONTS -->
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<div>
 
-<!-- ICONS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+<div class="section-badge">
+<i class="fa-solid fa-sparkles"></i>
+Featured Creative Works
+</div>
 
-<!-- GSAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<h2 class="ultra-title">
+
+Creative <span class="gradient">
+Portfolio
+</span>
+
+</h2>
+
+</div>
+
+<p class="section-description">
+
+A curated collection of premium branding, cinematic visuals, photography, poster design, social media campaigns, and creative storytelling experiences crafted with modern aesthetics and emotional visual direction.
+
+</p>
+
+</div>
+
+<!-- GRID -->
+
+<div class="portfolio-grid">
+
+<!-- CARD 1 -->
+
+<a href="https://www.behance.net/tamimmollah" target="_blank" class="portfolio-card large-card">
+
+<div class="portfolio-image">
+
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicWMHRE6xXHxO-ILL4BYF-Z14u_BexQ3hDOAFCx4_pNF27UUevUR_EEXcsVmdszaC1aKtPC8bGdEf9OZALuFpw8YZdTHNmqhK_Q2ecVcu19Xp5-91V-0Y-rcs_hzkNwSHCs9_iIEdNg4xg8hOGw240-wLxiC3CrhcyYoERu8gkACE86rWxRnDBfz3odNQz/s16000/Screenshot%202026-05-19%20160117.png">
+
+</div>
+
+<div class="portfolio-overlay">
+
+<div class="overlay-content">
+
+<div class="portfolio-tag">
+Brand Identity
+</div>
+
+<h3>
+Creative Brand Showcase
+</h3>
+
+<p>
+Premium branding visuals, poster design, and modern digital storytelling experiences crafted with cinematic aesthetics.
+</p>
+
+<div class="portfolio-buttons">
+
+<div class="portfolio-btn">
+
+<i class="fa-brands fa-behance"></i>
+
+View Project
+
+</div>
+
+<div class="portfolio-btn secondary-btn">
+
+<i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+Live Preview
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</a>
+
+<!-- CARD 2 -->
+
+<a href="https://www.behance.net/tamimmollah" target="_blank" class="portfolio-card small-card">
+
+<div class="portfolio-image">
+
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1zI7jVwnJgl_rffww_4ZLRfS6rYs2vRAXKWyYWJ3rk-uGFiQXiWEXc20bTMVsi3OI141wZGEV6AAJz34xNWTwGqiEuEu1M5ODxQQQx49q9cISTw-f93cDYdtuV4QbH9VQM_W2Ii9c7yByNEN2ZcazjVL5fBS0BNWGJbLpJkqicXv4kShgU6QVaEj-tjR2/s16000/Screenshot%202026-05-19%20163952.png">
+
+</div>
+
+<div class="portfolio-overlay">
+
+<div class="overlay-content">
+
+<div class="portfolio-tag">
+Photography
+</div>
+
+<h3>
+Visual Storytelling
+</h3>
+
+<p>
+Creative photography, cinematic editing, and emotionally engaging visual compositions designed for modern brands.
+</p>
+
+<div class="portfolio-buttons">
+
+<div class="portfolio-btn">
+
+<i class="fa-brands fa-behance"></i>
+
+View Gallery
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</a>
+
+</div>
+
+</section>
+
+<!-- =========================
+ADD THIS CSS
+OLD PORTFOLIO CSS REMOVE করে এটা বসাও
+========================= -->
 
 <style>
 
 /* =========================
-RESET
+ULTRA PREMIUM PORTFOLIO
 ========================= */
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
-
-:root{
-
---bg:#050816;
---primary:#3a86ff;
---secondary:#8338ec;
---text:#ffffff;
---text2:#94a3b8;
-
-}
-
-body{
-font-family:'Sora',sans-serif;
-background:var(--bg);
-color:var(--text);
-overflow-x:hidden;
-cursor:none;
-}
-
-/* =========================
-CUSTOM CURSOR
-========================= */
-
-.cursor{
-width:32px;
-height:32px;
-border:2px solid var(--primary);
-border-radius:50%;
-position:fixed;
-pointer-events:none;
-transform:translate(-50%,-50%);
-z-index:999999;
-mix-blend-mode:difference;
-transition:.08s;
-}
-
-.cursor2{
-width:8px;
-height:8px;
-background:white;
-border-radius:50%;
-position:fixed;
-pointer-events:none;
-transform:translate(-50%,-50%);
-z-index:999999;
-}
-
-/* =========================
-LOADER
-========================= */
-
-.loader{
-position:fixed;
-inset:0;
-background:#050816;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:999999;
-overflow:hidden;
-}
-
-.loader::before{
-content:'';
-position:absolute;
-width:600px;
-height:600px;
-background:linear-gradient(
-135deg,
-#3a86ff,
-#8338ec
-);
-
-filter:blur(150px);
-opacity:.35;
-animation:loaderGlow 5s infinite;
-}
-
-.loader h1{
-font-size:90px;
-font-weight:800;
-letter-spacing:-4px;
-background:linear-gradient(
-90deg,
-#fff,
-#3a86ff,
-#8338ec
-);
-
-background-size:300% 300%;
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-
-animation:
-gradientMove 6s infinite,
-loaderZoom 3s infinite;
-
+.portfolio-section{
 position:relative;
-z-index:2;
-}
-
-@keyframes loaderGlow{
-
-0%,100%{
-transform:scale(1);
-}
-
-50%{
-transform:scale(1.2);
-}
-
-}
-
-@keyframes loaderZoom{
-
-0%,100%{
-transform:scale(1);
-}
-
-50%{
-transform:scale(1.08);
-}
-
-}
-
-@keyframes gradientMove{
-
-0%{
-background-position:0% 50%;
-}
-
-50%{
-background-position:100% 50%;
-}
-
-100%{
-background-position:0% 50%;
-}
-
-}
-
-/* =========================
-BACKGROUND
-========================= */
-
-.bg{
-position:fixed;
-inset:0;
 overflow:hidden;
-z-index:-2;
 }
 
-.grid{
-position:absolute;
-inset:0;
-
-background-image:
-linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
-linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
-
-background-size:70px 70px;
-
-mask-image:linear-gradient(
-to bottom,
-transparent,
-black,
-transparent
-);
-
-}
-
-.blur{
-position:absolute;
-border-radius:50%;
-filter:blur(140px);
-opacity:.25;
-animation:float 10s ease-in-out infinite;
-}
-
-.blur1{
-width:500px;
-height:500px;
-background:#3a86ff;
-top:-100px;
-left:-100px;
-}
-
-.blur2{
-width:450px;
-height:450px;
-background:#8338ec;
-bottom:-120px;
-right:-120px;
-animation-delay:2s;
-}
-
-.blur3{
-width:350px;
-height:350px;
-background:#00c6ff;
-top:40%;
-left:45%;
-animation-delay:4s;
-}
-
-@keyframes float{
-
-0%,100%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-40px);
-}
-
-}
-
-/* =========================
-NAVBAR
-========================= */
-
-nav{
-position:fixed;
-top:20px;
-left:50%;
-transform:translateX(-50%);
-width:92%;
-max-width:1450px;
-padding:18px 24px;
+.section-top{
 display:flex;
 justify-content:space-between;
-align-items:center;
-
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(255,255,255,.08);
-
-backdrop-filter:blur(18px);
-
-border-radius:24px;
-
-z-index:999;
-transition:.5s;
+gap:60px;
+align-items:flex-end;
+margin-bottom:70px;
+flex-wrap:wrap;
 }
 
-nav.scrolled{
-background:rgba(5,8,22,.85);
-padding:14px 22px;
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:14px;
-}
-
-.logo img{
-width:58px;
-height:58px;
-border-radius:18px;
-object-fit:cover;
-border:2px solid rgba(255,255,255,.08);
-}
-
-.logo-text h2{
-font-size:18px;
-font-weight:700;
-}
-
-.logo-text p{
-font-size:12px;
-color:var(--text2);
-margin-top:3px;
-}
-
-.nav-links{
-display:flex;
-gap:34px;
-}
-
-.nav-links a{
-text-decoration:none;
-color:white;
-font-size:14px;
-font-weight:500;
-position:relative;
-}
-
-.nav-links a::after{
-content:'';
-position:absolute;
-left:0;
-bottom:-8px;
-width:0%;
-height:2px;
-background:linear-gradient(
-90deg,
-#3a86ff,
-#8338ec
-);
-
-transition:.4s;
-}
-
-.nav-links a:hover::after{
-width:100%;
-}
-
-/* =========================
-SECTION
-========================= */
-
-section{
-padding:130px 7%;
-position:relative;
-z-index:2;
-}
-
-/* =========================
-HERO
-========================= */
-
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-overflow:hidden;
-}
-
-.hero-content{
-max-width:1450px;
-margin:auto;
-display:grid;
-grid-template-columns:1fr 520px;
-gap:80px;
-align-items:center;
-width:100%;
-}
-
-/* LEFT */
-
-.hero-badge{
+.section-badge{
 display:inline-flex;
 align-items:center;
 gap:12px;
@@ -384,1166 +174,352 @@ border:1px solid rgba(255,255,255,.08);
 
 backdrop-filter:blur(12px);
 
-margin-bottom:35px;
+margin-bottom:28px;
+
+font-size:14px;
 
 animation:badgeFloat 5s infinite;
 }
 
-@keyframes badgeFloat{
-
-0%,100%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-10px);
-}
-
-}
-
-.hero-title{
-font-size:110px;
-line-height:.95;
+.ultra-title{
+font-size:78px;
+line-height:1;
 font-weight:800;
-letter-spacing:-6px;
-margin-bottom:35px;
+letter-spacing:-4px;
 }
 
-.gradient{
-background:linear-gradient(
-90deg,
-#3a86ff,
-#00c6ff,
-#8338ec,
-#3a86ff
-);
-
-background-size:300% 300%;
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-
-animation:gradientMove 8s ease infinite;
-}
-
-.hero-description{
-font-size:18px;
-line-height:2.1;
-color:#cbd5e1;
-max-width:760px;
-}
-
-.hero-buttons{
-display:flex;
-gap:18px;
-margin-top:45px;
-flex-wrap:wrap;
-}
-
-.btn{
-padding:20px 34px;
-border-radius:22px;
-display:flex;
-align-items:center;
-gap:12px;
-font-size:15px;
-font-weight:600;
-text-decoration:none;
-transition:.5s;
-position:relative;
-overflow:hidden;
-}
-
-.btn::before{
-content:'';
-position:absolute;
-top:0;
-left:-120%;
-width:120%;
-height:100%;
-background:linear-gradient(
-90deg,
-transparent,
-rgba(255,255,255,.2),
-transparent
-);
-
-transition:.8s;
-}
-
-.btn:hover::before{
-left:120%;
-}
-
-.btn:hover{
-transform:
-translateY(-10px)
-scale(1.03);
-}
-
-.btn-primary{
-background:linear-gradient(
-135deg,
-#3a86ff,
-#8338ec
-);
-
-color:white;
-
-box-shadow:
-0 20px 50px rgba(58,134,255,.25);
-}
-
-.btn-secondary{
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
-color:white;
-}
-
-/* STATS */
-
-.hero-stats{
-display:flex;
-gap:24px;
-margin-top:60px;
-flex-wrap:wrap;
-}
-
-.stat-box{
-padding:28px 34px;
-border-radius:28px;
-
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(255,255,255,.08);
-
-backdrop-filter:blur(14px);
-
-transition:.5s;
-}
-
-.stat-box:hover{
-transform:
-translateY(-12px)
-scale(1.03);
-
-border-color:#3a86ff;
-
-box-shadow:
-0 20px 40px rgba(58,134,255,.15);
-}
-
-.stat-box h2{
-font-size:44px;
-margin-bottom:10px;
-}
-
-.stat-box p{
-font-size:14px;
-color:#94a3b8;
-}
-
-/* RIGHT */
-
-.hero-right{
-position:relative;
-}
-
-.hero-image-wrapper{
-height:760px;
-display:flex;
-align-items:center;
-justify-content:center;
-position:relative;
-}
-
-.hero-glow{
-position:absolute;
-width:550px;
-height:550px;
-border-radius:50%;
-
-background:linear-gradient(
-135deg,
-#3a86ff,
-#8338ec
-);
-
-filter:blur(120px);
-
-opacity:.3;
-
-animation:glowPulse 6s infinite;
-}
-
-@keyframes glowPulse{
-
-0%,100%{
-transform:scale(1);
-}
-
-50%{
-transform:scale(1.12);
-}
-
-}
-
-.hero-image{
-width:460px;
-height:680px;
-border-radius:42px;
-overflow:hidden;
-position:relative;
-
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(255,255,255,.08);
-
-backdrop-filter:blur(18px);
-
-animation:imageFloat 6s infinite;
-}
-
-@keyframes imageFloat{
-
-0%,100%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-20px);
-}
-
-}
-
-.hero-image img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-.floating-card{
-position:absolute;
-padding:18px 24px;
-border-radius:24px;
-
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(255,255,255,.08);
-
-backdrop-filter:blur(18px);
-
-display:flex;
-align-items:center;
-gap:12px;
-
-animation:floatCard 5s infinite;
-}
-
-.floating-card i{
-font-size:20px;
-color:#3a86ff;
-}
-
-.card1{
-top:80px;
-left:-40px;
-}
-
-.card2{
-bottom:100px;
-right:-30px;
-animation-delay:2s;
-}
-
-.card3{
-top:50%;
-left:-60px;
-animation-delay:4s;
-}
-
-@keyframes floatCard{
-
-0%,100%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-14px);
-}
-
-}
-
-/* TITLES */
-
-.title{
-font-size:68px;
-font-weight:800;
-margin-bottom:25px;
-letter-spacing:-3px;
-}
-
-/* GLASS CARDS */
-
-.glass,
-.timeline-box,
-.contact-box{
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(255,255,255,.08);
-
-border-radius:35px;
-
-padding:42px;
-
-backdrop-filter:blur(14px);
-
-transition:.5s;
-}
-
-.glass:hover,
-.timeline-box:hover,
-.contact-box:hover{
-
-transform:
-translateY(-12px)
-scale(1.01);
-
-border-color:#3a86ff;
-
-box-shadow:
-0 20px 40px rgba(58,134,255,.12);
-}
-
-/* ABOUT */
-
-.about-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:35px;
-margin-top:60px;
-}
-
-.glass p{
+.section-description{
+max-width:600px;
 line-height:2.1;
 font-size:16px;
 color:#cbd5e1;
 }
 
-.skills{
-display:flex;
-flex-wrap:wrap;
-gap:14px;
-margin-top:30px;
+/* GRID */
+
+.portfolio-grid{
+display:grid;
+grid-template-columns:1.2fr .8fr;
+gap:32px;
+align-items:stretch;
 }
 
-.skill{
-padding:14px 18px;
-border-radius:18px;
+/* CARD */
 
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(255,255,255,.08);
-
-transition:.4s;
-}
-
-.skill:hover{
-transform:
-translateY(-8px)
-scale(1.05);
-
-background:linear-gradient(
-135deg,
-#3a86ff,
-#8338ec
-);
-}
-
-/* EXPERIENCE */
-
-.timeline{
-margin-top:60px;
-display:flex;
-flex-direction:column;
-gap:30px;
-}
-
-.timeline-box h3{
-font-size:30px;
-margin-bottom:14px;
-}
-
-.timeline-box p{
-line-height:2;
-color:#cbd5e1;
-}
-
-/* PORTFOLIO */
-
-.portfolio{
-margin-top:60px;
-height:750px;
-border-radius:42px;
-overflow:hidden;
+.portfolio-card{
 position:relative;
+border-radius:40px;
+overflow:hidden;
+min-height:780px;
+
+background:rgba(255,255,255,.04);
 
 border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(14px);
+
+transition:
+transform .7s ease,
+box-shadow .7s ease,
+border .7s ease;
 
 cursor:pointer;
-
-transition:.5s;
 }
 
-.portfolio:hover{
-transform:scale(1.02);
+.small-card{
+min-height:780px;
+}
+
+.portfolio-card:hover{
+
+transform:
+translateY(-15px)
+scale(1.015);
+
+border-color:#3a86ff;
 
 box-shadow:
-0 25px 60px rgba(58,134,255,.18);
+0 30px 70px rgba(58,134,255,.18);
+
 }
 
-.portfolio img{
+/* IMAGE */
+
+.portfolio-image{
+position:absolute;
+inset:0;
+overflow:hidden;
+}
+
+.portfolio-image img{
 width:100%;
-transition:10s linear;
+height:130%;
+object-fit:cover;
+
+transition:
+transform 12s linear,
+filter .8s ease;
 }
 
-.portfolio:hover img{
-transform:translateY(-70%);
+.portfolio-card:hover img{
+transform:translateY(-18%);
+filter:brightness(.7);
 }
 
-.overlay{
+/* OVERLAY */
+
+.portfolio-overlay{
 position:absolute;
 inset:0;
 
-background:linear-gradient(
+background:
+linear-gradient(
 to top,
-rgba(5,8,22,.96),
+rgba(5,8,22,.98),
+rgba(5,8,22,.35),
 transparent
 );
 
 display:flex;
 align-items:flex-end;
-padding:50px;
+padding:45px;
 }
 
-/* CONTACT */
-
-.contact{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:35px;
-margin-top:60px;
+.overlay-content{
+transform:translateY(40px);
+opacity:0;
+transition:1s ease;
 }
 
-.contact-box input,
-.contact-box textarea{
-width:100%;
-padding:20px;
-margin-bottom:18px;
+.portfolio-card:hover .overlay-content{
+transform:translateY(0px);
+opacity:1;
+}
 
-background:rgba(255,255,255,.05);
+/* TAG */
+
+.portfolio-tag{
+display:inline-flex;
+align-items:center;
+padding:12px 20px;
+border-radius:50px;
+
+background:rgba(255,255,255,.08);
 
 border:1px solid rgba(255,255,255,.08);
 
+backdrop-filter:blur(10px);
+
+font-size:13px;
+margin-bottom:22px;
+}
+
+/* CONTENT */
+
+.overlay-content h3{
+font-size:42px;
+line-height:1.1;
+margin-bottom:18px;
+}
+
+.overlay-content p{
+font-size:15px;
+line-height:2;
+color:#cbd5e1;
+max-width:540px;
+}
+
+/* BUTTONS */
+
+.portfolio-buttons{
+display:flex;
+gap:16px;
+margin-top:32px;
+flex-wrap:wrap;
+}
+
+.portfolio-btn{
+padding:16px 26px;
 border-radius:18px;
 
-font-family:'Sora',sans-serif;
+background:
+linear-gradient(
+135deg,
+#3a86ff,
+#8338ec
+);
 
-color:white;
+display:flex;
+align-items:center;
+gap:12px;
+
+font-size:14px;
+font-weight:600;
+
+transition:.5s;
 }
 
-.contact-box textarea{
-height:180px;
-resize:none;
+.secondary-btn{
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.08);
 }
 
-/* FOOTER */
-
-footer{
-padding:40px;
-text-align:center;
-color:#94a3b8;
-border-top:1px solid rgba(255,255,255,.08);
-position:relative;
-overflow:hidden;
+.portfolio-btn:hover{
+transform:
+translateY(-8px)
+scale(1.03);
 }
 
-footer::before{
+/* GLOW EFFECT */
+
+.portfolio-card::before{
 content:'';
 position:absolute;
-top:0;
-left:-100%;
-width:100%;
-height:1px;
+inset:-2px;
 
-background:linear-gradient(
-90deg,
+background:
+linear-gradient(
+135deg,
 transparent,
-#3a86ff,
+rgba(58,134,255,.4),
 transparent
 );
 
-animation:footerLine 4s linear infinite;
+opacity:0;
+transition:.8s;
+z-index:2;
+pointer-events:none;
 }
 
-@keyframes footerLine{
-
-100%{
-left:100%;
-}
-
+.portfolio-card:hover::before{
+opacity:1;
 }
 
 /* RESPONSIVE */
 
 @media(max-width:1200px){
 
-.hero-content,
-.about-grid,
-.contact{
+.portfolio-grid{
 grid-template-columns:1fr;
 }
 
-.hero-title{
-font-size:82px;
+.portfolio-card,
+.small-card{
+min-height:680px;
 }
 
 }
 
 @media(max-width:768px){
 
-body{
-cursor:auto;
+.section-top{
+gap:30px;
 }
 
-.cursor,
-.cursor2{
-display:none;
-}
-
-.nav-links{
-display:none;
-}
-
-.hero{
-padding-top:150px;
-}
-
-.hero-title{
-font-size:54px;
+.ultra-title{
+font-size:48px;
 line-height:1.08;
 letter-spacing:-2px;
 }
 
-.title{
-font-size:46px;
+.portfolio-card,
+.small-card{
+min-height:520px;
+border-radius:28px;
 }
 
-.hero-image{
-width:100%;
-height:540px;
+.portfolio-overlay{
+padding:28px;
 }
 
-.hero-buttons{
+.overlay-content h3{
+font-size:30px;
+}
+
+.overlay-content{
+transform:none;
+opacity:1;
+}
+
+.portfolio-buttons{
 flex-direction:column;
 }
 
-.btn{
+.portfolio-btn{
 justify-content:center;
-}
-
-.hero-stats{
-flex-direction:column;
-}
-
-.portfolio{
-height:450px;
-}
-
-.floating-card{
-display:none;
 }
 
 }
 
 </style>
 
-</head>
-
-<body>
-
-<!-- CURSOR -->
-
-<div class="cursor"></div>
-<div class="cursor2"></div>
-
-<!-- LOADER -->
-
-<div class="loader">
-
-<h1>
-Tamim’s Portfolio
-</h1>
-
-</div>
-
-<!-- BACKGROUND -->
-
-<div class="bg">
-
-<div class="grid"></div>
-
-<div class="blur blur1"></div>
-<div class="blur blur2"></div>
-<div class="blur blur3"></div>
-
-</div>
-
-<!-- NAVBAR -->
-
-<nav>
-
-<div class="logo">
-
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg">
-
-<div class="logo-text">
-
-<h2>
-Al Jubayer
-</h2>
-
-<p>
-Creative Designer
-</p>
-
-</div>
-
-</div>
-
-<div class="nav-links">
-
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#experience">Experience</a>
-<a href="#portfolio">Portfolio</a>
-<a href="#contact">Contact</a>
-
-</div>
-
-</nav>
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-<div class="hero-content">
-
-<!-- LEFT -->
-
-<div>
-
-<div class="hero-badge">
-
-<i class="fa-solid fa-sparkles"></i>
-
-Creative Designer & Photographer
-
-</div>
-
-<h1 class="hero-title">
-
-Al Jubayer <br>
-
-<span class="gradient">
-Rayhan Tamim
-</span>
-
-<br>
-
-Mollah
-
-</h1>
-
-<p class="hero-description">
-
-I create cinematic branding visuals, premium social media campaigns, modern digital experiences, creative storytelling, and visually powerful designs that emotionally connect with audiences and elevate brands professionally.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="#portfolio" class="btn btn-primary">
-
-<i class="fa-solid fa-grid-2"></i>
-
-Explore Portfolio
-
-</a>
-
-<a href="https://www.behance.net/tamimmollah" target="_blank" class="btn btn-secondary">
-
-<i class="fa-brands fa-behance"></i>
-
-Behance
-
-</a>
-
-</div>
-
-<div class="hero-stats">
-
-<div class="stat-box">
-
-<h2>200+</h2>
-
-<p>Projects</p>
-
-</div>
-
-<div class="stat-box">
-
-<h2>5+</h2>
-
-<p>Experience</p>
-
-</div>
-
-<div class="stat-box">
-
-<h2>100+</h2>
-
-<p>Clients</p>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- RIGHT -->
-
-<div class="hero-right">
-
-<div class="hero-image-wrapper">
-
-<div class="hero-glow"></div>
-
-<div class="hero-image">
-
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg">
-
-</div>
-
-<div class="floating-card card1">
-
-<i class="fa-solid fa-camera"></i>
-
-<span>Photography</span>
-
-</div>
-
-<div class="floating-card card2">
-
-<i class="fa-solid fa-layer-group"></i>
-
-<span>Brand Identity</span>
-
-</div>
-
-<div class="floating-card card3">
-
-<i class="fa-solid fa-pen-ruler"></i>
-
-<span>Creative Direction</span>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section id="about">
-
-<h2 class="title">
-
-About <span class="gradient">Me</span>
-
-</h2>
-
-<div class="about-grid">
-
-<div class="glass">
-
-<p>
-
-Creative and detail-driven Graphics Designer with expertise in branding, social media design, photography, cinematic visuals, user-centered design, and premium storytelling experiences.
-
-</p>
-
-<div class="skills">
-
-<div class="skill">Photoshop</div>
-<div class="skill">Illustrator</div>
-<div class="skill">Lightroom</div>
-<div class="skill">Figma</div>
-<div class="skill">Branding</div>
-<div class="skill">Typography</div>
-<div class="skill">Photography</div>
-<div class="skill">Creative Direction</div>
-
-</div>
-
-</div>
-
-<div class="glass">
-
-<p>
-
-Currently studying BSS in Journalism & Media Communication at Green University of Bangladesh while professionally building impactful modern digital experiences and premium creative visuals.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- EXPERIENCE -->
-
-<section id="experience">
-
-<h2 class="title">
-
-Professional <span class="gradient">Experience</span>
-
-</h2>
-
-<div class="timeline">
-
-<div class="timeline-box">
-
-<h3>
-Graphics Designer — Oilo
-</h3>
-
-<p>
-2025 — Present
-</p>
-
-</div>
-
-<div class="timeline-box">
-
-<h3>
-Graphics Designer — VortexUp Digital
-</h3>
-
-<p>
-2024 — 2025
-</p>
-
-</div>
-
-<div class="timeline-box">
-
-<h3>
-Marketing Executive — Smart IT
-</h3>
-
-<p>
-2023 — 2024
-</p>
-
-</div>
-
-<div class="timeline-box">
-
-<h3>
-Photographer — DMRC
-</h3>
-
-<p>
-2022
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- PORTFOLIO -->
-
-<section id="portfolio">
-
-<h2 class="title">
-
-Featured <span class="gradient">Portfolio</span>
-
-</h2>
-
-<a href="https://www.behance.net/tamimmollah" target="_blank">
-
-<div class="portfolio">
-
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicWMHRE6xXHxO-ILL4BYF-Z14u_BexQ3hDOAFCx4_pNF27UUevUR_EEXcsVmdszaC1aKtPC8bGdEf9OZALuFpw8YZdTHNmqhK_Q2ecVcu19Xp5-91V-0Y-rcs_hzkNwSHCs9_iIEdNg4xg8hOGw240-wLxiC3CrhcyYoERu8gkACE86rWxRnDBfz3odNQz/s16000/Screenshot%202026-05-19%20160117.png">
-
-<div class="overlay">
-
-<div>
-
-<h2>
-Creative Portfolio Showcase
-</h2>
-
-<p>
-Click to view my full Behance projects and premium creative visual works.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</a>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-<h2 class="title">
-
-Let’s <span class="gradient">Connect</span>
-
-</h2>
-
-<div class="contact">
-
-<div class="contact-box">
-
-<h3 style="font-size:34px;margin-bottom:20px;">
-
-Contact Information
-
-</h3>
-
-<p style="line-height:2;color:#cbd5e1;">
-
-Phone: 01865861015 <br><br>
-
-Email: tamimmolla81@gmail.com <br><br>
-
-Location: Shantibagh, Demra, Dhaka <br><br>
-
-LinkedIn:
-<a href="https://linkedin.com/in/al-jubayer-rayhan-tamim-mollah" target="_blank" style="color:#3a86ff;">
-
-View Profile
-
-</a>
-
-</p>
-
-</div>
-
-<div class="contact-box">
-
-<input type="text" placeholder="Your Name">
-
-<input type="email" placeholder="Your Email">
-
-<textarea placeholder="Your Message"></textarea>
-
-<a href="#" class="btn btn-primary">
-
-<i class="fa-solid fa-paper-plane"></i>
-
-Send Message
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-© 2026 — Al Jubayer Rayhan Tamim Mollah
-
-</footer>
+<!-- =========================
+ADD THIS GSAP JS
+OLD PORTFOLIO JS REMOVE করে এটা বসাও
+========================= -->
 
 <script>
 
-/* CURSOR */
+/* ULTRA PORTFOLIO ANIMATION */
 
-const cursor=document.querySelector(".cursor");
-const cursor2=document.querySelector(".cursor2");
-
-document.addEventListener("mousemove",(e)=>{
-
-cursor.style.left=e.clientX+"px";
-cursor.style.top=e.clientY+"px";
-
-cursor2.style.left=e.clientX+"px";
-cursor2.style.top=e.clientY+"px";
-
-});
-
-/* LOADER */
-
-window.addEventListener("load",()=>{
-
-gsap.to(".loader",{
-
-opacity:0,
-duration:1.2,
-delay:2,
-
-onComplete:()=>{
-
-document.querySelector(".loader").style.display="none";
-
-}
-
-});
-
-});
-
-/* NAVBAR */
-
-window.addEventListener("scroll",()=>{
-
-const nav=document.querySelector("nav");
-
-if(window.scrollY>50){
-
-nav.classList.add("scrolled");
-
-}else{
-
-nav.classList.remove("scrolled");
-
-}
-
-});
-
-/* GSAP */
-
-gsap.registerPlugin(ScrollTrigger);
-
-/* HERO */
-
-gsap.from(".hero-badge",{
-
-y:40,
-opacity:0,
-duration:1,
-ease:"power4.out"
-
-});
-
-gsap.from(".hero-title",{
-
-y:120,
-opacity:0,
-duration:1.5,
-delay:.2,
-ease:"power4.out"
-
-});
-
-gsap.from(".hero-description",{
-
-y:80,
-opacity:0,
-duration:1.4,
-delay:.5,
-ease:"power4.out"
-
-});
-
-gsap.from(".btn",{
-
-y:50,
-opacity:0,
-duration:1,
-delay:.8,
-stagger:.2,
-ease:"power4.out"
-
-});
-
-gsap.from(".stat-box",{
-
-y:60,
-opacity:0,
-duration:1,
-delay:1,
-stagger:.15,
-ease:"power4.out"
-
-});
-
-gsap.from(".hero-image",{
-
-scale:.8,
-opacity:0,
-duration:1.5,
-delay:.5,
-ease:"power4.out"
-
-});
-
-gsap.from(".floating-card",{
-
-y:50,
-opacity:0,
-duration:1,
-delay:1.2,
-stagger:.2,
-ease:"power4.out"
-
-});
-
-/* SCROLL */
-
-gsap.utils.toArray(
-
-".glass,.timeline-box,.portfolio,.contact-box"
-
-).forEach((el)=>{
-
-gsap.from(el,{
+gsap.from(".section-top",{
 
 scrollTrigger:{
-trigger:el,
-start:"top 85%"
+trigger:".portfolio-section",
+start:"top 80%"
 },
 
 y:100,
 opacity:0,
-scale:.95,
-duration:1.3,
+duration:1.4,
 ease:"power4.out"
+
+});
+
+gsap.from(".portfolio-card",{
+
+scrollTrigger:{
+trigger:".portfolio-grid",
+start:"top 80%"
+},
+
+y:140,
+opacity:0,
+duration:1.5,
+stagger:.25,
+ease:"power4.out"
+
+});
+
+/* HOVER PARALLAX */
+
+document.querySelectorAll(".portfolio-card").forEach(card=>{
+
+card.addEventListener("mousemove",(e)=>{
+
+const rect=card.getBoundingClientRect();
+
+const x=e.clientX-rect.left;
+const y=e.clientY-rect.top;
+
+const moveX=(x-rect.width/2)/25;
+const moveY=(y-rect.height/2)/25;
+
+card.style.transform=`
+translateY(-15px)
+rotateX(${-moveY}deg)
+rotateY(${moveX}deg)
+scale(1.015)
+`;
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="";
 
 });
 
 });
 
 </script>
-
-</body>
-</html>
