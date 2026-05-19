@@ -3,422 +3,675 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tamim Mollah - Creative Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    <title>Tamim — Cinematic & Premium Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
+    <style>
+        /* =======================
+           BASE SETTINGS & VARIABLES
+        ======================= */
         :root {
-            --bg-color: #050505;
+            --primary-glow: #3a86ff;
+            --secondary-glow: #8338ec;
+            --bg-dark: #030508;
             --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.06);
             --text-main: #ffffff;
-            --text-muted: #a0a0a0;
-            --gradient-1: #ff007a;
-            --gradient-2: #7928ca;
+            --text-muted: #a0aec0;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-color);
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-dark);
             color: var(--text-main);
             overflow-x: hidden;
-            display: flex;
+            line-height: 1.6;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-color); }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(var(--gradient-1), var(--gradient-2)); border-radius: 10px; }
+        /* =======================
+           SCROLLBAR
+        ======================= */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--primary-glow), var(--secondary-glow));
+            border-radius: 10px;
+        }
 
-        /* Animated Background Blobs */
-        .blob {
+        /* =======================
+           BACKGROUND & EFFECTS
+        ======================= */
+        .bg {
             position: fixed;
+            inset: 0;
+            z-index: -10;
+            background: 
+                linear-gradient(rgba(3, 5, 8, 0.9), rgba(3, 5, 8, 0.9)),
+                background-size: 30px 30px;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
             border-radius: 50%;
-            filter: blur(100px);
-            z-index: -1;
+            filter: blur(120px);
+            opacity: 0.15;
             animation: float 10s infinite ease-in-out alternate;
         }
-        .blob-1 {
-            width: 400px; height: 400px;
-            background: rgba(121, 40, 202, 0.4);
-            top: -100px; left: -100px;
+
+        .orb1 {
+            width: 600px; height: 600px;
+            background: var(--primary-glow);
+            top: -200px; left: -200px;
         }
-        .blob-2 {
-            width: 350px; height: 350px;
-            background: rgba(255, 0, 122, 0.3);
-            bottom: -50px; right: -100px;
+
+        .orb2 {
+            width: 500px; height: 500px;
+            background: var(--secondary-glow);
+            bottom: -100px; right: -150px;
             animation-delay: 2s;
         }
 
         @keyframes float {
             0% { transform: translateY(0) scale(1); }
-            100% { transform: translateY(50px) scale(1.1); }
+            100% { transform: translateY(-30px) scale(1.1); }
         }
 
-        /* Sidebar Styling */
-        .sidebar {
-            width: 320px;
-            height: 100vh;
+        /* =======================
+           NAVBAR
+        ======================= */
+        nav {
             position: fixed;
-            left: 0;
-            top: 0;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border-right: 1px solid var(--glass-border);
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1400px;
+            padding: 15px 30px;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            padding: 40px 20px;
-            z-index: 100;
+            background: rgba(10, 10, 15, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            z-index: 999;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .profile-img-container {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            padding: 4px;
-            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
-            margin-bottom: 20px;
-        }
-
-        .profile-img {
-            width: 100%;
-            height: 100%;
+        .logo { display: flex; align-items: center; gap: 15px; }
+        .logo img {
+            width: 50px; height: 50px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--bg-color);
+            border: 2px solid var(--primary-glow);
+            padding: 2px;
         }
+        .logo h2 { font-size: 18px; font-weight: 700; letter-spacing: 1px; }
 
-        .sidebar h2 {
-            font-size: 1.4rem;
-            text-align: center;
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-
-        .sidebar p.role {
+        .menu { display: flex; gap: 40px; }
+        .menu a {
             color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            list-style: none;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .nav-links li a {
-            display: flex;
-            align-items: center;
-            gap: 15px;
             text-decoration: none;
-            color: var(--text-muted);
-            font-size: 1rem;
-            padding: 12px 20px;
-            border-radius: 10px;
-            transition: all 0.3s ease;
+            font-size: 15px;
+            font-weight: 500;
+            transition: 0.3s;
+            position: relative;
         }
-
-        .nav-links li a:hover {
-            background: rgba(255,255,255,0.1);
-            color: var(--text-main);
-            transform: translateX(10px);
+        .menu a:hover { color: var(--text-main); }
+        .menu a::after {
+            content: ''; position: absolute;
+            left: 0; bottom: -5px;
+            width: 0%; height: 2px;
+            background: linear-gradient(90deg, var(--primary-glow), var(--secondary-glow));
+            transition: 0.4s ease;
         }
+        .menu a:hover::after { width: 100%; }
 
-        .social-icons {
-            margin-top: auto;
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-icons a {
-            color: var(--text-main);
-            font-size: 1.2rem;
-            background: var(--glass-bg);
+        .socials { display: flex; gap: 15px; }
+        .socials a {
             width: 40px; height: 40px;
             display: flex; align-items: center; justify-content: center;
             border-radius: 50%;
-            border: 1px solid var(--glass-border);
-            transition: all 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
-            transform: translateY(-5px);
-            border-color: transparent;
-        }
-
-        /* Main Content */
-        .main-content {
-            margin-left: 320px;
-            padding: 50px 8%;
-            width: calc(100% - 320px);
-        }
-
-        /* Typography & Utility */
-        .gradient-text {
-            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            font-weight: 700;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 0; bottom: -10px;
-            width: 50px; height: 4px;
-            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
-            border-radius: 2px;
-        }
-
-        section { margin-bottom: 100px; }
-
-        /* Glass Card */
-        .glass-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 40px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: 0.4s;
+        }
+        .socials a:hover {
+            transform: translateY(-5px) rotate(360deg);
+            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+            border-color: transparent;
+            box-shadow: 0 10px 20px rgba(58,134,255,0.3);
         }
 
-        .glass-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(121, 40, 202, 0.2);
-        }
-
-        /* Hero Section */
-        #home h1 {
-            font-size: 4rem;
-            line-height: 1.2;
+        /* =======================
+           GLOBAL SECTIONS
+        ======================= */
+        section { padding: 120px 8%; max-width: 1600px; margin: 0 auto; }
+        
+        .section-title {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -3px;
             margin-bottom: 20px;
         }
-        #home p {
-            font-size: 1.1rem;
+        .section-text {
+            max-width: 700px;
             color: var(--text-muted);
-            max-width: 800px;
-            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 60px;
+        }
+        
+        .gradient {
+            background: linear-gradient(90deg, #3a86ff, #00c6ff, #8338ec);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientAnim 5s infinite alternate;
+        }
+        @keyframes gradientAnim {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
 
-        /* Portfolio */
-        .portfolio-img-wrapper {
-            width: 100%;
-            border-radius: 15px;
-            overflow: hidden;
-            position: relative;
+        /* =======================
+           HERO SECTION
+        ======================= */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 180px;
         }
-        .portfolio-img {
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
             width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.6s ease;
-        }
-        .glass-card:hover .portfolio-img {
-            transform: scale(1.05);
         }
 
-        /* Timeline (Experience & Education) */
-        .timeline {
-            position: relative;
-            border-left: 2px solid var(--glass-border);
-            padding-left: 30px;
-            margin-left: 10px;
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 50px;
+            background: rgba(58, 134, 255, 0.1);
+            border: 1px solid rgba(58, 134, 255, 0.2);
+            margin-bottom: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #00c6ff;
+            backdrop-filter: blur(10px);
         }
-        .timeline-item {
-            position: relative;
+
+        .hero h1 {
+            font-size: 7rem;
+            line-height: 0.95;
+            font-weight: 900;
+            letter-spacing: -4px;
+            margin-bottom: 30px;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 650px;
             margin-bottom: 40px;
         }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -39px;
-            top: 0;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--gradient-1);
-            border: 4px solid var(--bg-color);
-        }
-        .timeline-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-        }
-        .timeline-item h4 {
-            font-size: 1rem;
-            color: var(--gradient-2);
-            margin-bottom: 15px;
-        }
-        .timeline-item span.date {
-            background: rgba(255,255,255,0.05);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-        .timeline-item p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
+        .typing { color: var(--primary-glow); font-weight: 600; }
 
-        /* Skills */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+        .hero-btns { display: flex; gap: 20px; flex-wrap: wrap; }
+        .btn {
+            padding: 16px 36px;
+            border-radius: 50px;
+            display: flex; align-items: center; gap: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.4s ease;
+            cursor: pointer;
         }
-        .skill-tag {
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+            color: white;
+            box-shadow: 0 15px 30px rgba(58,134,255,0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(58,134,255,0.5);
+        }
+        .btn-secondary {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
+            color: white;
+            backdrop-filter: blur(10px);
         }
-        .skill-tag:hover {
-            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
-            border-color: transparent;
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+
+        /* HERO IMAGE */
+        .hero-image-wrap { position: relative; display: flex; justify-content: center; align-items: center; }
+        .ring {
+            position: absolute;
+            width: 500px; height: 500px;
+            border: 1px dashed rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: spin 30s linear infinite;
+        }
+        .ring::before, .ring::after {
+            content: ''; position: absolute;
+            width: 20px; height: 20px;
+            background: var(--primary-glow);
+            border-radius: 50%;
+            box-shadow: 0 0 30px var(--primary-glow);
+        }
+        .ring::before { top: 0; left: 50%; transform: translateX(-50%); }
+        .ring::after { bottom: 20%; right: 5%; background: var(--secondary-glow); box-shadow: 0 0 30px var(--secondary-glow); }
+        
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        .hero-image {
+            width: 380px; height: 520px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+        }
+        .hero-image img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: 0.8s ease;
+        }
+        .hero-image:hover img { transform: scale(1.08); filter: contrast(1.1); }
+
+        /* =======================
+           CARDS (ABOUT & RESUME)
+        ======================= */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        
+        .card {
+            padding: 50px;
+            border-radius: 30px;
+            background: rgba(20, 20, 25, 0.4);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: ''; position: absolute;
+            width: 200px; height: 200px;
+            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+            filter: blur(80px);
+            opacity: 0.1;
+            top: -50px; right: -50px;
+            transition: 0.5s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(58, 134, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .card:hover::before { opacity: 0.2; }
+        
+        .card h3 { font-size: 2rem; margin-bottom: 20px; font-weight: 700; }
+        .card p, .card li { color: var(--text-muted); margin-bottom: 15px; font-size: 1.05rem; }
+        .card ul { padding-left: 20px; }
+        .card li::marker { color: var(--primary-glow); }
+
+        /* SKILLS */
+        .skills { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+        .skill {
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--glass-border);
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+            cursor: default;
+        }
+        .skill:hover {
+            background: rgba(58,134,255,0.1);
+            border-color: var(--primary-glow);
+            color: #fff;
             transform: translateY(-3px);
         }
 
-        /* Responsive Design */
-        @media (max-width: 991px) {
-            body { flex-direction: column; }
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                border-right: none;
-                border-bottom: 1px solid var(--glass-border);
-                padding: 20px;
-            }
-            .nav-links {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .main-content {
-                margin-left: 0;
-                width: 100%;
-                padding: 30px 5%;
-            }
-            #home h1 { font-size: 2.5rem; }
+        /* =======================
+           PORTFOLIO
+        ======================= */
+        .portfolio { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .project {
+            position: relative;
+            height: 500px;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            transition: 0.5s;
+        }
+        .project:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary-glow);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+        }
+        .project img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: 0.8s ease;
+        }
+        .project:hover img { transform: scale(1.1); filter: brightness(0.4); }
+
+        .overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(3,5,8,1) 0%, rgba(3,5,8,0) 100%);
+            display: flex; align-items: flex-end;
+            padding: 40px;
+            opacity: 0;
+            transition: 0.5s ease;
+        }
+        .project:hover .overlay { opacity: 1; }
+        .overlay h2 { font-size: 2rem; margin-bottom: 10px; transform: translateY(20px); transition: 0.5s; }
+        .overlay p { color: var(--text-muted); transform: translateY(20px); transition: 0.5s; transition-delay: 0.1s;}
+        .view-btn {
+            display: inline-flex; margin-top: 20px; padding: 12px 24px;
+            border-radius: 50px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+            font-size: 14px; font-weight: 600; color: white; text-decoration: none;
+            transform: translateY(20px); transition: 0.5s; transition-delay: 0.2s;
+        }
+        .view-btn:hover { background: var(--primary-glow); }
+        .project:hover .overlay h2, .project:hover .overlay p, .project:hover .overlay .view-btn { transform: translateY(0); }
+
+        /* =======================
+           CONTACT & FOOTER
+        ======================= */
+        .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .contact-box {
+            padding: 50px; border-radius: 30px;
+            background: rgba(20, 20, 25, 0.4); border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+        }
+        .contact-box h3 { font-size: 2rem; margin-bottom: 25px; }
+        .contact-box p { color: var(--text-muted); line-height: 2.2; }
+        .contact-box a { color: var(--primary-glow); text-decoration: none; font-weight: 500; transition: 0.3s; }
+        .contact-box a:hover { color: #fff; }
+
+        .contact-box input, .contact-box textarea {
+            width: 100%; padding: 18px 25px; margin-bottom: 20px;
+            background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border);
+            border-radius: 15px; color: white; font-family: 'Outfit', sans-serif;
+            font-size: 1rem; transition: 0.3s; outline: none;
+        }
+        .contact-box input:focus, .contact-box textarea:focus {
+            border-color: var(--primary-glow); background: rgba(58,134,255,0.05);
+        }
+        .contact-box textarea { height: 160px; resize: none; }
+
+        footer {
+            padding: 40px; text-align: center; color: var(--text-muted);
+            border-top: 1px solid var(--glass-border); margin-top: 50px;
+        }
+
+        /* =======================
+           ANIMATIONS
+        ======================= */
+        .reveal { opacity: 0; transform: translateY(60px); transition: all 1s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* =======================
+           RESPONSIVE
+        ======================= */
+        @media(max-width: 1200px) {
+            .hero h1 { font-size: 5rem; }
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .tag { margin: 0 auto 30px auto; }
+            .hero p { margin: 0 auto 40px auto; }
+            .hero-btns { justify-content: center; }
+            .hero-image-wrap { margin-top: 50px; }
+            .ring { width: 400px; height: 400px; }
+        }
+        @media(max-width: 900px) {
+            .grid-2, .portfolio, .contact { grid-template-columns: 1fr; }
+            .section-title { font-size: 3.5rem; }
+            .menu { display: none; }
+            nav { justify-content: center; border-radius: 20px; padding: 15px; }
+            .socials { display: none; }
+        }
+        @media(max-width: 500px) {
+            .hero h1 { font-size: 3.5rem; }
+            section { padding: 100px 5%; }
+            .hero-image { width: 100%; height: 450px; }
+            .ring { display: none; }
+            .card { padding: 30px; }
         }
     </style>
 </head>
+
 <body>
 
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
+    <div class="bg">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+    </div>
 
-    <aside class="sidebar">
-        <div class="profile-img-container">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg" alt="Profile" class="profile-img">
+    <nav>
+        <div class="logo">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg" alt="Tamim">
+            <h2>Al Jubayer<br>Rayhan</h2>
         </div>
-        <h2>Al Jubayer Rayhan <br> Tamim Mollah </h2>
-        <p class="role">Graphics Designer </p>
+        <div class="menu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#resume">Experience</a>
+            <a href="#portfolio">Work</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="socials">
+            <a href="https://www.facebook.com/jubayer.jubu.0" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/aljubayerrayhan/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.behance.net/tamimmollah" target="_blank"><i class="fab fa-behance"></i></a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-grid">
+            <div>
+                <div class="tag">
+                    <i class="fa-solid fa-crown"></i> Cinematic & Premium Design
+                </div>
+                <h1>Tamim’s <br><span class="gradient">Universe</span></h1>
+                <p>
+                    I am Al Jubayer Rayhan Tamim Mollah. Specializing in minimalist, premium, and ultra-realistic visual identities that feel elegant and emotionally driven. 
+                    <br><br>
+                    <span class="typing"></span>
+                </p>
+                <div class="hero-btns">
+                    <a href="#portfolio" class="btn btn-primary"><i class="fa-solid fa-layer-group"></i> Explore Work</a>
+                    <a href="#contact" class="btn btn-secondary"><i class="fa-solid fa-envelope"></i> Let's Talk</a>
+                </div>
+            </div>
+            <div class="hero-image-wrap">
+                <div class="ring"></div>
+                <div class="hero-image">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg" alt="Tamim">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title reveal">Cinematic <span class="gradient">Vision</span></h2>
+        <p class="section-text reveal">
+            Passionate about creating impactful visual experiences through modern branding systems, storytelling, premium aesthetics, and DSLR-quality creative direction.
+        </p>
+        <div class="grid-2">
+            <div class="card reveal">
+                <h3>About Me</h3>
+                <p>
+                    Currently pursuing a BSS in Journalism & Media Communication at Green University of Bangladesh. As the proprietor of <strong>Tamim's Work</strong> and the creative force behind <strong>Panda Station 25</strong>, I bring digital agencies and luxury brands to life. 
+                </p>
+                <p>
+                    My expertise lies in minimalist typography, SaaS identity building, and maintaining 100% aesthetic preservation in photo compositing.
+                </p>
+                <div class="skills">
+                    <div class="skill">Photoshop</div>
+                    <div class="skill">Illustrator</div>
+                    <div class="skill">Premium Branding</div>
+                    <div class="skill">Cinematic Animation</div>
+                    <div class="skill">Typography</div>
+                </div>
+            </div>
+            <div class="card reveal">
+                <h3>Design Philosophy</h3>
+                <p>
+                    My goal is to create visuals that emotionally connect with audiences. Whether it's crafting a corporate identity for real estate, organic food markets, or high-end apparel labels, I ensure every pixel speaks of luxury and professionalism.
+                </p>
+                <p>
+                    I focus heavily on 4K/8K resolution assets, shallow depth of field, and perfect aesthetic balance.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume">
+        <h2 class="section-title reveal">Career <span class="gradient">Journey</span></h2>
+        <p class="section-text reveal">
+            A complete overview of my creative experience, academic background, and professional leadership in design.
+        </p>
+        <div class="grid-2">
+            <div class="card reveal">
+                <h3>Experience</h3>
+                <ul>
+                    <li><strong>Lead Designer</strong> — National Environment Debate Competition (2026)</li>
+                    <li><strong>Proprietor & Designer</strong> — Panda Station 25 & Tamim's Work</li>
+                    <li><strong>Graphics Designer</strong> — Oilo (2025)</li>
+                    <li><strong>Graphics Designer</strong> — VortexUp Digital (2024 - 2025)</li>
+                    <li><strong>Marketing Executive</strong> — Smart IT (2023 - 2024)</li>
+                </ul>
+            </div>
+            <div class="card reveal">
+                <h3>Education</h3>
+                <ul>
+                    <li><strong>BSS in Journalism & Media Communication</strong><br> Green University of Bangladesh (2026 - Present)</li>
+                    <li><strong>HSC</strong><br> DR. Mahabubur Rahman Mollah College (2022 - 2023)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2 class="section-title reveal">Selected <span class="gradient">Works</span></h2>
+        <p class="section-text reveal">
+            A showcase of modern creative projects crafted with premium aesthetics, digital agency branding, and cinematic visual presentation.
+        </p>
+        <div class="portfolio">
+            <div class="project reveal">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1zI7jVwnJgl_rffww_4ZLRfS6rYs2vRAXKWyYWJ3rk-uGFiQXiWEXc20bTMVsi3OI141wZGEV6AAJz34xNWTwGqiEuEu1M5ODxQQQx49q9cISTw-f93cDYdtuV4QbH9VQM_W2Ii9c7yByNEN2ZcazjVL5fBS0BNWGJbLpJkqicXv4kShgU6QVaEj-tjR2/s16000/Screenshot%202026-05-19%20163952.png" alt="Project 1">
+                <div class="overlay">
+                    <div>
+                        <h2>Agency Branding</h2>
+                        <p>Minimalist and premium identity design with cinematic layout.</p>
+                        <a href="https://www.behance.net/tamimmollah" target="_blank" class="view-btn"><i class="fab fa-behance"></i> &nbsp; View on Behance</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project reveal">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicWMHRE6xXHxO-ILL4BYF-Z14u_BexQ3hDOAFCx4_pNF27UUevUR_EEXcsVmdszaC1aKtPC8bGdEf9OZALuFpw8YZdTHNmqhK_Q2ecVcu19Xp5-91V-0Y-rcs_hzkNwSHCs9_iIEdNg4xg8hOGw240-wLxiC3CrhcyYoERu8gkACE86rWxRnDBfz3odNQz/s16000/Screenshot%202026-05-19%20160117.png" alt="Project 2">
+                <div class="overlay">
+                    <div>
+                        <h2>Corporate Presentation</h2>
+                        <p>Luxury visual presentation focused on typography and modern layout.</p>
+                        <a href="https://www.behance.net/tamimmollah" target="_blank" class="view-btn"><i class="fab fa-behance"></i> &nbsp; View on Behance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title reveal">Let’s <span class="gradient">Connect</span></h2>
+        <p class="section-text reveal">
+            Available for premium branding, creative campaigns, luxury social media visuals, and UI/UX digital design experiences.
+        </p>
+        <div class="contact">
+            <div class="contact-box reveal">
+                <h3>Contact Info</h3>
+                <p>
+                    <i class="fa-solid fa-phone" style="color:var(--primary-glow); margin-right:10px;"></i> 01865861015 <br><br>
+                    <i class="fa-solid fa-envelope" style="color:var(--primary-glow); margin-right:10px;"></i> tamimmolla81@gmail.com <br><br>
+                    <i class="fa-solid fa-location-dot" style="color:var(--primary-glow); margin-right:10px;"></i> Dhaka, Bangladesh <br><br>
+                    <i class="fa-brands fa-facebook" style="color:var(--primary-glow); margin-right:10px;"></i> <a href="https://www.facebook.com/jubayer.jubu.0" target="_blank">Facebook Profile</a> <br><br>
+                    <i class="fa-brands fa-behance" style="color:var(--primary-glow); margin-right:10px;"></i> <a href="https://www.behance.net/tamimmollah" target="_blank">Behance Portfolio</a>
+                </p>
+            </div>
+            <div class="contact-box reveal">
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email">
+                <textarea placeholder="Tell me about your project..."></textarea>
+                <button class="btn btn-primary" style="width: 100%; justify-content: center; border: none; font-family: 'Outfit', sans-serif;">
+                    <i class="fa-solid fa-paper-plane"></i> Send Message
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 — Al Jubayer Rayhan Tamim Mollah | Crafted for Premium Experiences.</p>
+    </footer>
+
+    <script>
+        // Typing Effect
+        new Typed(".typing", {
+            strings: [
+                "Proprietor of Tamim's Work.",
+                "Founder of Panda Station 25.",
+                "Minimalist & Premium Aesthetics.",
+                "Cinematic Visual Storyteller."
+            ],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true
+        });
+
+        // Scroll Reveal Animation
+        const reveals = document.querySelectorAll(".reveal");
+        window.addEventListener("scroll", () => {
+            reveals.forEach((el) => {
+                const top = el.getBoundingClientRect().top;
+                if(top < window.innerHeight - 80) {
+                    el.classList.add("active");
+                }
+            });
+        });
         
-        <ul class="nav-links">
-            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="#portfolio"><i class="fas fa-briefcase"></i> Portfolio</a></li>
-            <li><a href="#experience"><i class="fas fa-history"></i> Experience</a></li>
-            <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
-            <li><a href="#skills"><i class="fas fa-paint-brush"></i> Skills</a></li>
-        </ul>
-
-        <div class="social-icons">
-            <a href="https://linkedin.com/in/al-jubayer-rayhan-tamim-mollah" target="_blank"><i class="fab fa-linkedin-in"></i></a> <a href="https://behance.net/tamimmollah" target="_blank"><i class="fab fa-behance"></i></a> <a href="mailto:tamimmolla81@gmail.com"><i class="fas fa-envelope"></i></a> </div>
-    </aside>
-
-    <main class="main-content">
-        
-        <section id="home">
-            <h1 class="gradient-text">Designing visual stories that leave a mark.</h1>
-            <div class="glass-card" style="margin-top: 30px;">
-                <p>I am a creative and detail-driven Graphics Designer with a strong foundation in visual storytelling, branding, and user-centered design. Currently pursuing a degree in English, I bring a unique blend of academic insight and hands-on design expertise. Proficient in the Adobe Creative Suite and other industry-standard tools, I specialize in crafting impactful visuals for both digital and print platforms. </p>
-            </div>
-        </section>
-
-        <section id="portfolio">
-            <h2 class="section-title">Featured Work</h2>
-            <div class="glass-card" style="padding: 20px;">
-                <div class="portfolio-img-wrapper">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicWMHRE6xXHxO-ILL4BYF-Z14u_BexQ3hDOAFCx4_pNF27UUevUR_EEXcsVmdszaC1aKtPC8bGdEf9OZALuFpw8YZdTHNmqhK_Q2ecVcu19Xp5-91V-0Y-rcs_hzkNwSHCs9_iIEdNg4xg8hOGw240-wLxiC3CrhcyYoERu8gkACE86rWxRnDBfz3odNQz/s16000/Screenshot%202026-05-19%20160117.png" alt="Portfolio Asset" class="portfolio-img">
-                </div>
-            </div>
-        </section>
-
-        <section id="experience">
-            <h2 class="section-title">Experience</h2>
-            <div class="glass-card">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h3>Graphics Designer</h3>
-                        <h4>Oilo</h4>
-                        <span class="date">2025 - 2025</span> <p>Designing and delivering visually compelling graphics for digital marketing campaigns across various platforms including social media, websites, email newsletters, and online ads. Creating high-quality visual content such as banners, infographics, and product mockups. </p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>Graphics Designer</h3>
-                        <h4>VortexUp Digital</h4>
-                        <span class="date">2024 - 2025</span> <p>Developing creative visual assets for marketing campaigns, including social media graphics, digital ads, and print materials. Collaborating with marketing teams to conceptualize and produce visually appealing designs. </p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>Marketing Executive</h3>
-                        <h4>Smart IT</h4>
-                        <span class="date">2023 - 2024</span> <p>Mentoring and guiding aspiring graphic designers by providing structured training on design principles and industry-standard tools. Reviewing student projects and offering constructive feedback. </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="education">
-            <h2 class="section-title">Education</h2>
-            <div class="glass-card">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h3>BSS in Journalism & Media Communication</h3>
-                        <h4>Green University of Bangladesh</h4>
-                        <span class="date">01/2026 - Present | Kanchon, Rupganj, Narayanganj</span> </div>
-                    <div class="timeline-item">
-                        <h3>HSC</h3>
-                        <h4>DR. Mahabubur Rahman Mollah College</h4>
-                        <span class="date">01/2022 - 10/2023 | Demra, Dhaka</span> </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills">
-            <h2 class="section-title">Skills & Tools</h2>
-            <div class="glass-card">
-                <div class="skills-container">
-                    <div class="skill-tag">Graphic Design</div> <div class="skill-tag">Branding</div> <div class="skill-tag">Typography & Layout</div> <div class="skill-tag">Adobe Photoshop</div> <div class="skill-tag">Adobe Illustrator</div> <div class="skill-tag">Lightroom</div> <div class="skill-tag">Figma</div> <div class="skill-tag">Visual Storytelling</div> <div class="skill-tag">Social Media Design</div> <div class="skill-tag" style="border-color: var(--gradient-1);">Leadership</div> <div class="skill-tag" style="border-color: var(--gradient-1);">Team Work</div> <div class="skill-tag" style="border-color: var(--gradient-1);">Adaptability</div> </div>
-            </div>
-        </section>
-
-    </main>
-
+        // Trigger reveal on load for elements already in view
+        window.dispatchEvent(new Event('scroll'));
+    </script>
 </body>
 </html>
