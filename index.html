@@ -3,328 +3,422 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al Jubayer Rayhan Tamim Mollah - Portfolio</title>
+    <title>Tamim Mollah - Creative Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* CSS Styles */
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
         :root {
-            --bg-color: #0f0f11;
-            --text-color: #ffffff;
-            --accent-color: #f39c12;
-            --secondary-bg: #1a1a1d;
+            --bg-color: #050505;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --gradient-1: #ff007a;
+            --gradient-2: #7928ca;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            color: var(--text-main);
+            overflow-x: hidden;
+            display: flex;
         }
 
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 50px;
-            background-color: rgba(15, 15, 17, 0.9);
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-color); }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(var(--gradient-1), var(--gradient-2)); border-radius: 10px; }
+
+        /* Animated Background Blobs */
+        .blob {
             position: fixed;
-            width: 100%;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            animation: float 10s infinite ease-in-out alternate;
+        }
+        .blob-1 {
+            width: 400px; height: 400px;
+            background: rgba(121, 40, 202, 0.4);
+            top: -100px; left: -100px;
+        }
+        .blob-2 {
+            width: 350px; height: 350px;
+            background: rgba(255, 0, 122, 0.3);
+            bottom: -50px; right: -100px;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(50px) scale(1.1); }
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 320px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
             top: 0;
-            z-index: 1000;
-        }
-
-        nav h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-
-        nav ul li a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Sections common styling */
-        section {
-            padding: 100px 50px;
-            min-height: 100vh;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid var(--glass-border);
             display: flex;
             flex-direction: column;
-            justify-content: center;
-        }
-
-        h2.section-title {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: var(--accent-color);
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Hero Section */
-        #home {
             align-items: center;
-            text-align: center;
+            padding: 40px 20px;
+            z-index: 100;
         }
-        
-        .profile-img {
-            width: 220px;
-            height: 220px;
+
+        .profile-img-container {
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--accent-color);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            margin-bottom: 25px;
-        }
-
-        #home h1 {
-            font-size: 4rem;
-            margin-bottom: 10px;
-        }
-
-        #home h3 {
-            font-size: 2rem;
-            font-weight: 300;
-            color: #aaaaaa;
+            padding: 4px;
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
             margin-bottom: 20px;
         }
 
-        /* Resume Grid */
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg-color);
         }
 
-        .card {
-            background-color: var(--secondary-bg);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h4 {
-            font-size: 1.5rem;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-
-        .card p.date {
-            font-style: italic;
-            color: #888;
-            margin-bottom: 15px;
-        }
-
-        ul.skills-list {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        ul.skills-list li {
-            background-color: var(--accent-color);
-            color: #000;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+        .sidebar h2 {
+            font-size: 1.4rem;
+            text-align: center;
+            margin-bottom: 5px;
             font-weight: 600;
         }
 
-        /* Portfolio Image Styling */
+        .sidebar p.role {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            list-style: none;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .nav-links li a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 1rem;
+            padding: 12px 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            background: rgba(255,255,255,0.1);
+            color: var(--text-main);
+            transform: translateX(10px);
+        }
+
+        .social-icons {
+            margin-top: auto;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: var(--text-main);
+            font-size: 1.2rem;
+            background: var(--glass-bg);
+            width: 40px; height: 40px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+            transform: translateY(-5px);
+            border-color: transparent;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 320px;
+            padding: 50px 8%;
+            width: calc(100% - 320px);
+        }
+
+        /* Typography & Utility */
+        .gradient-text {
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0; bottom: -10px;
+            width: 50px; height: 4px;
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+            border-radius: 2px;
+        }
+
+        section { margin-bottom: 100px; }
+
+        /* Glass Card */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(121, 40, 202, 0.2);
+        }
+
+        /* Hero Section */
+        #home h1 {
+            font-size: 4rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        #home p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            line-height: 1.8;
+        }
+
+        /* Portfolio */
+        .portfolio-img-wrapper {
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
         .portfolio-img {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 10px;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
-        
-        .portfolio-card {
-            padding: 0; /* Remove padding so image touches borders */
-            overflow: hidden;
+        .glass-card:hover .portfolio-img {
+            transform: scale(1.05);
         }
 
-        .portfolio-card:hover .portfolio-img {
-            transform: scale(1.05); /* Zoom effect on hover */
+        /* Timeline (Experience & Education) */
+        .timeline {
+            position: relative;
+            border-left: 2px solid var(--glass-border);
+            padding-left: 30px;
+            margin-left: 10px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -39px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            border: 4px solid var(--bg-color);
+        }
+        .timeline-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        .timeline-item h4 {
+            font-size: 1rem;
+            color: var(--gradient-2);
+            margin-bottom: 15px;
+        }
+        .timeline-item span.date {
+            background: rgba(255,255,255,0.05);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .timeline-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
-        /* Contact Details */
-        .contact-info {
-            text-align: center;
-            font-size: 1.2rem;
+        /* Skills */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .skill-tag {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        .skill-tag:hover {
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+            border-color: transparent;
+            transform: translateY(-3px);
         }
 
-        /* Animation Classes */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease-out;
+        /* Responsive Design */
+        @media (max-width: 991px) {
+            body { flex-direction: column; }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid var(--glass-border);
+                padding: 20px;
+            }
+            .nav-links {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding: 30px 5%;
+            }
+            #home h1 { font-size: 2.5rem; }
         }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
     </style>
 </head>
 <body>
 
-    <nav>
-        <h1>Tamim's Portfolio</h1>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Work</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact">Contact</a></li>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <aside class="sidebar">
+        <div class="profile-img-container">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg" alt="Profile" class="profile-img">
+        </div>
+        <h2>Al Jubayer Rayhan <br> Tamim Mollah </h2>
+        <p class="role">Graphics Designer </p>
+        
+        <ul class="nav-links">
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#portfolio"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+            <li><a href="#experience"><i class="fas fa-history"></i> Experience</a></li>
+            <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+            <li><a href="#skills"><i class="fas fa-paint-brush"></i> Skills</a></li>
         </ul>
-    </nav>
 
-    <section id="home">
-        <div class="reveal">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg" alt="Al Jubayer Rayhan Tamim Mollah" class="profile-img">
-            <h1>Al Jubayer Rayhan Tamim Mollah</h1>
-            <h3>Graphics Designer</h3>
-            <p>Welcome to my creative space. I build visual stories.</p>
-        </div>
-    </section>
+        <div class="social-icons">
+            <a href="https://linkedin.com/in/al-jubayer-rayhan-tamim-mollah" target="_blank"><i class="fab fa-linkedin-in"></i></a> <a href="https://behance.net/tamimmollah" target="_blank"><i class="fab fa-behance"></i></a> <a href="mailto:tamimmolla81@gmail.com"><i class="fas fa-envelope"></i></a> </div>
+    </aside>
 
-    <section id="about">
-        <h2 class="section-title reveal">Profile</h2>
-        <div class="grid-container reveal" style="grid-template-columns: 1fr;">
-            <div class="card" style="text-align: center;">
-                <p>I am Al Jubayer Rayhan Tamim Mollah, a creative and detail-driven Graphics Designer with a strong foundation in visual storytelling, branding, and user-centered design. Currently pursuing a degree in English, I bring a unique blend of academic insight and hands-on design expertise. Proficient in the Adobe Creative Suite and other industry-standard tools, I specialize in crafting impactful visuals for both digital and print platforms. I am eager to contribute innovative design solutions within a forward-thinking and collaborative creative team.</p>
+    <main class="main-content">
+        
+        <section id="home">
+            <h1 class="gradient-text">Designing visual stories that leave a mark.</h1>
+            <div class="glass-card" style="margin-top: 30px;">
+                <p>I am a creative and detail-driven Graphics Designer with a strong foundation in visual storytelling, branding, and user-centered design. Currently pursuing a degree in English, I bring a unique blend of academic insight and hands-on design expertise. Proficient in the Adobe Creative Suite and other industry-standard tools, I specialize in crafting impactful visuals for both digital and print platforms. </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="portfolio">
-        <h2 class="section-title reveal">Recent Work</h2>
-        <div class="grid-container reveal" style="grid-template-columns: 1fr;">
-            <div class="card portfolio-card">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicWMHRE6xXHxO-ILL4BYF-Z14u_BexQ3hDOAFCx4_pNF27UUevUR_EEXcsVmdszaC1aKtPC8bGdEf9OZALuFpw8YZdTHNmqhK_Q2ecVcu19Xp5-91V-0Y-rcs_hzkNwSHCs9_iIEdNg4xg8hOGw240-wLxiC3CrhcyYoERu8gkACE86rWxRnDBfz3odNQz/s16000/Screenshot%202026-05-19%20160117.png" alt="Tamim's Work Portfolio Asset" class="portfolio-img">
+        <section id="portfolio">
+            <h2 class="section-title">Featured Work</h2>
+            <div class="glass-card" style="padding: 20px;">
+                <div class="portfolio-img-wrapper">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicWMHRE6xXHxO-ILL4BYF-Z14u_BexQ3hDOAFCx4_pNF27UUevUR_EEXcsVmdszaC1aKtPC8bGdEf9OZALuFpw8YZdTHNmqhK_Q2ecVcu19Xp5-91V-0Y-rcs_hzkNwSHCs9_iIEdNg4xg8hOGw240-wLxiC3CrhcyYoERu8gkACE86rWxRnDBfz3odNQz/s16000/Screenshot%202026-05-19%20160117.png" alt="Portfolio Asset" class="portfolio-img">
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="experience">
-        <h2 class="section-title reveal">Professional Experience</h2>
-        <div class="grid-container">
-            <div class="card reveal">
-                <h4>Graphics Designer - Oilo</h4>
-                <p class="date">2025-2025</p>
-                <ul>
-                    <li>Designing and delivering visually compelling graphics for digital marketing campaigns across various platforms....</li>
-                    <li>Creating high-quality visual content such as banners, infographics, product mockups....</li>
-                </ul>
+        <section id="experience">
+            <h2 class="section-title">Experience</h2>
+            <div class="glass-card">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>Graphics Designer</h3>
+                        <h4>Oilo</h4>
+                        <span class="date">2025 - 2025</span> <p>Designing and delivering visually compelling graphics for digital marketing campaigns across various platforms including social media, websites, email newsletters, and online ads. Creating high-quality visual content such as banners, infographics, and product mockups. </p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Graphics Designer</h3>
+                        <h4>VortexUp Digital</h4>
+                        <span class="date">2024 - 2025</span> <p>Developing creative visual assets for marketing campaigns, including social media graphics, digital ads, and print materials. Collaborating with marketing teams to conceptualize and produce visually appealing designs. </p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Marketing Executive</h3>
+                        <h4>Smart IT</h4>
+                        <span class="date">2023 - 2024</span> <p>Mentoring and guiding aspiring graphic designers by providing structured training on design principles and industry-standard tools. Reviewing student projects and offering constructive feedback. </p>
+                    </div>
+                </div>
             </div>
-            <div class="card reveal">
-                <h4>Graphics Designer - VortexUp Digital</h4>
-                <p class="date">2024 - 2025</p>
-                <ul>
-                    <li>Developing creative visual assets for marketing campaigns, including social media graphics....</li>
-                    <li>Collaborating with marketing teams to conceptualize and produce visually appealing designs....</li>
-                </ul>
+        </section>
+
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="glass-card">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>BSS in Journalism & Media Communication</h3>
+                        <h4>Green University of Bangladesh</h4>
+                        <span class="date">01/2026 - Present | Kanchon, Rupganj, Narayanganj</span> </div>
+                    <div class="timeline-item">
+                        <h3>HSC</h3>
+                        <h4>DR. Mahabubur Rahman Mollah College</h4>
+                        <span class="date">01/2022 - 10/2023 | Demra, Dhaka</span> </div>
+                </div>
             </div>
-            <div class="card reveal">
-                <h4>Marketing Executive - Smart IT</h4>
-                <p class="date">2023 - 2024</p>
-                <ul>
-                    <li>Mentoring and guiding aspiring graphic designers by providing structured training....</li>
-                    <li>Reviewing student projects and portfolios, offering constructive feedback to enhance visual storytelling....</li>
-                </ul>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Skills & Tools</h2>
+            <div class="glass-card">
+                <div class="skills-container">
+                    <div class="skill-tag">Graphic Design</div> <div class="skill-tag">Branding</div> <div class="skill-tag">Typography & Layout</div> <div class="skill-tag">Adobe Photoshop</div> <div class="skill-tag">Adobe Illustrator</div> <div class="skill-tag">Lightroom</div> <div class="skill-tag">Figma</div> <div class="skill-tag">Visual Storytelling</div> <div class="skill-tag">Social Media Design</div> <div class="skill-tag" style="border-color: var(--gradient-1);">Leadership</div> <div class="skill-tag" style="border-color: var(--gradient-1);">Team Work</div> <div class="skill-tag" style="border-color: var(--gradient-1);">Adaptability</div> </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="education">
-        <h2 class="section-title reveal">Education & Skills</h2>
-        <div class="grid-container">
-            <div class="card reveal">
-                <h4>Education</h4>
-                <p><strong>BSS in Journalism & Media Communication</strong></p>
-                <p>Green University of Bangladesh</p>
-                <p class="date">01/2026 - Present</p>
-                <br>
-                <p><strong>HSC</strong></p>
-                <p>DR. Mahabubur Rahman Mollah College</p>
-                <p class="date">01/2022 - 10/2023</p>
-            </div>
-            
-            <div class="card reveal">
-                <h4>Hard Skills</h4>
-                <ul class="skills-list">
-                    <li>Graphic Design</li>
-                    <li>Branding</li>
-                    <li>Typography</li>
-                    <li>Adobe Photoshop</li>
-                    <li>Adobe Illustrator</li>
-                    <li>Lightroom</li>
-                    <li>Figma</li>
-                    <li>Visual Storytelling</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+    </main>
 
-    <section id="contact">
-        <h2 class="section-title reveal">Contact Me</h2>
-        <div class="grid-container reveal" style="grid-template-columns: 1fr;">
-            <div class="card contact-info">
-                <p>📍 Shantibagh, Demra, Dhaka-1360</p>
-                <p>📧 tamimmolla81@gmail.com</p>
-                <p>📞 01865861015</p>
-                <p>🔗 <a href="https://linkedin.com/in/al-jubayer-rayhan-tamim-mollah" style="color: var(--accent-color);">LinkedIn</a> | <a href="https://behance.net/tamimmollah" style="color: var(--accent-color);">Behance</a></p>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-
-        window.addEventListener("scroll", reveal);
-        reveal(); // Trigger once on load
-    </script>
 </body>
 </html>
