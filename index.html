@@ -1,38 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!-- =========================
+UPDATE THESE PARTS ONLY
+========================= -->
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- LOADER TEXT -->
+<h1 class="loader-text">
+Tamim’s Portfolio
+</h1>
 
-<title>Tamim Portfolio</title>
+<!-- HERO TITLE -->
+<h1 class="hero-title">
+Al Jubayer Rayhan <br>
+<span class="gradient">
+Tamim Mollah
+</span>
+</h1>
 
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- HERO DESCRIPTION -->
+<p class="hero-description">
+Creative Graphics Designer & Photographer crafting premium visual experiences, cinematic branding, and modern digital storytelling with innovative creative direction.
+</p>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<!-- =========================
+ADD THIS CSS
+OLD CSS এর নিচে paste করো
+========================= -->
 
 <style>
 
-/* RESET */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
-
-body{
-font-family:'Sora',sans-serif;
-background:#050816;
-overflow-x:hidden;
-color:white;
-}
-
-/* LOADER */
+/* =========================
+ULTRA PREMIUM ANIMATION
+========================= */
 
 .loader{
 position:fixed;
@@ -41,702 +38,319 @@ background:#050816;
 display:flex;
 justify-content:center;
 align-items:center;
-z-index:99999;
+z-index:999999;
+overflow:hidden;
 }
 
-.loader h1{
-font-size:70px;
+.loader:before{
+content:'';
+position:absolute;
+width:500px;
+height:500px;
+background:linear-gradient(
+135deg,
+#3a86ff,
+#8338ec
+);
+filter:blur(120px);
+opacity:.3;
+animation:loaderGlow 3s infinite;
+}
+
+.loader-text{
+font-size:72px;
 font-weight:800;
-background:linear-gradient(to right,#3a86ff,#8338ec);
+letter-spacing:-3px;
+background:linear-gradient(
+to right,
+#ffffff,
+#3a86ff,
+#8338ec
+);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-animation:pulse 1.5s infinite;
+position:relative;
+animation:
+loaderZoom 2s ease infinite,
+loaderFloat 4s ease-in-out infinite;
 }
 
-@keyframes pulse{
+@keyframes loaderGlow{
+
+0%,100%{
+transform:scale(1);
+opacity:.25;
+}
+
+50%{
+transform:scale(1.2);
+opacity:.45;
+}
+
+}
+
+@keyframes loaderZoom{
+
 0%,100%{
 transform:scale(1);
 }
+
 50%{
-transform:scale(1.1);
-}
-}
-
-/* BACKGROUND */
-
-.bg{
-position:fixed;
-inset:0;
-z-index:-1;
-overflow:hidden;
+transform:scale(1.08);
 }
 
-.blur{
-position:absolute;
-border-radius:50%;
-filter:blur(120px);
-opacity:.22;
-animation:float 8s ease-in-out infinite;
 }
 
-.blur1{
-width:500px;
-height:500px;
-background:#3a86ff;
-top:-120px;
-left:-120px;
-}
+@keyframes loaderFloat{
 
-.blur2{
-width:450px;
-height:450px;
-background:#8338ec;
-bottom:-120px;
-right:-120px;
-animation-delay:2s;
-}
-
-@keyframes float{
 0%,100%{
 transform:translateY(0px);
 }
+
 50%{
-transform:translateY(-40px);
-}
-}
-
-/* NAVBAR */
-
-nav{
-position:fixed;
-top:20px;
-left:50%;
-transform:translateX(-50%);
-width:92%;
-max-width:1450px;
-padding:18px 24px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
-backdrop-filter:blur(20px);
-border-radius:24px;
-z-index:999;
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:14px;
-}
-
-.logo img{
-width:58px;
-height:58px;
-border-radius:18px;
-object-fit:cover;
-}
-
-.logo h2{
-font-size:18px;
-font-weight:700;
-}
-
-.nav-links{
-display:flex;
-gap:32px;
-}
-
-.nav-links a{
-text-decoration:none;
-color:white;
-font-size:14px;
-font-weight:500;
-position:relative;
-}
-
-.nav-links a:after{
-content:'';
-position:absolute;
-left:0;
-bottom:-8px;
-width:0%;
-height:2px;
-background:linear-gradient(90deg,#3a86ff,#8338ec);
-transition:.4s;
-}
-
-.nav-links a:hover:after{
-width:100%;
-}
-
-/* HERO */
-
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-padding:120px 7%;
-}
-
-.hero-content{
-max-width:1450px;
-margin:auto;
-display:grid;
-grid-template-columns:1fr 460px;
-gap:80px;
-align-items:center;
-}
-
-.small{
-font-size:15px;
-letter-spacing:3px;
-text-transform:uppercase;
-color:#60a5fa;
-margin-bottom:24px;
-}
-
-.hero h1{
-font-size:88px;
-line-height:1.02;
-font-weight:800;
-letter-spacing:-4px;
-}
-
-.gradient{
-background:linear-gradient(to right,#3a86ff,#00c6ff,#8338ec);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.hero p{
-margin-top:32px;
-font-size:17px;
-line-height:2;
-color:#cbd5e1;
-}
-
-.hero-btns{
-display:flex;
-gap:18px;
-margin-top:40px;
-flex-wrap:wrap;
-}
-
-.btn{
-padding:18px 30px;
-border-radius:18px;
-text-decoration:none;
-font-weight:600;
-display:flex;
-align-items:center;
-gap:12px;
-transition:.4s;
-}
-
-.btn-primary{
-background:linear-gradient(135deg,#3a86ff,#8338ec);
-color:white;
-}
-
-.btn-primary:hover{
-transform:translateY(-8px);
-}
-
-.btn-secondary{
-background:rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.08);
-color:white;
-}
-
-.btn-secondary:hover{
-transform:translateY(-8px);
-}
-
-/* IMAGE */
-
-.hero-box{
-height:650px;
-border-radius:40px;
-overflow:hidden;
-position:relative;
-border:1px solid rgba(255,255,255,.08);
-}
-
-.hero-box img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-.float-card{
-position:absolute;
-padding:18px 24px;
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.08);
-backdrop-filter:blur(18px);
-border-radius:24px;
-}
-
-.float1{
-top:30px;
-left:-20px;
-}
-
-.float2{
-bottom:30px;
-right:-20px;
-}
-
-/* SECTION */
-
-section{
-padding:120px 7%;
-}
-
-.title{
-font-size:58px;
-font-weight:800;
-margin-bottom:30px;
-}
-
-/* ABOUT */
-
-.about-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:35px;
-margin-top:60px;
-}
-
-.glass{
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
-border-radius:35px;
-padding:40px;
-transition:.4s;
-}
-
-.glass:hover{
 transform:translateY(-10px);
 }
 
-.glass p{
-line-height:2;
-color:#cbd5e1;
 }
 
-.skills{
-display:flex;
-flex-wrap:wrap;
-gap:14px;
-margin-top:30px;
+/* HERO TITLE ANIMATION */
+
+.hero-title{
+animation:heroFade 1.5s ease forwards;
+opacity:0;
+transform:translateY(80px);
 }
 
-.skill{
-padding:14px 18px;
-border-radius:18px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
+@keyframes heroFade{
+
+to{
+opacity:1;
+transform:translateY(0px);
 }
 
-/* EXPERIENCE */
-
-.timeline{
-margin-top:60px;
-display:flex;
-flex-direction:column;
-gap:30px;
 }
 
-.timeline-box{
-padding:40px;
-border-radius:30px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
+/* GRADIENT ANIMATION */
+
+.gradient{
+background-size:300% 300%;
+animation:gradientMove 6s ease infinite;
 }
 
-.timeline-box h3{
-font-size:28px;
-margin-bottom:12px;
+@keyframes gradientMove{
+
+0%{
+background-position:0% 50%;
 }
 
-.timeline-box p{
-line-height:2;
-color:#cbd5e1;
+50%{
+background-position:100% 50%;
 }
 
-/* PORTFOLIO */
+100%{
+background-position:0% 50%;
+}
+
+}
+
+/* HERO IMAGE FLOAT */
+
+.hero-box{
+animation:heroImageFloat 6s ease-in-out infinite;
+}
+
+@keyframes heroImageFloat{
+
+0%,100%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-18px);
+}
+
+}
+
+/* BUTTON ANIMATION */
+
+.btn{
+position:relative;
+overflow:hidden;
+}
+
+.btn:before{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:120%;
+height:100%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.25),
+transparent
+);
+transition:.7s;
+}
+
+.btn:hover:before{
+left:120%;
+}
+
+.btn:hover{
+transform:
+translateY(-10px)
+scale(1.03);
+}
+
+/* GLASS CARD ANIMATION */
+
+.glass,
+.timeline-box,
+.contact-box{
+transition:
+transform .5s ease,
+border .5s ease,
+box-shadow .5s ease;
+}
+
+.glass:hover,
+.timeline-box:hover,
+.contact-box:hover{
+
+transform:
+translateY(-12px)
+scale(1.01);
+
+border-color:#3a86ff;
+
+box-shadow:
+0 20px 40px rgba(58,134,255,.15);
+
+}
+
+/* PORTFOLIO CARD */
 
 .portfolio{
-margin-top:60px;
-height:700px;
-border-radius:40px;
-overflow:hidden;
-position:relative;
-border:1px solid rgba(255,255,255,.08);
-cursor:pointer;
+transition:.5s;
 }
 
-.portfolio img{
-width:100%;
-transition:10s linear;
+.portfolio:hover{
+transform:scale(1.02);
+box-shadow:
+0 25px 60px rgba(58,134,255,.18);
 }
 
-.portfolio:hover img{
-transform:translateY(-70%);
+/* NAVBAR SCROLL EFFECT */
+
+nav{
+transition:
+background .5s ease,
+padding .5s ease,
+transform .5s ease;
 }
 
-.overlay{
-position:absolute;
-inset:0;
-background:linear-gradient(to top,rgba(5,8,22,.96),transparent);
-display:flex;
-align-items:flex-end;
-padding:45px;
+nav.scrolled{
+background:rgba(5,8,22,.85);
+backdrop-filter:blur(25px);
+padding:14px 22px;
 }
 
-/* CONTACT */
+/* FLOATING CARDS */
 
-.contact{
-margin-top:60px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:35px;
+.float-card{
+animation:
+floatCard 5s ease-in-out infinite;
 }
 
-.contact-box{
-padding:40px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
-border-radius:35px;
+@keyframes floatCard{
+
+0%,100%{
+transform:translateY(0px);
 }
 
-.contact-box input,
-.contact-box textarea{
-width:100%;
-padding:18px;
-margin-bottom:18px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
-border-radius:18px;
-color:white;
-font-family:'Sora',sans-serif;
+50%{
+transform:translateY(-15px);
 }
 
-.contact-box textarea{
-height:180px;
-resize:none;
 }
+
+/* SKILLS HOVER */
+
+.skill{
+transition:
+transform .4s ease,
+background .4s ease;
+}
+
+.skill:hover{
+transform:
+translateY(-8px)
+scale(1.05);
+
+background:
+linear-gradient(
+135deg,
+#3a86ff,
+#8338ec
+);
+}
+
+/* FOOTER ANIMATION */
 
 footer{
-padding:40px;
-text-align:center;
-color:#94a3b8;
-border-top:1px solid rgba(255,255,255,.08);
+position:relative;
+overflow:hidden;
 }
 
-/* RESPONSIVE */
-
-@media(max-width:1100px){
-
-.hero-content,
-.about-grid,
-.contact{
-grid-template-columns:1fr;
+footer:before{
+content:'';
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:1px;
+background:linear-gradient(
+90deg,
+transparent,
+#3a86ff,
+transparent
+);
+animation:footerLine 4s linear infinite;
 }
 
-.hero h1{
-font-size:60px;
+@keyframes footerLine{
+
+100%{
+left:100%;
 }
 
 }
+
+/* MOBILE */
 
 @media(max-width:768px){
 
-.nav-links{
-display:none;
+.loader-text{
+font-size:42px;
+text-align:center;
+padding:0 20px;
 }
 
-.hero h1{
-font-size:44px;
+.hero-title{
+font-size:48px !important;
 line-height:1.15;
-}
-
-.title{
-font-size:40px;
-}
-
-.hero-box{
-height:500px;
-}
-
-.portfolio{
-height:420px;
 }
 
 }
 
 </style>
 
-</head>
-
-<body>
-
-<div class="loader">
-<h1>TAMIM</h1>
-</div>
-
-<div class="bg">
-<div class="blur blur1"></div>
-<div class="blur blur2"></div>
-</div>
-
-<!-- NAVBAR -->
-
-<nav>
-
-<div class="logo">
-
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg">
-
-<h2>Al Jubayer</h2>
-
-</div>
-
-<div class="nav-links">
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#experience">Experience</a>
-<a href="#portfolio">Portfolio</a>
-<a href="#contact">Contact</a>
-</div>
-
-</nav>
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-<div class="hero-content">
-
-<div>
-
-<div class="small">
-Creative Designer & Photographer
-</div>
-
-<h1>
-Creating <span class="gradient">Modern Visual</span> Experiences
-</h1>
-
-<p>
-I’m Al Jubayer Rayhan Tamim Mollah — a passionate Graphics Designer focused on branding, social media design, photography, and premium visual storytelling experiences.
-</p>
-
-<div class="hero-btns">
-
-<a href="#portfolio" class="btn btn-primary">
-<i class="fa-solid fa-layer-group"></i>
-View Portfolio
-</a>
-
-<a href="https://www.behance.net/tamimmollah" target="_blank" class="btn btn-secondary">
-<i class="fa-brands fa-behance"></i>
-Behance
-</a>
-
-</div>
-
-</div>
-
-<div class="hero-box">
-
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg">
-
-<div class="float-card float1">
-<h3>200+</h3>
-<p>Projects</p>
-</div>
-
-<div class="float-card float2">
-<h3>5+</h3>
-<p>Experience</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section id="about">
-
-<h2 class="title">
-About <span class="gradient">Me</span>
-</h2>
-
-<div class="about-grid">
-
-<div class="glass">
-
-<p>
-Creative and detail-driven Graphics Designer with strong expertise in branding, visual storytelling, social media design, photography, and user-centered design experiences.
-</p>
-
-<div class="skills">
-
-<div class="skill">Photoshop</div>
-<div class="skill">Illustrator</div>
-<div class="skill">Lightroom</div>
-<div class="skill">Figma</div>
-<div class="skill">Canva</div>
-<div class="skill">Branding</div>
-<div class="skill">Typography</div>
-<div class="skill">Photography</div>
-
-</div>
-
-</div>
-
-<div class="glass">
-
-<p>
-Currently studying BSS in Journalism & Media Communication at Green University of Bangladesh while building modern creative digital experiences professionally.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- EXPERIENCE -->
-
-<section id="experience">
-
-<h2 class="title">
-Professional <span class="gradient">Experience</span>
-</h2>
-
-<div class="timeline">
-
-<div class="timeline-box">
-<h3>Graphics Designer — Oilo</h3>
-<p>2025 — Present</p>
-</div>
-
-<div class="timeline-box">
-<h3>Graphics Designer — VortexUp Digital</h3>
-<p>2024 — 2025</p>
-</div>
-
-<div class="timeline-box">
-<h3>Marketing Executive — Smart IT</h3>
-<p>2023 — 2024</p>
-</div>
-
-<div class="timeline-box">
-<h3>Photographer — DMRC</h3>
-<p>2022</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- PORTFOLIO -->
-
-<section id="portfolio">
-
-<h2 class="title">
-Featured <span class="gradient">Portfolio</span>
-</h2>
-
-<a href="https://www.behance.net/tamimmollah" target="_blank">
-
-<div class="portfolio">
-
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicWMHRE6xXHxO-ILL4BYF-Z14u_BexQ3hDOAFCx4_pNF27UUevUR_EEXcsVmdszaC1aKtPC8bGdEf9OZALuFpw8YZdTHNmqhK_Q2ecVcu19Xp5-91V-0Y-rcs_hzkNwSHCs9_iIEdNg4xg8hOGw240-wLxiC3CrhcyYoERu8gkACE86rWxRnDBfz3odNQz/s16000/Screenshot%202026-05-19%20160117.png">
-
-<div class="overlay">
-
-<div>
-
-<h2>
-Creative Portfolio Showcase
-</h2>
-
-<p>
-Click to view full Behance projects and creative visual works.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</a>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-<h2 class="title">
-Let’s <span class="gradient">Connect</span>
-</h2>
-
-<div class="contact">
-
-<div class="contact-box">
-
-<h3 style="font-size:32px;margin-bottom:20px;">
-Contact Information
-</h3>
-
-<p style="line-height:2;color:#cbd5e1;">
-
-Phone: 01865861015 <br><br>
-
-Email: tamimmolla81@gmail.com <br><br>
-
-Location: Shantibagh, Demra, Dhaka <br><br>
-
-LinkedIn:
-<a href="https://linkedin.com/in/al-jubayer-rayhan-tamim-mollah" target="_blank" style="color:#3a86ff;">
-View Profile
-</a>
-
-</p>
-
-</div>
-
-<div class="contact-box">
-
-<input type="text" placeholder="Your Name">
-<input type="email" placeholder="Your Email">
-<textarea placeholder="Your Message"></textarea>
-
-<a href="#" class="btn btn-primary">
-<i class="fa-solid fa-paper-plane"></i>
-Send Message
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-© 2026 — Al Jubayer Rayhan Tamim Mollah
-</footer>
+<!-- =========================
+ADD THIS JS
+OLD SCRIPT এর নিচে paste করো
+========================= -->
 
 <script>
 
@@ -744,54 +358,123 @@ Send Message
 
 window.addEventListener("load",()=>{
 
-setTimeout(()=>{
+gsap.to(".loader",{
+
+opacity:0,
+duration:1.2,
+delay:2,
+
+onComplete:()=>{
 
 document.querySelector(".loader").style.display="none";
 
-},1500);
+}
 
 });
 
-/* GSAP */
-
-gsap.registerPlugin(ScrollTrigger);
-
-gsap.from(".hero h1",{
-y:100,
-opacity:0,
-duration:1.2
 });
 
-gsap.from(".hero p",{
-y:60,
+/* NAVBAR SCROLL */
+
+window.addEventListener("scroll",()=>{
+
+const nav=document.querySelector("nav");
+
+if(window.scrollY>50){
+
+nav.classList.add("scrolled");
+
+}else{
+
+nav.classList.remove("scrolled");
+
+}
+
+});
+
+/* HERO ANIMATION */
+
+gsap.from(".hero-title",{
+
+y:120,
 opacity:0,
-duration:1.2,
-delay:.3
+duration:1.4,
+ease:"power4.out"
+
+});
+
+gsap.from(".hero-description",{
+
+y:80,
+opacity:0,
+duration:1.4,
+delay:.3,
+ease:"power4.out"
+
 });
 
 gsap.from(".btn",{
-y:40,
+
+y:50,
 opacity:0,
 duration:1,
+delay:.6,
 stagger:.2,
-delay:.6
+ease:"power4.out"
+
 });
 
-gsap.utils.toArray(".glass,.timeline-box,.portfolio,.contact-box").forEach((el)=>{
+/* IMAGE ANIMATION */
+
+gsap.from(".hero-box",{
+
+scale:.8,
+opacity:0,
+duration:1.5,
+delay:.5,
+ease:"power4.out"
+
+});
+
+/* SECTION ANIMATION */
+
+gsap.utils.toArray(
+
+".glass,.timeline-box,.portfolio,.contact-box"
+
+).forEach((el)=>{
 
 gsap.from(el,{
+
 scrollTrigger:{
 trigger:el,
 start:"top 85%"
 },
-y:80,
+
+y:100,
 opacity:0,
-duration:1.2
+scale:.9,
+duration:1.3,
+ease:"power4.out"
+
 });
+
+});
+
+/* SKILL STAGGER */
+
+gsap.from(".skill",{
+
+scrollTrigger:{
+trigger:".skills",
+start:"top 85%"
+},
+
+y:40,
+opacity:0,
+duration:.8,
+stagger:.08
 
 });
 
 </script>
-
-</body>
-</html>
