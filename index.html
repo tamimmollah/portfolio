@@ -6,7 +6,9 @@
     <title>Tamim Mollah | High-End Visual Designer</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
@@ -16,10 +18,10 @@
         ========================= */
         :root {
             --bg-black: #030303;
-            --bg-card: rgba(15, 15, 15, 0.6); /* Glassmorphism base */
+            --bg-card: rgba(15, 15, 15, 0.6);
             --text-white: #f5f5f5;
             --text-gray: #a0a0a0;
-            --accent-red: #E60023; /* Aggressive Premium Red */
+            --accent-red: #E60023;
             --border-line: rgba(255, 255, 255, 0.08);
             --font-head: 'Oswald', sans-serif;
             --font-body: 'Space Grotesk', sans-serif;
@@ -33,10 +35,7 @@
             color: var(--text-white);
             overflow-x: hidden;
             line-height: 1.6;
-            animation: fadeIn 1s ease-in;
         }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         h1, h2, h3, h4 { font-family: var(--font-head); text-transform: uppercase; line-height: 1.1; }
 
@@ -59,7 +58,6 @@
             background: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png') repeat;
         }
 
-        /* Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-thumb { background: var(--accent-red); }
         ::-webkit-scrollbar-track { background: var(--bg-black); }
@@ -98,8 +96,6 @@
         .section-title { font-size: 5rem; letter-spacing: -1px; margin-bottom: 20px; }
         .section-desc { font-size: 1.15rem; color: var(--text-gray); max-width: 600px; }
 
-        .reveal { opacity: 0; transform: translateY(40px); }
-
         /* =========================
            HERO SECTION
         ========================= */
@@ -121,7 +117,7 @@
             display: inline-flex; align-items: center; gap: 10px; padding: 18px 45px;
             font-family: var(--font-head); font-size: 20px; letter-spacing: 2px;
             text-decoration: none; border: 2px solid transparent;
-            position: relative; overflow: hidden; z-index: 1; transition: 0.5s ease;
+            position: relative; overflow: hidden; z-index: 1; transition: 0.5s ease; cursor: none;
         }
         .btn::after {
             content: ''; position: absolute; left: 0; top: 0; width: 0; height: 100%;
@@ -139,7 +135,7 @@
         .btn-secondary:hover::after { width: 100%; }
         .btn-secondary:hover span { color: #000; }
 
-        /* Hero Image - Sharp Brutal Style */
+        /* Hero Image */
         .hero-img-box { position: relative; width: 100%; max-width: 500px; margin: auto; }
         .hero-img-box::after { content: ''; position: absolute; inset: -15px; border: 2px solid var(--border-line); z-index: -1; transition: 0.5s; }
         .hero-img-box:hover::after { border-color: var(--accent-red); transform: translate(15px, 15px); }
@@ -160,7 +156,7 @@
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* =========================
-           ABOUT BENTO BOX (Glassmorphism)
+           ABOUT BENTO BOX
         ========================= */
         .bento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .bento-card { 
@@ -174,7 +170,6 @@
         .bento-card h3 { font-size: 2.5rem; margin-bottom: 25px; }
         .bento-card p { font-size: 1.1rem; color: var(--text-gray); margin-bottom: 15px; }
 
-        /* Skills Tags */
         .skills-wrap { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
         .skill-tag { padding: 12px 24px; border: 1px solid var(--border-line); background: var(--bg-black); font-family: var(--font-head); font-size: 18px; letter-spacing: 1px; color: #ccc; transition: 0.3s; }
         .skill-tag:hover { background: var(--accent-red); border-color: var(--accent-red); color: #fff; }
@@ -248,7 +243,7 @@
         .contact-info a:hover { color: var(--accent-red); }
 
         /* FOOTER */
-        footer { padding: 40px; text-align: center; color: #666; font-size: 16px; font-weight: 500; background: var(--bg-black); }
+        footer { padding: 40px; text-align: center; color: #666; font-size: 16px; font-weight: 500; background: var(--bg-black); border-top: 1px solid var(--border-line); }
         footer span { color: var(--accent-red); }
 
         /* =========================
@@ -409,4 +404,148 @@
             <div class="timeline-item reveal"><div class="timeline-dot"></div><div class="timeline-content">
                 <span class="timeline-date">01/2022 — 10/2023</span> 
                 <h3>Higher Secondary Certificate (HSC)</h3> 
-                <h4>DR. Mahabubur
+                <h4>DR. Mahabubur Rahman Mollah College</h4>
+            </div></div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="section-header reveal">
+            <div class="section-badge">FIELD OPERATIONS</div>
+            <h2 class="section-title">Selected <span>Works</span></h2>
+            <p class="section-desc">A showcase of modern creative projects crafted with premium aesthetics, cinematic storytelling, and bold presentation.</p>
+        </div>
+        <div class="works-grid">
+            <a href="https://www.behance.net/gallery/248627807/Pohela-Boishakh-Cultural-Program-Design-2026" target="_blank" class="work-card reveal">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4o6srF2YInrs3wqqr2VA3WJdFJ3tAIvl_tr8YAwT7yTqSVGMpDtyMjPF_8TS7xQHf2etXvSa-mAawkoPwneBNnbwXSXA7XbzgCOdS6DEAEF25d-wbYiE_YleN8aYWCzCE7DAz4VglRw6X2WhUYigSKGq-gnEPE_ZLokxOy7ZUlqvPojQxwQthPB685mxz/s16000/Screenshot%202026-05-19%20195145.png" alt="Pohela Boishakh" class="work-img" loading="lazy">
+                <div class="work-overlay">
+                    <div class="work-content">
+                        <div class="work-badge">CULTURAL BRANDING</div>
+                        <h3>POHELA BOISHAKH 2026</h3>
+                        <p>Premium Bengali cultural campaign design crafted with cinematic storytelling and luxury branding aesthetics.</p>
+                        <span class="work-btn">VIEW INTEL <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </a>
+            <a href="https://www.behance.net/gallery/245785373/Panda-Station-25-Digital-Marketing-Campaign-Posters" target="_blank" class="work-card reveal">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHFaiqWGBbW7oSozMn5bKrjHs6QbCFv6JDEWS9BJ6FXjnliWog1sJcyRQ0PXEUxcptsCZiW93JDvTrIgXPaDk7Pfsm1TL_6hRQWotfHJvVSQaCail7Amh94VZQA6lCyyxOC_981Xur5SO0jvj2iOWHUv9bpxFdNNTSOFIS7-0kTYCSOeoui6yg5TNcj9hK/s16000/Screenshot%202026-05-19%20195133.png" alt="Panda Station" class="work-img" loading="lazy">
+                <div class="work-overlay">
+                    <div class="work-content">
+                        <div class="work-badge">MARKETING CAMPAIGN</div>
+                        <h3>PANDA STATION 25</h3>
+                        <p>Luxury social media and digital marketing campaign visuals with modern premium composition.</p>
+                        <span class="work-btn">VIEW INTEL <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-header reveal">
+            <div class="section-badge">COMMUNICATIONS</div>
+            <h2 class="section-title">Initiate <span>Comms</span></h2>
+            <p class="section-desc">Ready to dominate your market with high-impact design? Establish a communication link below.</p>
+        </div>
+        <div class="contact-grid">
+            <div class="bento-card reveal contact-info">
+                <h3>Contact Info</h3>
+                <br>
+                <p><i class="fa-brands fa-whatsapp" style="color: var(--accent-red); font-size: 1.5rem;"></i> <a href="https://wa.me/8801865861015" target="_blank" style="color: #fff; text-decoration: none; transition: 0.3s;">+880 1865-861015</a></p>
+                <p><i class="fa-solid fa-envelope"></i> tamimmolla81@gmail.com </p>
+                <p><i class="fa-solid fa-location-dot"></i> Shantibagh, Demra, Dhaka-1360 </p>
+                <p><i class="fa-brands fa-linkedin"></i> <a href="https://linkedin.com/in/al-jubayer-rayhan-tamim-mollah" target="_blank">LinkedIn Profile</a> </p>
+                <p><i class="fa-brands fa-behance"></i> <a href="https://behance.net/tamimmollah" target="_blank">Behance Portfolio</a> </p>
+            </div>
+            <div class="bento-card reveal contact-box">
+                <input type="text" id="senderName" placeholder="YOUR NAME" required>
+                <input type="email" id="senderEmail" placeholder="YOUR EMAIL">
+                <textarea id="senderMessage" placeholder="PROJECT INTEL / MESSAGE" required></textarea>
+                
+                <button onclick="sendToWhatsApp()" class="btn btn-primary" style="width: 100%; justify-content: center; border: none; font-family: 'Oswald', sans-serif;">
+                    <span>TRANSMIT VIA WHATSAPP</span> <i class="fa-brands fa-whatsapp" style="margin-left: 8px; font-size: 1.2rem;"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 — AL JUBAYER RAYHAN TAMIM MOLLAH | <span>BUILT FOR IMPACT.</span>
+    </footer>
+
+    <script>
+        // Custom Cursor Logic
+        const dot = document.getElementById("cursorDot");
+        const outline = document.getElementById("cursorOutline");
+
+        window.addEventListener("mousemove", function(e) {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            dot.style.left = `${posX}px`;
+            dot.style.top = `${posY}px`;
+
+            // GSAP for smooth outline follow
+            if (typeof gsap !== 'undefined') {
+                gsap.to(outline, { x: posX, y: posY, duration: 0.15, ease: "power2.out" });
+            }
+        });
+
+        // Hover Effect on Links and Buttons
+        const hoverElements = document.querySelectorAll("a, button, .bento-card, .work-card, .stat-box, .hero-img-box");
+        hoverElements.forEach(el => {
+            el.addEventListener("mouseenter", () => {
+                outline.style.transform = "translate(-50%, -50%) scale(1.5)";
+                outline.style.backgroundColor = "rgba(255, 42, 77, 0.1)";
+            });
+            el.addEventListener("mouseleave", () => {
+                outline.style.transform = "translate(-50%, -50%) scale(1)";
+                outline.style.backgroundColor = "transparent";
+            });
+        });
+
+        // GSAP ScrollTrigger Animations
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach((el) => {
+                gsap.fromTo(el, 
+                    { autoAlpha: 0, y: 50 }, 
+                    { 
+                        autoAlpha: 1, 
+                        y: 0, 
+                        duration: 0.8, 
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 85%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+        }
+
+        // WhatsApp Direct Message Logic
+        function sendToWhatsApp() {
+            const name = document.getElementById("senderName").value.trim();
+            const email = document.getElementById("senderEmail").value.trim();
+            const message = document.getElementById("senderMessage").value.trim();
+
+            if (!name || !message) {
+                alert("Please enter your name and message before transmitting.");
+                return;
+            }
+
+            const phoneNumber = "8801865861015"; 
+            const text = `Hello Tamim!\n\nI am ${name}.\nEmail: ${email}\n\nMessage:\n${message}`;
+            
+            const encodedText = encodeURIComponent(text);
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</body>
+</html>
