@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tamim's Universe | Futuristic Portfolio</title>
+<title>Tamim Universe</title>
 
-<!-- GOOGLE FONTS -->
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+<!-- GOOGLE FONT -->
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <!-- GSAP -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 <style>
 
-:root{
---bg:#050505;
---red:#ff003c;
---blue:#0044ff;
---white:#ffffff;
---gray:#999999;
-}
+/* =========================
+RESET
+========================= */
 
 *{
 margin:0;
@@ -34,119 +34,88 @@ scroll-behavior:smooth;
 }
 
 body{
+background:#050505;
 font-family:'Space Grotesk',sans-serif;
-background:var(--bg);
-color:white;
 overflow-x:hidden;
+color:white;
 }
 
-/* CUSTOM CURSOR */
-
-.cursor{
-width:22px;
-height:22px;
-border:2px solid var(--red);
-border-radius:50%;
-position:fixed;
-pointer-events:none;
-transform:translate(-50%,-50%);
-z-index:99999;
-mix-blend-mode:difference;
-transition:0.08s;
-}
-
-/* SCROLLBAR */
+/* =========================
+SCROLLBAR
+========================= */
 
 ::-webkit-scrollbar{
 width:8px;
 }
 
 ::-webkit-scrollbar-thumb{
-background:linear-gradient(var(--red),var(--blue));
+background:#ffffff;
 }
 
-/* BACKGROUND EFFECTS */
+/* =========================
+BACKGROUND
+========================= */
 
-.bg-grid{
-position:fixed;
-inset:0;
-background-image:
-linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-background-size:60px 60px;
-z-index:-5;
-}
-
-.noise{
+.bg-noise{
 position:fixed;
 inset:0;
 background:url('https://grainy-gradients.vercel.app/noise.svg');
-opacity:0.06;
-z-index:-4;
+opacity:0.04;
+z-index:-2;
 }
 
-.glow1{
+.blur1{
 position:fixed;
 width:500px;
 height:500px;
-background:var(--red);
+background:#ff003c;
 filter:blur(180px);
-opacity:.2;
-border-radius:50%;
-top:-100px;
-left:-100px;
-animation:move1 10s infinite alternate;
+opacity:0.12;
+top:-200px;
+left:-200px;
 z-index:-3;
 }
 
-.glow2{
+.blur2{
 position:fixed;
 width:500px;
 height:500px;
-background:var(--blue);
+background:#0044ff;
 filter:blur(180px);
-opacity:.2;
-border-radius:50%;
-bottom:-100px;
-right:-100px;
-animation:move2 10s infinite alternate;
+opacity:0.12;
+bottom:-200px;
+right:-200px;
 z-index:-3;
 }
 
-@keyframes move1{
-from{transform:translate(0,0);}
-to{transform:translate(140px,120px);}
-}
-
-@keyframes move2{
-from{transform:translate(0,0);}
-to{transform:translate(-140px,-120px);}
-}
-
-/* NAVBAR */
+/* =========================
+NAVBAR
+========================= */
 
 nav{
 position:fixed;
 top:0;
 left:0;
 width:100%;
-padding:25px 8%;
+padding:30px 7%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-backdrop-filter:blur(15px);
-background:rgba(0,0,0,0.2);
 z-index:999;
+backdrop-filter:blur(20px);
+background:rgba(0,0,0,0.15);
+border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .logo{
-font-size:1.5rem;
-font-weight:700;
-letter-spacing:3px;
+font-family:'Syne',sans-serif;
+font-size:1.6rem;
+font-weight:800;
+letter-spacing:4px;
 }
 
 .logo span{
-color:var(--red);
+color:#ff003c;
 }
 
 nav ul{
@@ -156,161 +125,217 @@ list-style:none;
 }
 
 nav ul li a{
-color:white;
 text-decoration:none;
-transition:0.4s;
+color:white;
 font-size:0.95rem;
-}
-
-nav ul li a:hover{
-color:var(--red);
-}
-
-/* HERO */
-
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:120px 8%;
+transition:0.4s;
 position:relative;
 }
 
-.hero-content{
-max-width:1200px;
+nav ul li a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-8px;
+width:0%;
+height:2px;
+background:#ff003c;
+transition:0.4s;
 }
 
-.hero h1{
-font-size:10vw;
-font-family:'Anton',sans-serif;
-line-height:0.9;
-letter-spacing:6px;
+nav ul li a:hover::after{
+width:100%;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+min-height:100vh;
+padding:180px 7% 100px;
+display:flex;
+justify-content:space-between;
+align-items:flex-end;
+gap:60px;
+position:relative;
+}
+
+.hero-left{
+flex:1;
+}
+
+.small-text{
+font-size:1rem;
+letter-spacing:5px;
 text-transform:uppercase;
-background:linear-gradient(to right,#fff,var(--red));
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+color:#888;
+margin-bottom:30px;
 }
 
-.hero h2{
-margin-top:25px;
-font-size:1.5rem;
-color:var(--gray);
-font-weight:400;
+.hero-title{
+font-size:9vw;
+line-height:0.85;
+font-family:'Syne',sans-serif;
+font-weight:800;
+text-transform:uppercase;
+margin-bottom:40px;
 }
 
-.hero p{
-max-width:850px;
-margin:35px auto;
-line-height:1.9;
-color:#c2c2c2;
+.hero-title span{
+color:#ff003c;
+}
+
+.hero-description{
+max-width:700px;
+line-height:2;
 font-size:1.05rem;
+color:#bdbdbd;
 }
+
+.hero-right{
+width:280px;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.mini-card{
+padding:25px;
+border:1px solid rgba(255,255,255,0.08);
+background:#0d0d0d;
+border-radius:25px;
+transition:0.4s;
+}
+
+.mini-card:hover{
+transform:translateY(-10px);
+border-color:#ff003c;
+}
+
+.mini-card h3{
+font-size:2rem;
+margin-bottom:10px;
+}
+
+.mini-card p{
+color:#bdbdbd;
+line-height:1.8;
+}
+
+/* =========================
+BUTTONS
+========================= */
 
 .hero-buttons{
 display:flex;
-justify-content:center;
 gap:25px;
+margin-top:60px;
 flex-wrap:wrap;
-margin-top:50px;
 }
 
 .btn{
 padding:18px 42px;
 border-radius:100px;
 text-decoration:none;
+font-weight:700;
+transition:0.4s;
+display:inline-block;
+}
+
+.btn-main{
+background:white;
+color:black;
+}
+
+.btn-main:hover{
+transform:translateY(-8px);
+background:#ff003c;
 color:white;
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.08);
-backdrop-filter:blur(15px);
-transition:0.5s;
-position:relative;
-overflow:hidden;
+box-shadow:0 0 40px #ff003c;
 }
 
-.btn:hover{
-transform:translateY(-6px) scale(1.05);
-background:var(--red);
-box-shadow:0 0 45px var(--red);
+.btn-outline{
+border:1px solid rgba(255,255,255,0.2);
+color:white;
 }
 
-/* SECTION */
+.btn-outline:hover{
+background:white;
+color:black;
+transform:translateY(-8px);
+}
+
+/* =========================
+SECTION
+========================= */
 
 section{
-padding:130px 8%;
-position:relative;
+padding:140px 7%;
 }
 
 .section-title{
 font-size:5rem;
-font-family:'Anton',sans-serif;
-letter-spacing:4px;
-margin-bottom:70px;
+font-family:'Syne',sans-serif;
+font-weight:800;
+margin-bottom:80px;
 text-transform:uppercase;
 }
 
-/* GLASS CARD */
-
-.glass{
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.08);
-backdrop-filter:blur(15px);
-border-radius:30px;
-padding:40px;
-transition:0.5s;
-position:relative;
-overflow:hidden;
-}
-
-.glass:hover{
-transform:translateY(-10px);
-border-color:rgba(255,0,60,0.4);
-box-shadow:0 0 50px rgba(255,0,60,0.2);
-}
-
-/* ABOUT */
+/* =========================
+ABOUT GRID
+========================= */
 
 .about-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:35px;
 }
 
+.about-card{
+padding:50px;
+border-radius:35px;
+background:#0d0d0d;
+border:1px solid rgba(255,255,255,0.08);
+transition:0.4s;
+}
+
+.about-card:hover{
+transform:translateY(-10px);
+border-color:#ff003c;
+}
+
 .about-card h3{
+font-size:2rem;
 margin-bottom:20px;
-font-size:1.6rem;
 }
 
 .about-card p{
-color:#c4c4c4;
-line-height:1.8;
+line-height:2;
+color:#bdbdbd;
 }
 
-/* TIMELINE */
+/* =========================
+TIMELINE
+========================= */
 
 .timeline{
-position:relative;
-margin-left:20px;
-border-left:2px solid rgba(255,255,255,0.08);
-padding-left:50px;
+display:flex;
+flex-direction:column;
+gap:40px;
 }
 
 .timeline-item{
-margin-bottom:70px;
-position:relative;
+padding:45px;
+background:#0d0d0d;
+border-radius:35px;
+border:1px solid rgba(255,255,255,0.08);
+transition:0.4s;
 }
 
-.timeline-item::before{
-content:'';
-width:22px;
-height:22px;
-background:var(--red);
-border-radius:50%;
-position:absolute;
-left:-62px;
-top:8px;
-box-shadow:0 0 30px var(--red);
+.timeline-item:hover{
+transform:translateX(10px);
+border-color:#ff003c;
 }
 
 .timeline-item h3{
@@ -320,151 +345,184 @@ margin-bottom:10px;
 
 .timeline-item span{
 display:block;
-color:var(--red);
-margin-bottom:15px;
+margin-bottom:20px;
+color:#ff003c;
 }
 
 .timeline-item p{
-color:#c2c2c2;
-line-height:1.9;
+line-height:2;
+color:#bdbdbd;
 }
 
-/* SKILLS */
+/* =========================
+SKILLS
+========================= */
 
-.skills-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:30px;
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
 }
 
 .skill{
-padding:40px;
-text-align:center;
-border-radius:25px;
-background:rgba(255,255,255,0.05);
+padding:18px 28px;
+border-radius:100px;
+background:#0d0d0d;
 border:1px solid rgba(255,255,255,0.08);
-transition:0.5s;
-font-weight:600;
+transition:0.4s;
 }
 
 .skill:hover{
-transform:rotate3d(1,1,0,12deg) scale(1.08);
-box-shadow:0 0 40px rgba(0,68,255,0.3);
+background:#ff003c;
+transform:translateY(-8px);
 }
 
-/* PORTFOLIO */
+/* =========================
+PORTFOLIO
+========================= */
 
 .projects{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
+grid-template-columns:1fr 1fr;
 gap:40px;
 }
 
 .project{
-position:relative;
+height:650px;
+border-radius:40px;
 overflow:hidden;
-border-radius:30px;
+position:relative;
 }
 
 .project img{
 width:100%;
 height:100%;
 object-fit:cover;
-transition:0.8s;
+transition:1s;
 }
 
 .project:hover img{
-transform:scale(1.12);
+transform:scale(1.1);
 }
 
-.overlay{
+.project-overlay{
 position:absolute;
 inset:0;
-background:linear-gradient(to top,rgba(0,0,0,0.95),transparent);
+background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);
 display:flex;
 flex-direction:column;
 justify-content:flex-end;
-padding:40px;
+padding:45px;
 }
 
-.overlay h3{
-font-size:2rem;
-margin-bottom:15px;
+.project-overlay h3{
+font-size:2.3rem;
+margin-bottom:20px;
 }
 
-/* CONTACT */
+/* =========================
+CONTACT
+========================= */
 
-.contact-grid{
+.contact-box{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+grid-template-columns:1fr 1fr;
 gap:40px;
+}
+
+.contact-info{
+padding:50px;
+background:#0d0d0d;
+border-radius:35px;
+}
+
+.contact-info h3{
+font-size:2rem;
+margin-bottom:25px;
 }
 
 .contact-info p{
 margin-bottom:20px;
-color:#c2c2c2;
+line-height:2;
+color:#bdbdbd;
+}
+
+.contact-form{
+padding:50px;
+background:#0d0d0d;
+border-radius:35px;
 }
 
 .contact-form input,
 .contact-form textarea{
 width:100%;
-padding:18px;
+padding:20px;
 margin-bottom:20px;
 border:none;
-border-radius:18px;
 background:#111;
+border-radius:20px;
 color:white;
 font-size:1rem;
 }
 
-.contact-form button{
-width:100%;
-border:none;
-cursor:pointer;
-}
-
-/* FOOTER */
+/* =========================
+FOOTER
+========================= */
 
 footer{
-text-align:center;
 padding:40px;
-color:#777;
-border-top:1px solid rgba(255,255,255,0.05);
+text-align:center;
+color:#666;
 }
 
-/* RESPONSIVE */
+/* =========================
+RESPONSIVE
+========================= */
 
-@media(max-width:768px){
+@media(max-width:900px){
 
-nav ul{
-display:none;
+.hero{
+flex-direction:column;
+align-items:flex-start;
+padding-top:150px;
 }
 
-.hero h1{
+.hero-title{
 font-size:18vw;
-}
-
-.section-title{
-font-size:3rem;
 }
 
 .projects{
 grid-template-columns:1fr;
 }
 
+.contact-box{
+grid-template-columns:1fr;
+}
+
+nav ul{
+display:none;
+}
+
+.section-title{
+font-size:3rem;
+}
+
+.hero-right{
+width:100%;
+}
+
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="cursor"></div>
+<div class="bg-noise"></div>
 
-<div class="bg-grid"></div>
-<div class="noise"></div>
-<div class="glow1"></div>
-<div class="glow2"></div>
+<div class="blur1"></div>
+<div class="blur2"></div>
 
 <!-- NAVBAR -->
 
@@ -476,7 +534,6 @@ TAMIM<span>.</span>
 
 <ul>
 <li><a href="#about">About</a></li>
-<li><a href="#education">Education</a></li>
 <li><a href="#experience">Experience</a></li>
 <li><a href="#skills">Skills</a></li>
 <li><a href="#portfolio">Portfolio</a></li>
@@ -489,32 +546,57 @@ TAMIM<span>.</span>
 
 <section class="hero">
 
-<div class="hero-content">
+<div class="hero-left">
 
-<h1>
-TAMIM'S<br>
-UNIVERSE
+<div class="small-text">
+Future Creative Designer
+</div>
+
+<h1 class="hero-title">
+Tamim<br>
+<span>Universe</span>
 </h1>
 
-<h2>
-Creative Visual Designer
-</h2>
-
-<p>
-I am Al Jubayer Rayhan Tamim Mollah — a futuristic visual storyteller,
-branding specialist, and creative designer focused on cinematic design,
-luxury branding, digital experiences, and emotionally impactful visuals.
+<p class="hero-description">
+I am Al Jubayer Rayhan Tamim Mollah —
+a futuristic graphic designer crafting luxury branding,
+aggressive campaign visuals,
+cinematic storytelling and modern digital experiences.
 </p>
 
 <div class="hero-buttons">
 
-<a href="#portfolio" class="btn">
-View Works
+<a href="#portfolio" class="btn btn-main">
+View Portfolio
 </a>
 
-<a href="#contact" class="btn">
+<a href="#contact" class="btn btn-outline">
 Hire Me
 </a>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<div class="mini-card">
+
+<h3>4+</h3>
+
+<p>
+Years of visual design and branding experience.
+</p>
+
+</div>
+
+<div class="mini-card">
+
+<h3>Creative</h3>
+
+<p>
+Modern visual storytelling and futuristic campaign design systems.
+</p>
 
 </div>
 
@@ -527,65 +609,39 @@ Hire Me
 <section id="about">
 
 <h2 class="section-title">
-About Me
+About
 </h2>
 
 <div class="about-grid">
 
-<div class="glass about-card">
+<div class="about-card">
+
 <h3>Brand Identity</h3>
+
 <p>
-Creating premium branding systems, digital identities,
-and emotionally impactful visual communication.
+Building luxury branding systems and futuristic visual identities.
 </p>
+
 </div>
 
-<div class="glass about-card">
-<h3>Visual Storytelling</h3>
-<p>
-Blending cinematic composition, futuristic UI aesthetics,
-and creative storytelling into one immersive experience.
-</p>
-</div>
+<div class="about-card">
 
-<div class="glass about-card">
 <h3>Creative Direction</h3>
+
 <p>
-Focused on brutalism, motion design, luxury visuals,
-modern campaigns and next-generation portfolio experiences.
+Combining aggressive visuals, brutalism and cinematic storytelling.
 </p>
+
 </div>
 
-</div>
+<div class="about-card">
 
-</section>
+<h3>Motion Design</h3>
 
-<!-- EDUCATION -->
-
-<section id="education">
-
-<h2 class="section-title">
-Education
-</h2>
-
-<div class="timeline">
-
-<div class="timeline-item">
-<h3>BSS in Journalism & Media Communication</h3>
-<span>Green University of Bangladesh • 2026 - Present</span>
 <p>
-Focused on communication, media storytelling,
-branding and digital creative strategy.
+Creating immersive digital experiences with modern motion systems.
 </p>
-</div>
 
-<div class="timeline-item">
-<h3>HSC</h3>
-<span>DR. Mahabubur Rahman Mollah College • 2022 - 2023</span>
-<p>
-Developed strong academic and creative foundations
-through modern communication and design learning.
-</p>
 </div>
 
 </div>
@@ -603,39 +659,39 @@ Experience
 <div class="timeline">
 
 <div class="timeline-item">
+
 <h3>Graphics Designer — Oilo</h3>
+
 <span>2025</span>
+
 <p>
-Designed high-end digital campaigns, promotional visuals,
-branding assets and modern social media content.
+Designed social media campaigns, promotional visuals and premium branding systems.
 </p>
+
 </div>
 
 <div class="timeline-item">
+
 <h3>Graphics Designer — VortexUp Digital</h3>
+
 <span>2024 - 2025</span>
+
 <p>
-Created visual assets for websites, social media,
-print campaigns and modern advertising systems.
+Created digital campaign visuals, website assets and creative advertising systems.
 </p>
+
 </div>
 
 <div class="timeline-item">
+
 <h3>Marketing Executive — Smart IT</h3>
-<span>2023 - 2024</span>
-<p>
-Worked on marketing communication strategies,
-creative campaigns and audience engagement systems.
-</p>
-</div>
 
-<div class="timeline-item">
-<h3>Photographer — DMRC</h3>
-<span>2022</span>
+<span>2023 - 2024</span>
+
 <p>
-Explored visual storytelling through cinematic photography,
-composition and creative event documentation.
+Worked on creative communication strategy and aggressive marketing campaigns.
 </p>
+
 </div>
 
 </div>
@@ -650,19 +706,16 @@ composition and creative event documentation.
 Skills
 </h2>
 
-<div class="skills-grid">
+<div class="skills">
 
-<div class="skill">Adobe Photoshop</div>
+<div class="skill">Photoshop</div>
 <div class="skill">Illustrator</div>
 <div class="skill">Lightroom</div>
 <div class="skill">Figma</div>
-<div class="skill">Canva</div>
 <div class="skill">Branding</div>
 <div class="skill">Typography</div>
-<div class="skill">Packaging Design</div>
 <div class="skill">Visual Storytelling</div>
 <div class="skill">Campaign Design</div>
-<div class="skill">Motion Design</div>
 <div class="skill">Photography</div>
 
 </div>
@@ -679,17 +732,19 @@ Portfolio
 
 <div class="projects">
 
-<div class="project glass">
+<div class="project">
 
 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4o6srF2YInrs3wqqr2VA3WJdFJ3tAIvl_tr8YAwT7yTqSVGMpDtyMjPF_8TS7xQHf2etXvSa-mAawkoPwneBNnbwXSXA7XbzgCOdS6DEAEF25d-wbYiE_YleN8aYWCzCE7DAz4VglRw6X2WhUYigSKGq-gnEPE_ZLokxOy7ZUlqvPojQxwQthPB685mxz/s16000/Screenshot%202026-05-19%20195145.png">
 
-<div class="overlay">
+<div class="project-overlay">
 
-<h3>Pohela Boishakh 2026</h3>
+<h3>
+Pohela Boishakh 2026
+</h3>
 
 <a href="https://www.behance.net/gallery/248627807/Pohela-Boishakh-Cultural-Program-Design-2026"
 target="_blank"
-class="btn">
+class="btn btn-main">
 View Project
 </a>
 
@@ -697,17 +752,19 @@ View Project
 
 </div>
 
-<div class="project glass">
+<div class="project">
 
 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHFaiqWGBbW7oSozMn5bKrjHs6QbCFv6JDEWS9BJ6FXjnliWog1sJcyRQ0PXEUxcptsCZiW93JDvTrIgXPaDk7Pfsm1TL_6hRQWotfHJvVSQaCail7Amh94VZQA6lCyyxOC_981Xur5SO0jvj2iOWHUv9bpxFdNNTSOFIS7-0kTYCSOeoui6yg5TNcj9hK/s16000/Screenshot%202026-05-19%20195133.png">
 
-<div class="overlay">
+<div class="project-overlay">
 
-<h3>Panda Station 25</h3>
+<h3>
+Panda Station 25
+</h3>
 
 <a href="https://www.behance.net/gallery/245785373/Panda-Station-25-Digital-Marketing-Campaign-Posters"
 target="_blank"
-class="btn">
+class="btn btn-main">
 View Project
 </a>
 
@@ -727,70 +784,43 @@ View Project
 Contact
 </h2>
 
-<div class="contact-grid">
+<div class="contact-box">
 
-<div class="glass contact-info">
+<div class="contact-info">
 
-<h3>Email</h3>
+<h3>
+Let's Work Together
+</h3>
+
 <p>
-tamimmolla81@gmail.com
+Email: tamimmolla81@gmail.com
 </p>
 
-<h3>Phone</h3>
 <p>
-+8801865861015
+Phone: +8801865861015
 </p>
 
-<h3>Location</h3>
 <p>
-Shantibagh, Demra, Dhaka
+Behance: behance.net/tamimmollah
 </p>
 
-<h3>Behance</h3>
 <p>
-<a href="https://www.behance.net/tamimmollah"
-target="_blank"
-style="color:white;">
-behance.net/tamimmollah
-</a>
-</p>
-
-<h3>Instagram</h3>
-<p>
-<a href="https://www.instagram.com/aljubayerrayhan/"
-target="_blank"
-style="color:white;">
-@aljubayerrayhan
-</a>
+Instagram: @aljubayerrayhan
 </p>
 
 </div>
 
-<!-- WHATSAPP FORM -->
+<div class="contact-form">
 
-<div class="glass">
+<form id="contactForm">
 
-<form id="contactForm" class="contact-form">
+<input type="text" id="name" placeholder="Your Name" required>
 
-<input
-type="text"
-id="name"
-placeholder="Your Name"
-required>
+<input type="email" id="email" placeholder="Your Email" required>
 
-<input
-type="email"
-id="email"
-placeholder="Your Email"
-required>
+<textarea id="message" rows="6" placeholder="Your Message" required></textarea>
 
-<textarea
-id="message"
-rows="6"
-placeholder="Your Message"
-required></textarea>
-
-<button type="submit" class="btn">
+<button type="submit" class="btn btn-main">
 Send Message
 </button>
 
@@ -803,53 +833,29 @@ Send Message
 </section>
 
 <footer>
-© 2026 Tamim Mollah — Ultra Premium Futuristic Portfolio
+© 2026 Tamim Universe
 </footer>
 
 <script>
-
-/* CUSTOM CURSOR */
-
-const cursor = document.querySelector(".cursor");
-
-document.addEventListener("mousemove",(e)=>{
-
-cursor.style.left = e.clientX + "px";
-cursor.style.top = e.clientY + "px";
-
-});
 
 /* GSAP */
 
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.from("nav",{
-y:-100,
-opacity:0,
-duration:1
-});
-
-gsap.from(".hero h1",{
+gsap.from(".hero-title",{
 y:120,
 opacity:0,
 duration:1.5
 });
 
-gsap.from(".hero h2",{
-y:80,
-opacity:0,
-delay:.3,
-duration:1
-});
-
-gsap.from(".hero p",{
+gsap.from(".hero-description",{
 y:60,
 opacity:0,
-delay:.5,
+delay:.4,
 duration:1
 });
 
-gsap.utils.toArray(".glass,.timeline-item,.skill,.project")
+gsap.utils.toArray(".about-card,.timeline-item,.project,.skill,.mini-card")
 .forEach((el)=>{
 
 gsap.from(el,{
@@ -864,31 +870,7 @@ duration:1
 
 });
 
-/* MAGNETIC BUTTON */
-
-document.querySelectorAll(".btn").forEach(btn=>{
-
-btn.addEventListener("mousemove",(e)=>{
-
-const rect = btn.getBoundingClientRect();
-
-const x = e.clientX - rect.left - rect.width/2;
-const y = e.clientY - rect.top - rect.height/2;
-
-btn.style.transform =
-`translate(${x*0.15}px,${y*0.15}px)`;
-
-});
-
-btn.addEventListener("mouseleave",()=>{
-
-btn.style.transform = "translate(0,0)";
-
-});
-
-});
-
-/* WHATSAPP MESSAGE */
+/* WHATSAPP */
 
 document
 .getElementById("contactForm")
