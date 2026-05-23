@@ -1,971 +1,495 @@
-<!-- =========================
-ULTRA PREMIUM AGGRESSIVE PORTFOLIO WEBSITE
-AL JUBAYER RAYHAN TAMIM MOLLAH
-========================= -->
-
+<!-- Ultra Premium Futuristic Portfolio Website -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Tamim's Universe</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-<style>
-
-:root{
---bg:#050505;
---card:#0f0f0f;
---line:#1d1d1d;
---white:#ffffff;
---gray:#999999;
---red:#ff003c;
---blue:#003cff;
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
-
-body{
-font-family:'Montserrat',sans-serif;
-background:var(--bg);
-color:white;
-overflow-x:hidden;
-}
-
-/* =========================
-SCROLLBAR
-========================= */
-
-::-webkit-scrollbar{
-width:10px;
-}
-
-::-webkit-scrollbar-thumb{
-background:linear-gradient(var(--red),var(--blue));
-}
-
-/* =========================
-BACKGROUND
-========================= */
-
-.bg-grid{
-position:fixed;
-inset:0;
-background:
-linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
-linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
-background-size:40px 40px;
-z-index:-10;
-}
-
-.glow{
-position:fixed;
-width:600px;
-height:600px;
-border-radius:50%;
-filter:blur(120px);
-opacity:.12;
-z-index:-5;
-animation:float 10s infinite ease-in-out;
-}
-
-.glow1{
-background:#ff003c;
-top:-200px;
-left:-200px;
-}
-
-.glow2{
-background:#003cff;
-bottom:-200px;
-right:-200px;
-animation-delay:4s;
-}
-
-@keyframes float{
-50%{
-transform:translateY(-80px);
-}
-}
-
-/* =========================
-NAVBAR
-========================= */
-
-nav{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-padding:22px 6%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(0,0,0,.72);
-backdrop-filter:blur(16px);
-border-bottom:1px solid #1d1d1d;
-z-index:999;
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:14px;
-}
-
-.logo img{
-width:58px;
-height:58px;
-border-radius:50%;
-object-fit:cover;
-border:2px solid var(--red);
-}
-
-.logo h2{
-font-family:'Anton',sans-serif;
-font-size:34px;
-font-weight:400;
-letter-spacing:2px;
-}
-
-.logo span{
-color:var(--red);
-}
-
-.menu{
-display:flex;
-gap:40px;
-}
-
-.menu a{
-text-decoration:none;
-color:white;
-font-family:'Anton',sans-serif;
-font-size:22px;
-transition:.3s;
-}
-
-.menu a:hover{
-color:var(--red);
-transform:translateY(-4px);
-}
-
-.socials{
-display:flex;
-gap:12px;
-}
-
-.socials a{
-width:46px;
-height:46px;
-display:flex;
-align-items:center;
-justify-content:center;
-border:1px solid #333;
-color:white;
-text-decoration:none;
-transition:.3s;
-}
-
-.socials a:hover{
-background:var(--red);
-border-color:var(--red);
-transform:translateY(-6px);
-}
-
-/* =========================
-HERO
-========================= */
-
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-padding:180px 6% 100px;
-position:relative;
-}
-
-.hero-grid{
-display:grid;
-grid-template-columns:1.2fr .8fr;
-gap:90px;
-align-items:center;
-width:100%;
-}
-
-.badge{
-display:inline-block;
-padding:10px 20px;
-background:white;
-color:black;
-font-family:'Anton',sans-serif;
-font-size:18px;
-letter-spacing:2px;
-margin-bottom:26px;
-}
-
-.hero h1{
-font-family:'Anton',sans-serif;
-font-size:10rem;
-line-height:.82;
-font-weight:400;
-margin-bottom:24px;
-}
-
-.hero h1 span{
-display:block;
-color:var(--red);
-}
-
-.hero p{
-font-size:1.1rem;
-line-height:2;
-color:#aaa;
-max-width:720px;
-margin-bottom:40px;
-}
-
-.hero-btns{
-display:flex;
-gap:24px;
-flex-wrap:wrap;
-}
-
-.btn{
-padding:18px 34px;
-font-family:'Anton',sans-serif;
-font-size:22px;
-letter-spacing:1px;
-text-decoration:none;
-display:flex;
-align-items:center;
-gap:12px;
-transition:.3s;
-}
-
-.btn-primary{
-background:var(--red);
-color:white;
-border:2px solid var(--red);
-}
-
-.btn-primary:hover{
-background:white;
-color:black;
-transform:translate(-6px,-6px);
-box-shadow:10px 10px 0 var(--red);
-}
-
-.btn-secondary{
-border:2px solid #333;
-color:white;
-}
-
-.btn-secondary:hover{
-border-color:white;
-transform:translate(-6px,-6px);
-box-shadow:10px 10px 0 white;
-}
-
-/* =========================
-HERO IMAGE
-========================= */
-
-.hero-image{
-position:relative;
-padding:20px;
-border:2px dashed #333;
-transition:.4s;
-overflow:hidden;
-}
-
-.hero-image:hover{
-border-color:var(--red);
-}
-
-.hero-image img{
-width:100%;
-height:700px;
-object-fit:cover;
-filter:grayscale(100%);
-transition:.7s;
-}
-
-.hero-image:hover img{
-filter:grayscale(0%);
-transform:scale(1.03) translate(-10px,-10px);
-box-shadow:20px 20px 0 var(--red);
-}
-
-/* =========================
-SECTION
-========================= */
-
-section{
-padding:140px 6%;
-}
-
-.section-title{
-margin-bottom:80px;
-border-left:8px solid var(--red);
-padding-left:24px;
-}
-
-.section-title h2{
-font-family:'Anton',sans-serif;
-font-size:6rem;
-line-height:.9;
-font-weight:400;
-margin-bottom:14px;
-color:transparent;
--webkit-text-stroke:2px white;
-}
-
-.section-title span{
-color:var(--red);
--webkit-text-stroke:0;
-}
-
-.section-title p{
-max-width:760px;
-line-height:2;
-color:#aaa;
-}
-
-/* =========================
-ABOUT
-========================= */
-
-.about-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:30px;
-}
-
-.card{
-background:rgba(15,15,15,.9);
-border:1px solid #222;
-padding:40px;
-transition:.4s;
-position:relative;
-overflow:hidden;
-}
-
-.card::before{
-content:'';
-position:absolute;
-top:0;
-left:-100%;
-width:100%;
-height:100%;
-background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);
-transition:.8s;
-}
-
-.card:hover::before{
-left:100%;
-}
-
-.card:hover{
-transform:translate(-8px,-8px);
-box-shadow:12px 12px 0 var(--red);
-border-color:white;
-}
-
-.card h3{
-font-family:'Anton',sans-serif;
-font-size:3rem;
-font-weight:400;
-margin-bottom:20px;
-}
-
-.card p{
-line-height:2;
-color:#aaa;
-}
-
-.skills{
-display:flex;
-flex-wrap:wrap;
-gap:14px;
-margin-top:30px;
-}
-
-.skill{
-padding:12px 18px;
-border:1px solid #333;
-font-family:'Anton',sans-serif;
-font-size:18px;
-transition:.3s;
-}
-
-.skill:hover{
-background:var(--red);
-border-color:var(--red);
-transform:scale(1.08);
-}
-
-/* =========================
-TIMELINE
-========================= */
-
-.timeline{
-position:relative;
-padding-left:40px;
-border-left:2px solid #222;
-}
-
-.timeline-item{
-position:relative;
-margin-bottom:50px;
-}
-
-.timeline-dot{
-position:absolute;
-left:-54px;
-top:0;
-width:26px;
-height:26px;
-background:black;
-border:4px solid #555;
-}
-
-.timeline-content{
-background:#0f0f0f;
-border:1px solid #222;
-padding:34px;
-transition:.4s;
-}
-
-.timeline-content:hover{
-transform:translate(-8px,-8px);
-box-shadow:12px 12px 0 var(--red);
-border-color:white;
-}
-
-.timeline-date{
-display:inline-block;
-padding:6px 14px;
-background:white;
-color:black;
-font-family:'Anton',sans-serif;
-font-size:18px;
-margin-bottom:16px;
-}
-
-.timeline-content h3{
-font-family:'Anton',sans-serif;
-font-size:2.4rem;
-font-weight:400;
-margin-bottom:10px;
-}
-
-.timeline-content p{
-line-height:2;
-color:#aaa;
-}
-
-/* =========================
-PROJECTS
-========================= */
-
-.projects{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-}
-
-.project{
-position:relative;
-height:760px;
-overflow:hidden;
-border:1px solid #222;
-transition:.4s;
-display:block;
-text-decoration:none;
-}
-
-.project:hover{
-transform:translate(-10px,-10px);
-box-shadow:16px 16px 0 var(--red);
-border-color:var(--red);
-}
-
-.project img{
-width:100%;
-height:100%;
-object-fit:cover;
-filter:grayscale(100%) brightness(.55);
-transition:.9s;
-}
-
-.project:hover img{
-transform:scale(1.08);
-filter:grayscale(0%);
-}
-
-.project-overlay{
-position:absolute;
-inset:0;
-background:linear-gradient(to top,rgba(0,0,0,.96),rgba(0,0,0,.2),transparent);
-display:flex;
-align-items:flex-end;
-padding:40px;
-}
-
-.project-content h3{
-font-family:'Anton',sans-serif;
-font-size:3rem;
-font-weight:400;
-margin-bottom:14px;
-}
-
-.project-content p{
-line-height:1.9;
-color:#ddd;
-margin-bottom:24px;
-}
-
-.project-btn{
-display:inline-flex;
-align-items:center;
-gap:10px;
-padding:14px 24px;
-background:white;
-color:black;
-font-family:'Anton',sans-serif;
-font-size:20px;
-transition:.3s;
-}
-
-.project:hover .project-btn{
-background:var(--red);
-color:white;
-}
-
-/* =========================
-CONTACT
-========================= */
-
-.contact-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-}
-
-.contact-box{
-background:#0f0f0f;
-border:1px solid #222;
-padding:40px;
-}
-
-.contact-box input,
-.contact-box textarea{
-width:100%;
-padding:18px;
-margin-bottom:18px;
-background:black;
-border:1px solid #222;
-color:white;
-font-family:'Montserrat',sans-serif;
-outline:none;
-transition:.3s;
-}
-
-.contact-box textarea{
-height:180px;
-resize:none;
-}
-
-.contact-box input:focus,
-.contact-box textarea:focus{
-border-color:var(--red);
-box-shadow:8px 8px 0 var(--red);
-transform:translate(-4px,-4px);
-}
-
-.contact-info p{
-line-height:2.5;
-color:#aaa;
-font-size:1.05rem;
-}
-
-.contact-info i{
-color:var(--red);
-margin-right:10px;
-}
-
-/* =========================
-FOOTER
-========================= */
-
-footer{
-padding:40px;
-text-align:center;
-border-top:1px solid #222;
-font-family:'Anton',sans-serif;
-font-size:22px;
-letter-spacing:2px;
-color:#666;
-}
-
-footer span{
-color:var(--red);
-}
-
-/* =========================
-RESPONSIVE
-========================= */
-
-@media(max-width:1200px){
-
-.hero-grid,
-.about-grid,
-.projects,
-.contact-grid{
-grid-template-columns:1fr;
-}
-
-.hero h1{
-font-size:6rem;
-}
-
-.section-title h2{
-font-size:4rem;
-}
-
-}
-
-@media(max-width:768px){
-
-.menu,
-.socials{
-display:none;
-}
-
-.hero{
-padding-top:140px;
-}
-
-.hero h1{
-font-size:4rem;
-}
-
-.hero p{
-font-size:15px;
-}
-
-.hero-btns{
-flex-direction:column;
-}
-
-.btn{
-width:100%;
-justify-content:center;
-}
-
-.hero-image img{
-height:450px;
-}
-
-.project{
-height:480px;
-}
-
-.project-content h3{
-font-size:2rem;
-}
-
-section{
-padding:100px 5%;
-}
-
-}
-
-</style>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tamim's Universe</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Space Grotesk',sans-serif;
+      background:#050505;
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    ::selection{
+      background:#ff003c;
+      color:#fff;
+    }
+
+    /* SCROLLBAR */
+
+    ::-webkit-scrollbar{
+      width:8px;
+    }
+
+    ::-webkit-scrollbar-thumb{
+      background:#ff003c;
+    }
+
+    /* CURSOR */
+
+    .cursor{
+      width:20px;
+      height:20px;
+      border:2px solid #ff003c;
+      border-radius:50%;
+      position:fixed;
+      pointer-events:none;
+      transform:translate(-50%,-50%);
+      z-index:9999;
+      transition:0.1s;
+      mix-blend-mode:difference;
+    }
+
+    /* BACKGROUND */
+
+    .bg-grid{
+      position:fixed;
+      width:100%;
+      height:100%;
+      background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size:50px 50px;
+      z-index:-3;
+    }
+
+    .glow{
+      position:fixed;
+      width:500px;
+      height:500px;
+      background:#ff003c;
+      filter:blur(180px);
+      opacity:.15;
+      border-radius:50%;
+      top:-100px;
+      left:-100px;
+      z-index:-2;
+      animation:float 10s infinite alternate;
+    }
+
+    .glow2{
+      position:fixed;
+      width:500px;
+      height:500px;
+      background:#0044ff;
+      filter:blur(180px);
+      opacity:.15;
+      border-radius:50%;
+      bottom:-100px;
+      right:-100px;
+      z-index:-2;
+      animation:float2 10s infinite alternate;
+    }
+
+    @keyframes float{
+      from{transform:translate(0,0);}
+      to{transform:translate(100px,100px);}
+    }
+
+    @keyframes float2{
+      from{transform:translate(0,0);}
+      to{transform:translate(-100px,-100px);}
+    }
+
+    section{
+      padding:120px 8%;
+      position:relative;
+    }
+
+    .section-title{
+      font-size:4rem;
+      font-family:'Anton',sans-serif;
+      letter-spacing:3px;
+      margin-bottom:60px;
+      text-transform:uppercase;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      position:relative;
+    }
+
+    .hero-content{
+      text-align:center;
+      z-index:2;
+    }
+
+    .hero h1{
+      font-size:9vw;
+      line-height:1;
+      font-family:'Anton',sans-serif;
+      text-transform:uppercase;
+      background:linear-gradient(to right,#fff,#ff003c);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero h2{
+      font-size:2rem;
+      color:#999;
+      margin-top:20px;
+    }
+
+    .hero p{
+      max-width:700px;
+      margin:30px auto;
+      color:#bbb;
+      line-height:1.8;
+    }
+
+    .hero-buttons{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      margin-top:40px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:16px 35px;
+      border:none;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.1);
+      color:#fff;
+      text-decoration:none;
+      border-radius:100px;
+      transition:0.4s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .btn:hover{
+      transform:translateY(-5px);
+      background:#ff003c;
+      box-shadow:0 0 30px #ff003c;
+    }
+
+    /* CARDS */
+
+    .glass-card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.1);
+      backdrop-filter:blur(15px);
+      border-radius:25px;
+      padding:40px;
+      transition:0.5s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .glass-card:hover{
+      transform:translateY(-10px);
+      border-color:#ff003c;
+      box-shadow:0 0 40px rgba(255,0,60,0.3);
+    }
+
+    .about-grid,
+    .skills-grid,
+    .portfolio-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    /* TIMELINE */
+
+    .timeline{
+      position:relative;
+      margin-left:20px;
+      border-left:2px solid rgba(255,255,255,0.1);
+      padding-left:40px;
+    }
+
+    .timeline-item{
+      margin-bottom:60px;
+      position:relative;
+    }
+
+    .timeline-item::before{
+      content:'';
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      background:#ff003c;
+      position:absolute;
+      left:-51px;
+      top:10px;
+      box-shadow:0 0 20px #ff003c;
+    }
+
+    .timeline h3{
+      font-size:1.5rem;
+      margin-bottom:10px;
+    }
+
+    .timeline p{
+      color:#aaa;
+      line-height:1.7;
+    }
+
+    /* SKILLS */
+
+    .skill-box{
+      text-align:center;
+      padding:35px;
+      border-radius:25px;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.5s;
+    }
+
+    .skill-box:hover{
+      transform:rotate3d(1,1,0,10deg) scale(1.05);
+      background:#111;
+      box-shadow:0 0 40px rgba(0,68,255,0.3);
+    }
+
+    /* PORTFOLIO */
+
+    .project{
+      overflow:hidden;
+      position:relative;
+      border-radius:30px;
+    }
+
+    .project img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:0.7s;
+    }
+
+    .project:hover img{
+      transform:scale(1.1);
+    }
+
+    .project-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      padding:30px;
+    }
+
+    .project h3{
+      font-size:2rem;
+      margin-bottom:15px;
+    }
+
+    /* CONTACT */
+
+    .contact-box{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:40px;
+    }
+
+    .contact-form input,
+    .contact-form textarea{
+      width:100%;
+      padding:18px;
+      margin-bottom:20px;
+      background:#111;
+      border:none;
+      color:#fff;
+      border-radius:15px;
+    }
+
+    .contact-form button{
+      width:100%;
+    }
+
+    footer{
+      padding:40px;
+      text-align:center;
+      color:#777;
+      border-top:1px solid rgba(255,255,255,0.05);
+    }
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:18vw;
+      }
+
+      .section-title{
+        font-size:3rem;
+      }
+
+      .hero h2{
+        font-size:1.2rem;
+      }
+
+    }
+
+  </style>
 </head>
 
 <body>
 
+<div class="cursor"></div>
 <div class="bg-grid"></div>
-
-<div class="glow glow1"></div>
-<div class="glow glow2"></div>
-
-<!-- NAVBAR -->
-
-<nav>
-
-<div class="logo">
-
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg">
-
-<h2>
-TAMIM <span>MOLLAH</span>
-</h2>
-
-</div>
-
-<div class="menu">
-
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#resume">Resume</a>
-<a href="#portfolio">Works</a>
-<a href="#contact">Contact</a>
-
-</div>
-
-<div class="socials">
-
-<a href="https://facebook.com/jubayer.jubu.0" target="_blank">
-<i class="fab fa-facebook-f"></i>
-</a>
-
-<a href="https://instagram.com/aljubayerrayhan" target="_blank">
-<i class="fab fa-instagram"></i>
-</a>
-
-<a href="https://behance.net/tamimmollah" target="_blank">
-<i class="fab fa-behance"></i>
-</a>
-
-</div>
-
-</nav>
+<div class="glow"></div>
+<div class="glow2"></div>
 
 <!-- HERO -->
 
-<section class="hero" id="home">
+<section class="hero">
+  <div class="hero-content">
 
-<div class="hero-grid">
+    <h1>TAMIM’S UNIVERSE</h1>
 
-<div>
+    <h2>Creative Visual Designer</h2>
 
-<div class="badge">
-CREATIVE VISUAL DESIGNER
-</div>
+    <p>
+      Futuristic visual storytelling, branding, cinematic design aesthetics,
+      and emotionally powerful creative experiences crafted with precision.
+    </p>
 
-<h1>
+    <div class="hero-buttons">
+      <a href="#portfolio" class="btn">View Works</a>
+      <a href="#contact" class="btn">Contact Me</a>
+    </div>
 
-TAMIM'S
-
-<span>
-UNIVERSE
-</span>
-
-</h1>
-
-<p>
-
-I am Al Jubayer Rayhan Tamim Mollah — a passionate Graphic Designer focused on branding, typography, visual storytelling, aggressive visual identity systems, premium marketing campaigns, and modern digital experiences.
-
-</p>
-
-<div class="hero-btns">
-
-<a href="#portfolio" class="btn btn-primary">
-
-VIEW WORKS
-
-<i class="fa-solid fa-arrow-right"></i>
-
-</a>
-
-<a href="#contact" class="btn btn-secondary">
-
-CONTACT ME
-
-</a>
-
-</div>
-
-</div>
-
-<div class="hero-image">
-
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRb0WPHdWJe9tTvlqPY_7-rIYZ_5_GNmBB1PfhPFRcTut7X-MyUlch_WFZjqBKKssAeQPE5QlXAwIXiywsWQ6JCAx8_0n2REjdvxV_lU0TDY-z7nUxvs37K9upI5E4eSq6wiXaiCnnDunOYPGD2v5AFzFZkmxx1grdtPy78TgUPNob4Ni47X7c0tZs4xZj/s16000/679350186_1466363198604966_7002342122043234729_n.jpg">
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
 <!-- ABOUT -->
 
 <section id="about">
 
-<div class="section-title">
+  <h2 class="section-title">About</h2>
 
-<h2>
-Creative <span>Identity</span>
-</h2>
+  <div class="about-grid">
 
-<p>
+    <div class="glass-card">
+      <h3>Branding</h3>
+      <p>
+        Building luxury visual identities with cinematic composition and modern storytelling.
+      </p>
+    </div>
 
-A modern branding and visual designer specializing in cinematic storytelling, social media design, typography, marketing campaigns, and premium visual systems.
+    <div class="glass-card">
+      <h3>Typography</h3>
+      <p>
+        Experimental typography systems mixed with brutalism and futuristic visuals.
+      </p>
+    </div>
 
-</p>
+    <div class="glass-card">
+      <h3>Visual Storytelling</h3>
+      <p>
+        Creating emotional and immersive visual experiences for modern audiences.
+      </p>
+    </div>
 
-</div>
-
-<div class="about-grid">
-
-<div class="card">
-
-<h3>
-About Me
-</h3>
-
-<p>
-
-Currently pursuing BSS in Journalism & Media Communication at Green University of Bangladesh.
-
-Experienced in Graphic Design, Branding, Typography, Print Design, Packaging, Marketing Visuals, Social Media Design, and Creative Direction.
-
-</p>
-
-<div class="skills">
-
-<div class="skill">Photoshop</div>
-<div class="skill">Illustrator</div>
-<div class="skill">Lightroom</div>
-<div class="skill">Figma</div>
-<div class="skill">Branding</div>
-<div class="skill">Typography</div>
-<div class="skill">Visual Storytelling</div>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h3>
-Creative Mission
-</h3>
-
-<p>
-
-My mission is to create aggressive, premium, emotionally powerful visual experiences that blend cinematic storytelling with high-end branding aesthetics.
-
-</p>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
-<!-- RESUME -->
+<!-- EDUCATION -->
 
-<section id="resume">
+<section>
 
-<div class="section-title">
+  <h2 class="section-title">Education</h2>
 
-<h2>
-Battle <span>Dossier</span>
-</h2>
+  <div class="timeline">
 
-<p>
+    <div class="timeline-item">
+      <h3>BSS in Journalism & Media Communication</h3>
+      <p>Green University of Bangladesh</p>
+      <p>Focused on communication, storytelling, branding and modern media creativity.</p>
+    </div>
 
-Professional experience and creative journey.
+    <div class="timeline-item">
+      <h3>Higher Secondary Background</h3>
+      <p>Creative learning journey focused on modern design and digital storytelling.</p>
+    </div>
 
-</p>
+  </div>
 
-</div>
+</section>
 
-<div class="timeline">
+<!-- EXPERIENCE -->
 
-<div class="timeline-item">
+<section>
 
-<div class="timeline-dot"></div>
+  <h2 class="section-title">Experience</h2>
 
-<div class="timeline-content">
+  <div class="timeline">
 
-<span class="timeline-date">
-2025
-</span>
+    <div class="timeline-item">
+      <h3>Graphics Designer — Oilo</h3>
+      <p>
+        Designed premium marketing visuals, campaigns and social media creatives.
+      </p>
+    </div>
 
-<h3>
-Graphics Designer — Oilo
-</h3>
+    <div class="timeline-item">
+      <h3>Graphics Designer — VortexUp Digital</h3>
+      <p>
+        Worked on modern branding, digital campaigns and visual storytelling systems.
+      </p>
+    </div>
 
-<p>
+    <div class="timeline-item">
+      <h3>Marketing Executive — Smart IT</h3>
+      <p>
+        Managed marketing communication and impactful promotional design strategies.
+      </p>
+    </div>
 
-Creating visually compelling graphics for marketing campaigns, social media visuals, websites, newsletters, and digital branding.
+  </div>
 
-</p>
+</section>
 
-</div>
+<!-- SKILLS -->
 
-</div>
+<section>
 
-<div class="timeline-item">
+  <h2 class="section-title">Skills</h2>
 
-<div class="timeline-dot"></div>
+  <div class="skills-grid">
 
-<div class="timeline-content">
+    <div class="skill-box">Adobe Photoshop</div>
+    <div class="skill-box">Illustrator</div>
+    <div class="skill-box">Lightroom</div>
+    <div class="skill-box">Canva</div>
+    <div class="skill-box">Figma</div>
+    <div class="skill-box">Branding</div>
+    <div class="skill-box">Typography</div>
+    <div class="skill-box">Visual Storytelling</div>
+    <div class="skill-box">Campaign Design</div>
+    <div class="skill-box">UI Concepts</div>
 
-<span class="timeline-date">
-2024 — 2025
-</span>
-
-<h3>
-Graphics Designer — VortexUp Digital
-</h3>
-
-<p>
-
-Developing branding campaigns, social media graphics, digital advertisements, and premium visual identities.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="timeline-item">
-
-<div class="timeline-dot"></div>
-
-<div class="timeline-content">
-
-<span class="timeline-date">
-2023 — 2024
-</span>
-
-<h3>
-Marketing Executive — Smart IT
-</h3>
-
-<p>
-
-Mentoring aspiring designers and guiding creative storytelling and visual communication strategies.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
@@ -973,87 +497,35 @@ Mentoring aspiring designers and guiding creative storytelling and visual commun
 
 <section id="portfolio">
 
-<div class="section-title">
+  <h2 class="section-title">Portfolio</h2>
 
-<h2>
-Selected <span>Works</span>
-</h2>
+  <div class="portfolio-grid">
 
-<p>
+    <a href="https://www.behance.net/gallery/248627807/Pohela-Boishakh-Cultural-Program-Design-2026"
+      target="_blank"
+      class="project">
 
-Featured premium Behance projects.
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4o6srF2YInrs3wqqr2VA3WJdFJ3tAIvl_tr8YAwT7yTqSVGMpDtyMjPF_8TS7xQHf2etXvSa-mAawkoPwneBNnbwXSXA7XbzgCOdS6DEAEF25d-wbYiE_YleN8aYWCzCE7DAz4VglRw6X2WhUYigSKGq-gnEPE_ZLokxOy7ZUlqvPojQxwQthPB685mxz/s16000/Screenshot%202026-05-19%20195145.png">
 
-</p>
+      <div class="project-overlay">
+        <h3>Pohela Boishakh 2026</h3>
+      </div>
 
-</div>
+    </a>
 
-<div class="projects">
+    <a href="https://www.behance.net/gallery/245785373/Panda-Station-25-Digital-Marketing-Campaign-Posters"
+      target="_blank"
+      class="project">
 
-<a href="https://www.behance.net/gallery/248627807/Pohela-Boishakh-Cultural-Program-Design-2026" target="_blank" class="project">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHFaiqWGBbW7oSozMn5bKrjHs6QbCFv6JDEWS9BJ6FXjnliWog1sJcyRQ0PXEUxcptsCZiW93JDvTrIgXPaDk7Pfsm1TL_6hRQWotfHJvVSQaCail7Amh94VZQA6lCyyxOC_981Xur5SO0jvj2iOWHUv9bpxFdNNTSOFIS7-0kTYCSOeoui6yg5TNcj9hK/s16000/Screenshot%202026-05-19%20195133.png">
 
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4o6srF2YInrs3wqqr2VA3WJdFJ3tAIvl_tr8YAwT7yTqSVGMpDtyMjPF_8TS7xQHf2etXvSa-mAawkoPwneBNnbwXSXA7XbzgCOdS6DEAEF25d-wbYiE_YleN8aYWCzCE7DAz4VglRw6X2WhUYigSKGq-gnEPE_ZLokxOy7ZUlqvPojQxwQthPB685mxz/s16000/Screenshot%202026-05-19%20195145.png">
+      <div class="project-overlay">
+        <h3>Panda Station 25</h3>
+      </div>
 
-<div class="project-overlay">
+    </a>
 
-<div class="project-content">
-
-<h3>
-POHELA BOISHAKH 2026
-</h3>
-
-<p>
-
-Premium Bengali cultural campaign with cinematic storytelling and luxury branding aesthetics.
-
-</p>
-
-<div class="project-btn">
-
-VIEW PROJECT
-
-<i class="fa-solid fa-arrow-right"></i>
-
-</div>
-
-</div>
-
-</div>
-
-</a>
-
-<a href="https://www.behance.net/gallery/245785373/Panda-Station-25-Digital-Marketing-Campaign-Posters" target="_blank" class="project">
-
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHFaiqWGBbW7oSozMn5bKrjHs6QbCFv6JDEWS9BJ6FXjnliWog1sJcyRQ0PXEUxcptsCZiW93JDvTrIgXPaDk7Pfsm1TL_6hRQWotfHJvVSQaCail7Amh94VZQA6lCyyxOC_981Xur5SO0jvj2iOWHUv9bpxFdNNTSOFIS7-0kTYCSOeoui6yg5TNcj9hK/s16000/Screenshot%202026-05-19%20195133.png">
-
-<div class="project-overlay">
-
-<div class="project-content">
-
-<h3>
-PANDA STATION 25
-</h3>
-
-<p>
-
-Modern aggressive marketing visuals with premium branding composition and cinematic aesthetics.
-
-</p>
-
-<div class="project-btn">
-
-VIEW PROJECT
-
-<i class="fa-solid fa-arrow-right"></i>
-
-</div>
-
-</div>
-
-</div>
-
-</a>
-
-</div>
+  </div>
 
 </section>
 
@@ -1061,91 +533,99 @@ VIEW PROJECT
 
 <section id="contact">
 
-<div class="section-title">
+  <h2 class="section-title">Contact</h2>
 
-<h2>
-Initiate <span>Contact</span>
-</h2>
+  <div class="contact-box">
 
-<p>
+    <div class="glass-card">
 
-Let's build premium branding experiences together.
+      <h3>Email</h3>
+      <p>tamim@example.com</p>
 
-</p>
+      <br>
 
-</div>
+      <h3>Location</h3>
+      <p>Bangladesh</p>
 
-<div class="contact-grid">
+      <br>
 
-<div class="contact-box contact-info">
+      <h3>Social</h3>
 
-<p>
-<i class="fa-solid fa-phone"></i>
-01865861015
-</p>
+      <p>
+        <a href="https://www.facebook.com/jubayer.jubu.0" target="_blank" style="color:white;">Facebook</a>
+      </p>
 
-<p>
-<i class="fa-solid fa-envelope"></i>
-tamimmolla81@gmail.com
-</p>
+      <p>
+        <a href="https://www.instagram.com/aljubayerrayhan/" target="_blank" style="color:white;">Instagram</a>
+      </p>
 
-<p>
-<i class="fa-solid fa-location-dot"></i>
-Shantibagh, Demra, Dhaka
-</p>
+      <p>
+        <a href="https://www.behance.net/tamimmollah" target="_blank" style="color:white;">Behance</a>
+      </p>
 
-</div>
+    </div>
 
-<div class="contact-box">
+    <div class="glass-card contact-form">
 
-<input type="text" placeholder="YOUR NAME">
+      <input type="text" placeholder="Your Name">
 
-<input type="email" placeholder="YOUR EMAIL">
+      <input type="email" placeholder="Your Email">
 
-<textarea placeholder="YOUR MESSAGE"></textarea>
+      <textarea rows="5" placeholder="Your Message"></textarea>
 
-<a href="#" class="btn btn-primary">
+      <button class="btn">Send Message</button>
 
-SEND MESSAGE
+    </div>
 
-</a>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 <footer>
-
-© 2026 — AL JUBAYER RAYHAN TAMIM MOLLAH
-
-<span>
-CREATIVE DESIGNER
-</span>
-
+  © 2026 Tamim Mollah — Futuristic Portfolio Experience
 </footer>
 
 <script>
 
-gsap.from(".hero h1",{
-y:120,
-opacity:0,
-duration:1.2
-});
+  // CUSTOM CURSOR
 
-gsap.from(".hero p",{
-y:60,
-opacity:0,
-delay:.3,
-duration:1
-});
+  const cursor = document.querySelector('.cursor');
 
-gsap.from(".hero-image",{
-x:100,
-opacity:0,
-duration:1.4
-});
+  document.addEventListener('mousemove', e=>{
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+
+  // GSAP
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".hero h1",{
+    y:100,
+    opacity:0,
+    duration:1.5
+  });
+
+  gsap.from(".hero h2",{
+    y:50,
+    opacity:0,
+    delay:.4,
+    duration:1
+  });
+
+  gsap.utils.toArray('.glass-card,.skill-box,.timeline-item,.project').forEach(el=>{
+
+    gsap.from(el,{
+      scrollTrigger:{
+        trigger:el,
+        start:"top 85%"
+      },
+      y:80,
+      opacity:0,
+      duration:1
+    });
+
+  });
 
 </script>
 
