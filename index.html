@@ -1,5 +1,11 @@
+<!-- =========================
+ULTRA PREMIUM AGGRESSIVE PORTFOLIO WEBSITE
+AL JUBAYER RAYHAN TAMIM MOLLAH
+========================= -->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -7,7 +13,7 @@
 
 <title>Tamim's Universe</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
@@ -18,12 +24,12 @@
 
 :root{
 --bg:#050505;
---card:#0d0d0d;
+--card:#0f0f0f;
 --line:#1d1d1d;
 --white:#ffffff;
---gray:#9f9f9f;
+--gray:#999999;
 --red:#ff003c;
---blue:#0044ff;
+--blue:#003cff;
 }
 
 *{
@@ -34,7 +40,7 @@ scroll-behavior:smooth;
 }
 
 body{
-font-family:'Space Grotesk',sans-serif;
+font-family:'Montserrat',sans-serif;
 background:var(--bg);
 color:white;
 overflow-x:hidden;
@@ -68,31 +74,31 @@ z-index:-10;
 
 .glow{
 position:fixed;
-width:550px;
-height:550px;
+width:600px;
+height:600px;
 border-radius:50%;
 filter:blur(120px);
-opacity:.14;
+opacity:.12;
 z-index:-5;
 animation:float 10s infinite ease-in-out;
 }
 
 .glow1{
 background:#ff003c;
-top:-180px;
-left:-180px;
+top:-200px;
+left:-200px;
 }
 
 .glow2{
-background:#0044ff;
-bottom:-180px;
-right:-180px;
+background:#003cff;
+bottom:-200px;
+right:-200px;
 animation-delay:4s;
 }
 
 @keyframes float{
 50%{
-transform:translateY(-60px);
+transform:translateY(-80px);
 }
 }
 
@@ -105,12 +111,12 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-padding:20px 6%;
+padding:22px 6%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(0,0,0,.7);
-backdrop-filter:blur(14px);
+background:rgba(0,0,0,.72);
+backdrop-filter:blur(16px);
 border-bottom:1px solid #1d1d1d;
 z-index:999;
 }
@@ -131,7 +137,7 @@ border:2px solid var(--red);
 
 .logo h2{
 font-family:'Anton',sans-serif;
-font-size:32px;
+font-size:34px;
 font-weight:400;
 letter-spacing:2px;
 }
@@ -189,13 +195,14 @@ HERO
 min-height:100vh;
 display:flex;
 align-items:center;
-padding:170px 6% 100px;
+padding:180px 6% 100px;
+position:relative;
 }
 
 .hero-grid{
 display:grid;
 grid-template-columns:1.2fr .8fr;
-gap:80px;
+gap:90px;
 align-items:center;
 width:100%;
 }
@@ -208,7 +215,7 @@ color:black;
 font-family:'Anton',sans-serif;
 font-size:18px;
 letter-spacing:2px;
-margin-bottom:24px;
+margin-bottom:26px;
 }
 
 .hero h1{
@@ -216,7 +223,7 @@ font-family:'Anton',sans-serif;
 font-size:10rem;
 line-height:.82;
 font-weight:400;
-margin-bottom:20px;
+margin-bottom:24px;
 }
 
 .hero h1 span{
@@ -228,7 +235,7 @@ color:var(--red);
 font-size:1.1rem;
 line-height:2;
 color:#aaa;
-max-width:700px;
+max-width:720px;
 margin-bottom:40px;
 }
 
@@ -275,7 +282,7 @@ box-shadow:10px 10px 0 white;
 }
 
 /* =========================
-IMAGE
+HERO IMAGE
 ========================= */
 
 .hero-image{
@@ -283,6 +290,7 @@ position:relative;
 padding:20px;
 border:2px dashed #333;
 transition:.4s;
+overflow:hidden;
 }
 
 .hero-image:hover{
@@ -291,16 +299,16 @@ border-color:var(--red);
 
 .hero-image img{
 width:100%;
-height:650px;
+height:700px;
 object-fit:cover;
 filter:grayscale(100%);
-transition:.5s;
+transition:.7s;
 }
 
 .hero-image:hover img{
 filter:grayscale(0%);
-transform:translate(-10px,-10px);
-box-shadow:18px 18px 0 var(--red);
+transform:scale(1.03) translate(-10px,-10px);
+box-shadow:20px 20px 0 var(--red);
 }
 
 /* =========================
@@ -312,9 +320,9 @@ padding:140px 6%;
 }
 
 .section-title{
-margin-bottom:70px;
+margin-bottom:80px;
 border-left:8px solid var(--red);
-padding-left:22px;
+padding-left:24px;
 }
 
 .section-title h2{
@@ -322,7 +330,7 @@ font-family:'Anton',sans-serif;
 font-size:6rem;
 line-height:.9;
 font-weight:400;
-margin-bottom:12px;
+margin-bottom:14px;
 color:transparent;
 -webkit-text-stroke:2px white;
 }
@@ -333,7 +341,7 @@ color:var(--red);
 }
 
 .section-title p{
-max-width:720px;
+max-width:760px;
 line-height:2;
 color:#aaa;
 }
@@ -349,10 +357,27 @@ gap:30px;
 }
 
 .card{
-background:#0d0d0d;
+background:rgba(15,15,15,.9);
 border:1px solid #222;
 padding:40px;
 transition:.4s;
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:'';
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);
+transition:.8s;
+}
+
+.card:hover::before{
+left:100%;
 }
 
 .card:hover{
@@ -391,6 +416,7 @@ transition:.3s;
 .skill:hover{
 background:var(--red);
 border-color:var(--red);
+transform:scale(1.08);
 }
 
 /* =========================
@@ -419,9 +445,9 @@ border:4px solid #555;
 }
 
 .timeline-content{
-background:#0d0d0d;
+background:#0f0f0f;
 border:1px solid #222;
-padding:30px;
+padding:34px;
 transition:.4s;
 }
 
@@ -465,7 +491,7 @@ gap:40px;
 
 .project{
 position:relative;
-height:720px;
+height:760px;
 overflow:hidden;
 border:1px solid #222;
 transition:.4s;
@@ -484,7 +510,7 @@ width:100%;
 height:100%;
 object-fit:cover;
 filter:grayscale(100%) brightness(.55);
-transition:.8s;
+transition:.9s;
 }
 
 .project:hover img{
@@ -495,7 +521,7 @@ filter:grayscale(0%);
 .project-overlay{
 position:absolute;
 inset:0;
-background:linear-gradient(to top,rgba(0,0,0,.95),rgba(0,0,0,.3),transparent);
+background:linear-gradient(to top,rgba(0,0,0,.96),rgba(0,0,0,.2),transparent);
 display:flex;
 align-items:flex-end;
 padding:40px;
@@ -509,7 +535,7 @@ margin-bottom:14px;
 }
 
 .project-content p{
-line-height:1.8;
+line-height:1.9;
 color:#ddd;
 margin-bottom:24px;
 }
@@ -523,6 +549,12 @@ background:white;
 color:black;
 font-family:'Anton',sans-serif;
 font-size:20px;
+transition:.3s;
+}
+
+.project:hover .project-btn{
+background:var(--red);
+color:white;
 }
 
 /* =========================
@@ -536,7 +568,7 @@ gap:40px;
 }
 
 .contact-box{
-background:#0d0d0d;
+background:#0f0f0f;
 border:1px solid #222;
 padding:40px;
 }
@@ -549,8 +581,9 @@ margin-bottom:18px;
 background:black;
 border:1px solid #222;
 color:white;
-font-family:'Space Grotesk',sans-serif;
+font-family:'Montserrat',sans-serif;
 outline:none;
+transition:.3s;
 }
 
 .contact-box textarea{
@@ -561,11 +594,14 @@ resize:none;
 .contact-box input:focus,
 .contact-box textarea:focus{
 border-color:var(--red);
+box-shadow:8px 8px 0 var(--red);
+transform:translate(-4px,-4px);
 }
 
 .contact-info p{
 line-height:2.5;
 color:#aaa;
+font-size:1.05rem;
 }
 
 .contact-info i{
@@ -595,7 +631,7 @@ color:var(--red);
 RESPONSIVE
 ========================= */
 
-@media(max-width:1100px){
+@media(max-width:1200px){
 
 .hero-grid,
 .about-grid,
@@ -643,11 +679,11 @@ justify-content:center;
 }
 
 .hero-image img{
-height:420px;
+height:450px;
 }
 
 .project{
-height:450px;
+height:480px;
 }
 
 .project-content h3{
@@ -737,7 +773,7 @@ UNIVERSE
 
 <p>
 
-I am Al Jubayer Rayhan Tamim Mollah — a passionate Graphic Designer focused on branding, cinematic storytelling, typography, aggressive visual identity systems, premium social media campaigns, and modern digital experiences.
+I am Al Jubayer Rayhan Tamim Mollah — a passionate Graphic Designer focused on branding, typography, visual storytelling, aggressive visual identity systems, premium marketing campaigns, and modern digital experiences.
 
 </p>
 
@@ -770,6 +806,348 @@ CONTACT ME
 </div>
 
 </section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="section-title">
+
+<h2>
+Creative <span>Identity</span>
+</h2>
+
+<p>
+
+A modern branding and visual designer specializing in cinematic storytelling, social media design, typography, marketing campaigns, and premium visual systems.
+
+</p>
+
+</div>
+
+<div class="about-grid">
+
+<div class="card">
+
+<h3>
+About Me
+</h3>
+
+<p>
+
+Currently pursuing BSS in Journalism & Media Communication at Green University of Bangladesh.
+
+Experienced in Graphic Design, Branding, Typography, Print Design, Packaging, Marketing Visuals, Social Media Design, and Creative Direction.
+
+</p>
+
+<div class="skills">
+
+<div class="skill">Photoshop</div>
+<div class="skill">Illustrator</div>
+<div class="skill">Lightroom</div>
+<div class="skill">Figma</div>
+<div class="skill">Branding</div>
+<div class="skill">Typography</div>
+<div class="skill">Visual Storytelling</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>
+Creative Mission
+</h3>
+
+<p>
+
+My mission is to create aggressive, premium, emotionally powerful visual experiences that blend cinematic storytelling with high-end branding aesthetics.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- RESUME -->
+
+<section id="resume">
+
+<div class="section-title">
+
+<h2>
+Battle <span>Dossier</span>
+</h2>
+
+<p>
+
+Professional experience and creative journey.
+
+</p>
+
+</div>
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-content">
+
+<span class="timeline-date">
+2025
+</span>
+
+<h3>
+Graphics Designer — Oilo
+</h3>
+
+<p>
+
+Creating visually compelling graphics for marketing campaigns, social media visuals, websites, newsletters, and digital branding.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-content">
+
+<span class="timeline-date">
+2024 — 2025
+</span>
+
+<h3>
+Graphics Designer — VortexUp Digital
+</h3>
+
+<p>
+
+Developing branding campaigns, social media graphics, digital advertisements, and premium visual identities.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-content">
+
+<span class="timeline-date">
+2023 — 2024
+</span>
+
+<h3>
+Marketing Executive — Smart IT
+</h3>
+
+<p>
+
+Mentoring aspiring designers and guiding creative storytelling and visual communication strategies.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PORTFOLIO -->
+
+<section id="portfolio">
+
+<div class="section-title">
+
+<h2>
+Selected <span>Works</span>
+</h2>
+
+<p>
+
+Featured premium Behance projects.
+
+</p>
+
+</div>
+
+<div class="projects">
+
+<a href="https://www.behance.net/gallery/248627807/Pohela-Boishakh-Cultural-Program-Design-2026" target="_blank" class="project">
+
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4o6srF2YInrs3wqqr2VA3WJdFJ3tAIvl_tr8YAwT7yTqSVGMpDtyMjPF_8TS7xQHf2etXvSa-mAawkoPwneBNnbwXSXA7XbzgCOdS6DEAEF25d-wbYiE_YleN8aYWCzCE7DAz4VglRw6X2WhUYigSKGq-gnEPE_ZLokxOy7ZUlqvPojQxwQthPB685mxz/s16000/Screenshot%202026-05-19%20195145.png">
+
+<div class="project-overlay">
+
+<div class="project-content">
+
+<h3>
+POHELA BOISHAKH 2026
+</h3>
+
+<p>
+
+Premium Bengali cultural campaign with cinematic storytelling and luxury branding aesthetics.
+
+</p>
+
+<div class="project-btn">
+
+VIEW PROJECT
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</div>
+
+</div>
+
+</div>
+
+</a>
+
+<a href="https://www.behance.net/gallery/245785373/Panda-Station-25-Digital-Marketing-Campaign-Posters" target="_blank" class="project">
+
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHFaiqWGBbW7oSozMn5bKrjHs6QbCFv6JDEWS9BJ6FXjnliWog1sJcyRQ0PXEUxcptsCZiW93JDvTrIgXPaDk7Pfsm1TL_6hRQWotfHJvVSQaCail7Amh94VZQA6lCyyxOC_981Xur5SO0jvj2iOWHUv9bpxFdNNTSOFIS7-0kTYCSOeoui6yg5TNcj9hK/s16000/Screenshot%202026-05-19%20195133.png">
+
+<div class="project-overlay">
+
+<div class="project-content">
+
+<h3>
+PANDA STATION 25
+</h3>
+
+<p>
+
+Modern aggressive marketing visuals with premium branding composition and cinematic aesthetics.
+
+</p>
+
+<div class="project-btn">
+
+VIEW PROJECT
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</div>
+
+</div>
+
+</div>
+
+</a>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="section-title">
+
+<h2>
+Initiate <span>Contact</span>
+</h2>
+
+<p>
+
+Let's build premium branding experiences together.
+
+</p>
+
+</div>
+
+<div class="contact-grid">
+
+<div class="contact-box contact-info">
+
+<p>
+<i class="fa-solid fa-phone"></i>
+01865861015
+</p>
+
+<p>
+<i class="fa-solid fa-envelope"></i>
+tamimmolla81@gmail.com
+</p>
+
+<p>
+<i class="fa-solid fa-location-dot"></i>
+Shantibagh, Demra, Dhaka
+</p>
+
+</div>
+
+<div class="contact-box">
+
+<input type="text" placeholder="YOUR NAME">
+
+<input type="email" placeholder="YOUR EMAIL">
+
+<textarea placeholder="YOUR MESSAGE"></textarea>
+
+<a href="#" class="btn btn-primary">
+
+SEND MESSAGE
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 — AL JUBAYER RAYHAN TAMIM MOLLAH
+
+<span>
+CREATIVE DESIGNER
+</span>
+
+</footer>
+
+<script>
+
+gsap.from(".hero h1",{
+y:120,
+opacity:0,
+duration:1.2
+});
+
+gsap.from(".hero p",{
+y:60,
+opacity:0,
+delay:.3,
+duration:1
+});
+
+gsap.from(".hero-image",{
+x:100,
+opacity:0,
+duration:1.4
+});
+
+</script>
 
 </body>
 </html>
